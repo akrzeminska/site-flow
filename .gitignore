@@ -25,6 +25,7 @@ typings/
 # Misc
 coverage/
 node_modules/
+.angular/
 tmp/
 npm-debug.log*
 yarn-error.log*

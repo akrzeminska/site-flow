@@ -10,6 +10,10 @@ import { UserPanelComponent } from './features/user-panel/user-panel.component';
 import { ConstructionsComponent } from './features/constructions/constructions.component';
 import { ContactsComponent } from './features/contacts/contacts.component';
 
+import { LayoutComponent } from './layout/layout.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,10 @@ import { ContactsComponent } from './features/contacts/contacts.component';
     TasksComponent,
     UserPanelComponent,
     ConstructionsComponent,
-    ContactsComponent
+    ContactsComponent,
+    SidebarComponent,
+    NavbarComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,

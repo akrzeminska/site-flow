@@ -1,47 +1,37 @@
 mat-toolbar {
-    color: #1e293b;
-    height: 80px;
-    // font-weight: bold;
-    font-size: 1.5rem;
 
     img {
         height: 50px;
-        padding: 13px;
+        padding: 15px;
     }
+
     span {
         font-weight: bold;
-        color:#818cf8
     }
 }
 
-mat-sidenav {
+mat-drawer {
     width: 300px;
     border-right: none;
-    background-color: #0f172a;
-    color: #818cf8;
+    // background-color: #0f172a;
+    // color: #818cf8;
     padding: 16px;
-    text-align: center;
-}
-
-mat-sidenav-container {
-    height: calc(100vh - 65px); 
-}
-
-mat-sidenav-content {
-    height: calc(100vh - 65px);
-    background-color: #f1f5f9;
+    // border-radius: 10px;
+    // margin: 16px;
+    // background-color: #fff;
 }
 
 .content {
-    height: calc(100vh - 98px);
-    margin: 16px;
-    margin-left: 32px;
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 1.5rem;
-    color:#1e293b;
+}
+
+.menu-button {
+    width: 100%;
+    margin-top: 10px;
 }
 
 

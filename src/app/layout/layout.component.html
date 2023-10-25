@@ -4,15 +4,34 @@
         Site<span>Flow</span>
     </h2></mat-toolbar>
 
-<mat-sidenav-container>
-    <mat-sidenav mode="side" opened>
-        Sidenav...
-    </mat-sidenav>
-    <mat-sidenav-content>
+<mat-drawer-container>
+    <mat-drawer mode="side" opened>
+        <button mat-button disabled class="menu-button">
+            <mat-icon>dashboard</mat-icon>
+            Panel użytkownika
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>businessaccount_balance</mat-icon>
+            Budowy
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>date_range</mat-icon>
+            Kosztorysy
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>phone</mat-icon>
+            Kontakty
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>description</mat-icon>
+            Zadania
+        </button>
+    </mat-drawer>
+    <mat-drawer-content>
         <div class="content mat-elevation-z4">Dashbord from router-outlet.....!</div>
         <router-outlet></router-outlet>
-    </mat-sidenav-content>
-</mat-sidenav-container>
+    </mat-drawer-content>
+</mat-drawer-container>
 
 
 

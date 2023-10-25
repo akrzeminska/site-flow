@@ -1,0 +1,21 @@
+.dashboard {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-color: grey;
+
+    .card {
+        width: 500px;
+        height: 500px;
+        margin: 40px 15px;
+
+        background-color: #818cf8;
+        border-radius: 15px;
+        font-size: 2em;
+        text-align: center;
+        line-height: 500px;
+
+    }
+}
+
+// TODO: media queries for breakpoints

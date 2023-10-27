@@ -14,10 +14,10 @@
     </mat-drawer>
   
     <div class="app-sidenav-content">
-    <app-header></app-header>
-    <button type="button" mat-button (click)="drawer.toggle()">
+    <app-header (toogleSidenav)="drawer.toggle()"></app-header>
+    <!-- <button type="button" mat-button (click)="drawer.toggle()">
         Toggle sidenav
-      </button>
+      </button> -->
     <router-outlet></router-outlet>
     </div>
   

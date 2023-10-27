@@ -9,12 +9,18 @@ import { LayoutComponent } from './layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { FormsModule } from '@angular/forms';
+import { MainContentComponent } from './layout/main-content/main-content.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
-    LayoutComponent
+    LayoutComponent,
+    MainContentComponent,
+    NavbarComponent,
+    HeaderComponent
   ],
 
   imports: [

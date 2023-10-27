@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common'; 
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -75,7 +76,47 @@ import { MatTableModule } from '@angular/material/table';
     MatTooltipModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTableModule
+    MatTableModule,
+    CommonModule
+  ],
+  imports: [
+    MatAutocompleteModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatListModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatTreeModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatRippleModule,
+    MatBottomSheetModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatTooltipModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    CommonModule
   ]
 })
 export class MaterialModule { }

@@ -29,7 +29,7 @@ const routes: Routes = [
       import('./features/tasks/tasks.module').then((m) => m.TasksModule),
   },
   {
-    path: '**',
+    path: '',
     loadChildren: () =>
       import('./features/user-panel/user-panel.module').then((m) => m.UserPanelModule)
   }
@@ -38,5 +38,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+
 })
 export class AppRoutingModule {}

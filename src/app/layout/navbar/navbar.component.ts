@@ -10,7 +10,7 @@ const SMALL_WIDTH_BREAKPOINT = 768;
 })
 export class NavbarComponent implements OnInit {
 
-  public isScreenSmall!: boolean;
+  public isScreenSmall: boolean | undefined;
 
   constructor( private breakpointObserver: BreakpointObserver) {}
 
@@ -20,5 +20,4 @@ export class NavbarComponent implements OnInit {
       this.isScreenSmall = state.matches;
     })
   }
-
 }

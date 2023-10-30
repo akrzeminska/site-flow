@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "name": "Task 1",
+    "description": "Example task description",
+    "scope": "Project scope",
+    "constructionid": 1,
+    "responsiblePerson": "Alice Smith",
+    "contactId": 1,
+    "completionDate": "2023-11-30",
+    "cost": 2000
+  }
+  

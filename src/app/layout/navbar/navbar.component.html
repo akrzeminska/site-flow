@@ -1,16 +1,12 @@
-<mat-drawer-container class="app-navbar-container" autosize>
-    <mat-drawer #drawer class="app-navbar-sidenav mat-elevation-z10" [mode]="isScreenSmall ? 'over' : 'side'" [opened]="!isScreenSmall">
-      <mat-toolbar color="primary"><mat-icon>dashboard</mat-icon>
+<mat-drawer-container class="app-sidenav-container" autosize>
+    <mat-drawer #drawer class="app-sidenav mat-elevation-z10" [mode]="isScreenSmall ? 'over' : 'side'" [opened]="!isScreenSmall">
+      <mat-toolbar color="primary">
         Panel użytkownika</mat-toolbar>
-        <mat-list role="list">
-            <mat-list-item role="listitem"><mat-icon>businessaccount_balance</mat-icon>
-                Budowy</mat-list-item>
-            <mat-list-item role="listitem"><mat-icon>date_range</mat-icon>
-                Kosztorysy</mat-list-item>
-            <mat-list-item role="listitem"><mat-icon>phone</mat-icon>
-                Kontakty</mat-list-item>
-            <mat-list-item role="listitem"><mat-icon>description</mat-icon>Zadania</mat-list-item>
-          </mat-list>
+        <mat-nav-list>
+          <a mat-list-item *ngFor="let link of links" [routerLink]="link.path" [routerLinkActive]="'active'">
+            {{ link.label }}
+          </a>
+        </mat-nav-list>
     </mat-drawer>
   
     <div class="app-sidenav-content">
@@ -19,4 +15,5 @@
     </div>
   
   </mat-drawer-container>
+  
   

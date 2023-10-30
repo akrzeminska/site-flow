@@ -11,7 +11,12 @@ const SMALL_WIDTH_BREAKPOINT = 768;
 export class NavbarComponent implements OnInit {
 
   public isScreenSmall: boolean | undefined;
-
+  links = [
+    { path: '/constructions', label: 'Budowy' },
+    { path: '/costs', label: 'Kosztorysy' },
+    { path: '/contacts', label: 'Kontakty' },
+    { path: '/tasks', label: 'Zadania' },
+  ];
   constructor( private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {

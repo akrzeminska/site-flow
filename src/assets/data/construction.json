@@ -1,0 +1,12 @@
+{
+    "id": 1,
+    "name": "Green House",
+    "location": "Romanowicza Street, Cracow",
+    "client": "IMS",
+    "costEstimateId": 1,
+    "manager": "John Doe",
+    "contactId": 1,
+    "description": "Example Construction Description",
+    "status": "In progress"
+  }
+  

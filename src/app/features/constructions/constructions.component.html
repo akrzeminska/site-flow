@@ -1,27 +1,26 @@
-<h1>Budowy</h1>
-<!-- buttons: getbyId, getAll, Create, Submit & Update, Delete -->
+<mat-card>
+    <mat-card-content><h1>Budowy</h1></mat-card-content>
+</mat-card>
 
 <section>
-    <mat-divider></mat-divider>
     <div class="buttons">
         <button mat-flat-button color="primary" (click) = getDataById() >Wybierz pozycję</button>
         <button mat-flat-button color="primary">Dodaj</button>
         <button mat-flat-button color="accent">Edytuj</button>
         <button mat-flat-button color="warn">Usuń</button>
     </div>
-    <mat-divider></mat-divider>
+
 </section>
 
-  <!-- Tabela: Id, Name, Location, Client, Description, CostEstimate, Manager, Contacts, Tasks, Status -->
 <div class="mat-elevation-z1">
     <mat-form-field>
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
     </mat-form-field>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
         <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-          <th mat-header-cell *matHeaderCellDef>{{ column.header }}</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>
           <td mat-cell *matCellDef="let element">{{ column.cell(element) }}</td>
         </ng-container>
       

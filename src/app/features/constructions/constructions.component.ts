@@ -4,6 +4,7 @@ import { ConstructionsService } from './services/constructions.service';
 import { Construction } from 'src/app/models/construction.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-constructions',
@@ -15,6 +16,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<Construction>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private seederService: LocalStorageSeederService, private constructionsService: ConstructionsService){
     seederService.ensureDataSeeder();
@@ -22,6 +24,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
   ngOnInit(): void {
     this.getAllData();
@@ -104,5 +107,5 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
+
 }

@@ -28,4 +28,4 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
   }
 }
 
-//napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update, z delete przy przycisku usunia pozycji delete z tabeli danych constructions
+TODO: // napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update w 'bazie', z delete przy przycisku usunąć pozycji delete z tabeli danych constructions

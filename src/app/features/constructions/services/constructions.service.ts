@@ -11,5 +11,6 @@ export abstract class ConstructionsService {
   public abstract update(id: number): Observable<any>;
   public abstract delete(id: number): Observable<any>;
 }
-//otypować zwracane wartości, a nie any
-//po to, żeby wstrzyknąć do komponentu, żeby w przyszłości zastąpić serwis z danymi z localstorage na serwis z danymi z backendu
+
+TODO: // otypować zwracane wartości, a nie any
+// po to, żeby wstrzyknąć do komponentu, żeby w przyszłości zastąpić serwis z danymi z localstorage na serwis z danymi z backendu

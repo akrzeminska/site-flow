@@ -13,7 +13,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class ConstructionsComponent implements OnInit, AfterViewInit {
 
   dataSource: MatTableDataSource<Construction>;
-  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private seederService: LocalStorageSeederService, private constructionsService: ConstructionsService){

@@ -14,7 +14,7 @@
 
   <!-- Tabela: Id, Name, Location, Client, Description, CostEstimate, Manager, Contacts, Tasks, Status -->
 <div class="mat-elevation-z1">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
           <mat-header-cell *matHeaderCellDef>{{ column.header }}</mat-header-cell>
           <mat-cell *matCellDef="let element">{{ column.cell(element) }}</mat-cell>
@@ -22,7 +22,7 @@
       
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-    </mat-table>
+    </table>
 
     <mat-paginator [pageSize]="2" [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons

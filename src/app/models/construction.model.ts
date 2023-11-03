@@ -7,10 +7,9 @@ export interface Construction {
     name: string;
     location: string;
     client: string;
-    costEstimate: CostEstimate;
+    costEstimateId: number;
     manager: string;
-    contact: Contact;
+    contactId: number;
     description: string;
-    tasks: Task[];
     status: string;
   }

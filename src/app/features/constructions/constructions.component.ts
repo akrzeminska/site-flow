@@ -5,6 +5,7 @@ import { Construction } from 'src/app/models/construction.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
   selector: 'app-constructions',
@@ -17,6 +18,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatMenuTrigger) menu!: MatMenuTrigger;
 
   constructor(private seederService: LocalStorageSeederService, private constructionsService: ConstructionsService){
     seederService.ensureDataSeeder();
@@ -81,8 +83,12 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       header: 'Status',
       cell: (element: Construction) => `${element.status}`,
     },
+    {
+      columnDef: 'menu',
+      header: '',
+      cell: () => null,
+    }
   ];
-
   
   displayedColumns = this.columns.map(c => c.columnDef);
 
@@ -113,6 +119,14 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
+  editConstruction(construction: Construction) {
+    // Obsługa edycji konstrukcji
+  }
+  
+  deleteConstruction(construction: Construction) {
+    // Obsługa usuwania konstrukcji
   }
 
 }

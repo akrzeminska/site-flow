@@ -80,8 +80,7 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule,
-    MatDialog
+    CommonModule
   ],
   imports: [
     MatAutocompleteModule,
@@ -120,8 +119,7 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule,
-    MatDialog
+    CommonModule
   ]
 })
 export class MaterialModule { }

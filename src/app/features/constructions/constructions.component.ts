@@ -72,6 +72,11 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       cell: (element: Construction) => `${element.description}`,
     },
     {
+      columnDef: 'task',
+      header: 'Zadania',
+      cell: (element: Construction) => `${element.taskId}`,
+    },
+    {
       columnDef: 'status',
       header: 'Status',
       cell: (element: Construction) => `${element.status}`,
@@ -90,6 +95,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       } else {
         console.log('Nie znaleziono konstrukcji o podanym id.');
       }
+      console.log('Dane po pobraniu przez getById:', this.dataSource.data);
     });
   }
 
@@ -100,6 +106,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       } else {
         console.log('Nie znaleziono konstrukcji o podanym id.');
       }
+      console.log('Dane po pobraniu przez getAllData:', this.dataSource.data);
     });
   }
 

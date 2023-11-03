@@ -11,5 +11,6 @@ export interface Construction {
     manager: string;
     contactId: number;
     description: string;
+    taskId: number;
     status: string;
   }

@@ -121,12 +121,12 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   
-  editConstruction(construction: Construction) {
-    // Obsługa edycji konstrukcji
+  editElement(construction: Construction) {
+    // Obsługa edycji budowy
   }
   
-  deleteConstruction(construction: Construction) {
-    // Obsługa usuwania konstrukcji
+  deleteElement(construction: Construction) {
+    // Obsługa usuwania budowy
   }
 
 }

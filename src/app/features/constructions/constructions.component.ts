@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatMenuTrigger } from '@angular/material/menu';
+import { MatDialog } from '@angular/material/dialog';
+import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
 
 @Component({
   selector: 'app-constructions',
@@ -20,7 +22,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatMenuTrigger) menu!: MatMenuTrigger;
 
-  constructor(private seederService: LocalStorageSeederService, private constructionsService: ConstructionsService){
+  constructor(private seederService: LocalStorageSeederService, private constructionsService: ConstructionsService, private dialog: MatDialog){
     seederService.ensureDataSeeder();
     this.dataSource = new MatTableDataSource<Construction>();
   }
@@ -120,7 +122,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  
+  //metody do przycików w menu-button
   editElement(construction: Construction) {
     // Obsługa edycji budowy
   }
@@ -129,4 +131,8 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     // Obsługa usuwania budowy
   }
 
+  //metoda do uruchomienia okna dialogowego z formularzem
+  openAddFeatureDialog(): void {
+    this.dialog.open(FeatureDialogComponent, {width: '450px'});
+  }
 }

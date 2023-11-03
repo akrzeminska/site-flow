@@ -7,9 +7,10 @@ import { MaterialModule } from 'src/app/shared/material.module';
 import { FormsModule } from '@angular/forms';
 import { ConstructionsService } from './services/constructions.service';
 import { ConstructionsLocalStorageService } from './services/constructions-local-storage.service';
+import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
 
 @NgModule({
-  declarations: [ConstructionsComponent],
+  declarations: [ConstructionsComponent, FeatureDialogComponent],
   imports: [
     CommonModule,
     ConstructionsRoutingModule,

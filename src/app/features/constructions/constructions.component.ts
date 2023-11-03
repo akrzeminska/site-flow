@@ -133,6 +133,10 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
 
   //metoda do uruchomienia okna dialogowego z formularzem
   openAddFeatureDialog(): void {
-    this.dialog.open(FeatureDialogComponent, {width: '450px'});
+    let dialogRef = this.dialog.open(FeatureDialogComponent, {width: '600px'});
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Okno zostało zamknięte', result);
+    });
   }
 }

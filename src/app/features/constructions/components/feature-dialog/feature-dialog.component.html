@@ -1,1 +1,51 @@
-<p>feature-dialog works!</p>
+<h2 mat-dialog-title>Dodawanie budowy</h2>
+<mat-dialog-content>
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Nazwa</mat-label>
+            <input matInput [(ngModel)]="construction.name" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Lokalizacja</mat-label>
+            <input matInput [(ngModel)]="construction.location" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Klient</mat-label>
+            <input matInput [(ngModel)]="construction.client" required>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Kosztorys</mat-label>
+            <mat-select>
+              <mat-option value="new">Nowy</mat-option>
+              <mat-option value="two">CostEstimateId</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Kierownik projektu</mat-label>
+            <input matInput [(ngModel)]="construction.manager" required>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>Kontakty</mat-label>
+            <mat-select [formControl]="contacts" multiple>
+              <mat-select-trigger>
+                {{contacts.value?.[0] || ''}}
+                <span *ngIf="(contacts.value?.length || 0) > 1" class="example-additional-selection">
+                  (+{{(contacts.value?.length || 0) - 1}} {{contacts.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let contact of contactList" [value]="contact">{{contact}}</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+          
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="construction.description"></textarea>
+        </mat-form-field>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="buttons-container">
+    <button mat-button color="primary" (click)="dismiss()"><mat-icon>cancel
+    </mat-icon>Anuluj</button>
+    <button mat-button color="primary" (click)="save()"><mat-icon>save
+    </mat-icon>Zapisz</button>
+</mat-dialog-actions>

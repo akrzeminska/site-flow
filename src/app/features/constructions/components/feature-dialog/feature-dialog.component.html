@@ -1,51 +1,61 @@
 <h2 mat-dialog-title>Dodawanie budowy</h2>
 <mat-dialog-content>
-    <div class="example-container">
-        <mat-form-field>
-            <mat-label>Nazwa</mat-label>
-            <input matInput [(ngModel)]="construction.name" required>
-        </mat-form-field>
+    <form [formGroup]="constructionForm" (ngSubmit)="onSubmit()">
+        <div class="id">
+            <mat-form-field>
+                <mat-label>Nr</mat-label>
+                <input matInput formControlName="id">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Nazwa</mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="constructionForm.get('name')?.hasError('required')">To pole jest wymagane</mat-error>
+            </mat-form-field>
+        </div>
         <mat-form-field>
             <mat-label>Lokalizacja</mat-label>
-            <input matInput [(ngModel)]="construction.location" required>
+            <input matInput formControlName="location">
+            <mat-error *ngIf="constructionForm.get('location')?.hasError('required')">To pole jest wymagane</mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Klient</mat-label>
-            <input matInput [(ngModel)]="construction.client" required>
+            <input matInput formControlName="client">
+            <mat-error *ngIf="constructionForm.get('client')?.hasError('required')">To pole jest wymagane</mat-error>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Kosztorys</mat-label>
-            <mat-select>
-              <mat-option value="new">Nowy</mat-option>
-              <mat-option value="two">CostEstimateId</mat-option>
+            <mat-select formConstrolName="cost" required>
+            <mat-option *ngFor="let cost of costSelect" [value]="cost">{{ cost }}</mat-option>
+            <mat-error *ngIf="constructionForm.get('cost')?.hasError('required')">To pole jest wymagane</mat-error>
             </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Kierownik projektu</mat-label>
-            <input matInput [(ngModel)]="construction.manager" required>
+            <input matInput formControlName="manager">
+            <mat-error *ngIf="constructionForm.get('manager')?.hasError('required')">To pole jest wymagane</mat-error>
         </mat-form-field>
-        <!-- <mat-form-field>
-            <mat-label>Kontakty</mat-label>
-            <mat-select [formControl]="contacts" multiple>
-              <mat-select-trigger>
-                {{contacts.value?.[0] || ''}}
-                <span *ngIf="(contacts.value?.length || 0) > 1" class="example-additional-selection">
-                  (+{{(contacts.value?.length || 0) - 1}} {{contacts.value?.length === 2 ? 'other' : 'others'}})
-                </span>
-              </mat-select-trigger>
-              <mat-option *ngFor="let contact of contactList" [value]="contact">{{contact}}</mat-option>
-            </mat-select>
-          </mat-form-field> -->
-          
         <mat-form-field>
-            <mat-label>Description</mat-label>
-            <textarea matInput [(ngModel)]="construction.description"></textarea>
+            <mat-label>Kontakty</mat-label>
+            <mat-select formControlName="contacts" multiple required>
+                <mat-select-trigger>
+                    {{constructionForm.get('contacts')?.value?.[0] || ''}}
+                    <span *ngIf="(constructionForm.get('contacts')?.value?.length || 0) > 1" class="example-additional-selection">
+                        (+{{(constructionForm.get('contacts')?.value?.length || 0) - 1}} {{constructionForm.get('contacts')?.value?.length === 2 ? 'inny' : 'inni'}})
+                    </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let contact of contactList" [value]="contact">{{contact}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="constructionForm.get('contacts')?.hasError('required')">Przynajmniej jeden kontakt jest wymagany</mat-error>
         </mat-form-field>
-    </div>
+        <mat-form-field>
+            <mat-label>Opis</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+    </form>
 </mat-dialog-content>
 <mat-dialog-actions class="buttons-container">
     <button mat-button color="primary" (click)="dismiss()"><mat-icon>cancel
     </mat-icon>Anuluj</button>
-    <button mat-button color="primary" (click)="save()"><mat-icon>save
+    <button mat-button color="primary" type="submit"><mat-icon>save
     </mat-icon>Zapisz</button>
 </mat-dialog-actions>

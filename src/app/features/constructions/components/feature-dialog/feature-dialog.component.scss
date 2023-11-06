@@ -1,11 +1,25 @@
-.example-container {
+form {
     display: flex;
     flex-direction: column;
 }
 
-.example-container > * {
+form > * {
     width: 100%;
 }
+
+.id {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+    > :first-child {
+      flex: 0 0 15%;
+    }
+  
+    > :not(:first-child) {
+      flex: 1;
+    }
+  }
 
 .buttons-container {
     display: flex;

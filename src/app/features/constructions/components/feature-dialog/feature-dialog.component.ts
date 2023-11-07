@@ -17,14 +17,11 @@ export class FeatureDialogComponent implements OnInit {
   construction!: Construction;
   constructionForm!: FormGroup;
   costSelect: string[] = ['brak', 'Kosztorys nr 1', 'Kosztorys nr 2', 'Kosztorys nr 3'];
-  contactList: string[] = ['contact_1,', 'contact_2', 'contact_3', 'contact_4'];
+  contactList: string[] = ['contact_1', 'contact_2', 'contact_3', 'contact_4'];
+  taskList: string[] = ['task_1', 'task_2', 'task_3', 'task_4'];
+  statusOptions: string[] = ['In progress', 'Planning', 'Completed'];
 
   constructor(private dialogRef: MatDialogRef<FeatureDialogComponent>) {
-  }
-
-  private buildContactsOptions() {
-    const options = new FormArray(this.contactList.map(() => new FormControl(false)));
-    return options;
   }
 
   ngOnInit(): void {
@@ -36,18 +33,19 @@ export class FeatureDialogComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       location: new FormControl('', [Validators.required]),
       client:  new FormControl('', [Validators.required]),
-      cost: new FormControl('brak'),
+      costEstimateId: new FormControl('brak'),
       manager: new FormControl('', [Validators.required]),
-      contacts: this.buildContactsOptions(),
-      description: new FormControl('')
+      contactId: new FormControl('', [Validators.required]),
+      description: new FormControl(''),
+      taskId: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required])
     });
   }
 
   save() {
     if (this.constructionForm.valid) {
-      this.construction = this.constructionForm.value;
-      this.dialogRef.close(this.construction);
-      console.log(this.constructionForm.value);
+      const constructionData: Construction = this.constructionForm.value;
+      this.dialogRef.close(constructionData);
     }
   }
 

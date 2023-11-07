@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConstructionsService } from './services/constructions.service';
 import { ConstructionsLocalStorageService } from './services/constructions-local-storage.service';
 import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [ConstructionsComponent, FeatureDialogComponent],
@@ -16,7 +18,8 @@ import { FeatureDialogComponent } from './components/feature-dialog/feature-dial
     ConstructionsRoutingModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [LocalStorageSeederService,
     { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService }]

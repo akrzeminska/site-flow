@@ -4,17 +4,22 @@ import { ConstructionsRoutingModule } from './constructions-routing.module';
 import { ConstructionsComponent } from './constructions.component';
 import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
 import { MaterialModule } from 'src/app/shared/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConstructionsService } from './services/constructions.service';
 import { ConstructionsLocalStorageService } from './services/constructions-local-storage.service';
+import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
-  declarations: [ConstructionsComponent],
+  declarations: [ConstructionsComponent, FeatureDialogComponent],
   imports: [
     CommonModule,
     ConstructionsRoutingModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [LocalStorageSeederService,
     { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService }]

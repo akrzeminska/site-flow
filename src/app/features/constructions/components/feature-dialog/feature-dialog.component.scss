@@ -1,0 +1,37 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > * {
+    width: 100%;
+}
+
+.id {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+    > :first-child {
+      flex: 0 0 15%;
+    }
+  
+    > :not(:first-child) {
+      flex: 1;
+    }
+  }
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+
+    .right-buttons-container {
+        margin-left: auto;
+    }
+}
+
+.example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+}

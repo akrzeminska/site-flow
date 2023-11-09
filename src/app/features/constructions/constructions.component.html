@@ -4,12 +4,8 @@
 
 <section>
     <div class="buttons">
-        <button mat-flat-button color="primary" (click) = getDataById() >Wybierz pozycję</button>
-        <button mat-flat-button color="primary">Dodaj</button>
-        <button mat-flat-button color="accent">Edytuj</button>
-        <button mat-flat-button color="warn">Usuń</button>
+        <button mat-flat-button color="primary" (click)="openAddFeatureDialog()">+ Dodaj</button>
     </div>
-
 </section>
 
 <div class="mat-elevation-z1">
@@ -19,11 +15,23 @@
     </mat-form-field>
 
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
         <ng-container *ngFor="let column of columns" [matColumnDef]="column.columnDef">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>
-          <td mat-cell *matCellDef="let element">{{ column.cell(element) }}</td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>
+            <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="column.columnDef !== 'menu'; else menuCell">
+                    {{ column.cell(element) }}
+                </ng-container>
+                <ng-template #menuCell matMenuContent>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">{{ column.cell(element) }}<mat-icon>more_vert</mat-icon></button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="editElement(element)">Edytuj</button>
+                        <button mat-menu-item (click)="deleteElement(element)">Usuń</button>
+                    </mat-menu>
+                </ng-template>
+            </td>
         </ng-container>
-      
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 

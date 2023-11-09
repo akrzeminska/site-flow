@@ -15,6 +15,7 @@ export class LocalStorageSeederService {
       "manager": "John Doe",
       "contactId": 1,
       "description": "Example Construction Description",
+      "taskId": 1,
       "status": "In progress"
     },
     {
@@ -26,6 +27,7 @@ export class LocalStorageSeederService {
       "manager": "Sarah Johnson",
       "contactId": 2,
       "description": "New office building construction.",
+      "taskId": 2,
       "status": "Planning"
     },
     
@@ -37,6 +39,7 @@ export class LocalStorageSeederService {
       "costEstimateId": 3,
       "manager": "Michael Brown",
       "contactId": 3,
+      "taskId": 3,
       "description": "Construction of a luxury apartment complex.",
       "status": "In progress"
     },
@@ -50,6 +53,7 @@ export class LocalStorageSeederService {
       "manager": "Emily Davis",
       "contactId": 4,
       "description": "Renovation of the city hospital's facilities.",
+      "taskId": 4,
       "status": "Completed"
     },
   ];
@@ -64,6 +68,7 @@ export class LocalStorageSeederService {
       "email": "john.doe@example.com",
       "role": "Project Manager",
       "description": "Primary contact person for the project.",
+      "taskId": 1,
       "constructionId": 1
     },
     {
@@ -75,6 +80,7 @@ export class LocalStorageSeederService {
       "email": "alice.j@example.com",
       "role": "Project Coordinator",
       "description": "Key contact for project coordination.",
+      "taskId": 2,
       "constructionId": 2
     },
     
@@ -87,6 +93,7 @@ export class LocalStorageSeederService {
       "email": "michael.b@example.com",
       "role": "Project Director",
       "description": "Director overseeing construction projects.",
+      "taskId": 3,
       "constructionId": 3
     },
     
@@ -99,6 +106,7 @@ export class LocalStorageSeederService {
       "email": "emily.d@example.com",
       "role": "Project Manager",
       "description": "Responsible for hospital renovation project.",
+      "taskId": 4,
       "constructionId": 4
     }
   ];

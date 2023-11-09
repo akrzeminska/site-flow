@@ -39,9 +39,19 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     return of(constructions)
   }
 
-  public override create(item: any): Observable<any> {
-    throw new Error('Method not implemented.');
+  public override create(item: Construction): Observable<Construction[]> {
+    const existingConstruction = this.getById(item.id);
+
+    existingConstruction.subscribe((existingConstruction) => {
+      if (!existingConstruction) {
+        const localStorageKey = `construction_${item.id}`;
+        localStorage.setItem(localStorageKey, JSON.stringify(item));
+      }
+    });
+
+    return this.getAll();
   }
+
   public override update(id: number): Observable<any[]> {
     throw new Error('Method not implemented.');
   }
@@ -50,4 +60,4 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
   }
 }
 
-// napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update w 'bazie', z delete przy przycisku usunąć pozycji delete z tabeli danych constructions
+// napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update w 'bazie', z delete przy przycisku usunąć pozycji delete z tabeli danych constructions, edycja ma otworzyc uzupelniony formularz i po zapisie wykonywać uppate, dodaj ma być przypięte do create

@@ -62,6 +62,8 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="buttons-container">
+    <button mat-button color="primary" (click)="clean()"><mat-icon>cancel
+    </mat-icon>Wyczyść</button>
     <button mat-button color="primary" (click)="dismiss()"><mat-icon>cancel
     </mat-icon>Anuluj</button>
     <button mat-button color="primary"(click)="onSubmit()" [disabled]="saveButtonDisabled"><mat-icon>save

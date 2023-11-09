@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { Construction } from 'src/app/models/construction.model';
 
 @Component({
@@ -8,9 +9,11 @@ import { Construction } from 'src/app/models/construction.model';
   templateUrl: './feature-dialog.component.html',
   styleUrls: ['./feature-dialog.component.scss']
 })
-export class FeatureDialogComponent implements OnInit {
+export class FeatureDialogComponent implements OnInit, OnDestroy {
   constructionForm!: FormGroup;
-  saveButtonDisabled!: boolean;
+  saveButtonDisabled: boolean = true;
+  statusChangesSubscription!: Subscription;
+
   costSelect: string[] = ['brak', 'Kosztorys nr 1', 'Kosztorys nr 2', 'Kosztorys nr 3'];
   contactList: string[] = ['contact_1', 'contact_2', 'contact_3', 'contact_4'];
   taskList: string[] = ['task_1', 'task_2', 'task_3', 'task_4'];
@@ -32,16 +35,21 @@ export class FeatureDialogComponent implements OnInit {
       status: ['', Validators.required]
     });
 
-    this.saveButtonDisabled = true;
-
-    this.constructionForm.statusChanges.subscribe((status) => {
+    this.statusChangesSubscription = this.constructionForm.statusChanges.subscribe((status) => {
       if (status === 'VALID') {
         this.saveButtonDisabled = false;
       } else {
         this.saveButtonDisabled = true;
       }
     })
-    
+  }
+
+  ngOnDestroy() {
+    this.statusChangesSubscription.unsubscribe();
+  }
+
+  clean() {
+    this.constructionForm.reset();
   }
 
   dismiss() {
@@ -54,5 +62,4 @@ export class FeatureDialogComponent implements OnInit {
       this.dialogRef.close(newConstructionData);
     }
   }
-
 }

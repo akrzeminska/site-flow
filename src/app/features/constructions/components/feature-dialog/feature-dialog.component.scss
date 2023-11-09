@@ -24,6 +24,11 @@ form > * {
 .buttons-container {
     display: flex;
     justify-content: flex-end;
+
+    .disabled-button {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
 .example-additional-selection {

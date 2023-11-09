@@ -23,15 +23,15 @@ form > * {
 
 .buttons-container {
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    padding: 15px;
 
-    .disabled-button {
-        opacity: 0.5;
-        cursor: not-allowed;
+    .right-buttons-container {
+        margin-left: auto;
     }
 }
 
 .example-additional-selection {
     opacity: 0.75;
     font-size: 0.75em;
-  }
+}

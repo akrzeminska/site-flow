@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@ang
 import { MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Construction } from 'src/app/models/construction.model';
+import { ConstructionsService } from '../../services/constructions.service';
 
 @Component({
   selector: 'app-feature-dialog',
@@ -19,7 +20,7 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
   taskList: string[] = ['task_1', 'task_2', 'task_3', 'task_4'];
   statusOptions: string[] = ['In progress', 'Planning', 'Completed'];
 
-  constructor(private dialogRef: MatDialogRef<FeatureDialogComponent>, private formBuilder: NonNullableFormBuilder) {}
+  constructor(private dialogRef: MatDialogRef<FeatureDialogComponent>, private formBuilder: NonNullableFormBuilder, private constructionsService: ConstructionsService) {}
 
   ngOnInit(): void {
     this.constructionForm = this.formBuilder.group({
@@ -41,7 +42,7 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
       } else {
         this.saveButtonDisabled = true;
       }
-    })
+    });
   }
 
   ngOnDestroy() {
@@ -59,7 +60,14 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
   onSubmit() {
     if (this.constructionForm.valid) {
       const newConstructionData: Construction = this.constructionForm.value;
-      this.dialogRef.close(newConstructionData);
+      
+      this.constructionsService.create(newConstructionData).subscribe((updatedConstructions) => {
+        console.log('pomyślnie dodano');
+        this.dialogRef.close(newConstructionData);
+      }),
+      (error:string) => {
+        console.error('Błąd podczas zapisywania wprowadzonych danych')
+      }
     }
   }
 }

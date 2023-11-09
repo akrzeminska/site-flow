@@ -8,7 +8,7 @@ import { Construction } from 'src/app/models/construction.model';
 export abstract class ConstructionsService {
   public abstract getById(id: number): Observable<Construction | null>;
   public abstract getAll(): Observable<Construction[]>;
-  public abstract create(item: any): Observable<any>;
+  public abstract create(item: Construction): Observable<any>;
   public abstract update(id: number): Observable<any[]>;
   public abstract delete(id: number): Observable<any[]>;
 }

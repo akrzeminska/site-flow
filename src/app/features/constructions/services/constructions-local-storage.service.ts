@@ -28,26 +28,34 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
   public override getAll(): Observable<Construction[]> {
     const constructions: Construction[] = [];
 
-    for (let id = 1; id<= this.MAX_CONSTRUCTION_ID; id++) {
-      const construction$ = this.getById(id);
-      construction$.subscribe((construction) => {
-        if (construction) {
+    for (let key in localStorage) {
+      if (key.startsWith('construction_')) {
+        const localStorageData = localStorage.getItem(key);
+        if (localStorageData) {
+          const construction: Construction = JSON.parse(localStorageData);
           constructions.push(construction);
         }
-      })
+      }
     }
+    constructions.sort((a, b) => a.id - b.id)
     return of(constructions)
   }
 
-  public override create(item: Construction): Observable<Construction[]> {
-    const existingConstruction = this.getById(item.id);
-
-    existingConstruction.subscribe((existingConstruction) => {
-      if (!existingConstruction) {
-        const localStorageKey = `construction_${item.id}`;
-        localStorage.setItem(localStorageKey, JSON.stringify(item));
-      }
-    });
+  private generateNewId(): number {
+    const constructionsKeys = Object.keys(localStorage).filter((key) => key.startsWith('construction_'));
+  
+    const ids = constructionsKeys
+      .map((key) => parseInt(key.split('_')[1], 10));
+  
+    const newId = Math.max(...ids, 0) + 1;
+    return newId;
+  }
+  
+  
+  public override create(newConstructionData: Construction): Observable<Construction[]> {
+    newConstructionData.id = this.generateNewId();
+    
+    localStorage.setItem(`construction_${newConstructionData.id}`, JSON.stringify(newConstructionData));
 
     return this.getAll();
   }

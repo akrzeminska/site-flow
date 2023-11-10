@@ -24,7 +24,7 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.constructionForm = this.formBuilder.group({
-      id: ['', Validators.required],
+      id: [null],
       name: ['', Validators.required],
       location: ['', Validators.required],
       client: ['', Validators.required],

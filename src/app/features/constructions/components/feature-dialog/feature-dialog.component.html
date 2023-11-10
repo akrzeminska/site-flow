@@ -1,17 +1,13 @@
-<h2 mat-dialog-title>Dodawanie budowy</h2>
+<div class="title">
+    <h2 mat-dialog-title>Dodawanie budowy</h2>
+</div>
 <mat-dialog-content>
     <form [formGroup]="constructionForm" (ngSubmit)="onSubmit()">
-        <div class="id">
-            <mat-form-field>
-                <mat-label>Nr</mat-label>
-                <input matInput formControlName="id">
-            </mat-form-field>
-            <mat-form-field>
-                <mat-label>Nazwa</mat-label>
-                <input matInput formControlName="name">
-                <mat-error *ngIf="constructionForm.get('name')?.hasError('required')">To pole jest wymagane</mat-error>
-            </mat-form-field>
-        </div>
+        <mat-form-field>
+            <mat-label>Nazwa</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="constructionForm.get('name')?.hasError('required')">To pole jest wymagane</mat-error>
+        </mat-form-field>
         <mat-form-field>
             <mat-label>Lokalizacja</mat-label>
             <input matInput formControlName="location">

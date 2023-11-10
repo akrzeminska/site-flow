@@ -36,11 +36,6 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
 
   columns = [
     {
-      columnDef: 'position',
-      header: 'Nr',
-      cell: (element: Construction) => `${element.id}`,
-    },
-    {
       columnDef: 'name',
       header: 'Nazwa',
       cell: (element: Construction) => `${element.name}`,

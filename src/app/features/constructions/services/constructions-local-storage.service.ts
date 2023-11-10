@@ -51,7 +51,7 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     return newId;
   }
   
-  
+
   public override create(newConstructionData: Construction): Observable<Construction[]> {
     newConstructionData.id = this.generateNewId();
     

@@ -32,9 +32,9 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Kontakty</mat-label>
-            <mat-select formControlName="contactId" required>
+            <mat-select formControlName="contactId" multiple required>
             <mat-option *ngFor="let contact of contactList" [value]="contact">{{ contact }}</mat-option>
-            <mat-error *ngIf="constructionForm.get('contactId')?.hasError('required')">To pole jest wymagane</mat-error>
+            <mat-error *ngIf="constructionForm.get('contactId')?.hasError('required')">  To pole jest wymagane</mat-error>
             </mat-select>
         </mat-form-field>
         <mat-form-field>
@@ -43,16 +43,16 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Zadania</mat-label>
-            <mat-select formControlName="taskId" required>
+            <mat-select formControlName="taskId" multiple required>
             <mat-option *ngFor="let task of taskList" [value]="task">{{ task }}</mat-option>
-            <mat-error *ngIf="constructionForm.get('taskId')?.hasError('required')">To pole jest wymagane</mat-error>
+            <mat-error *ngIf="constructionForm.get('taskId')?.hasError('required')">  To pole jest wymagane</mat-error>
             </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Status</mat-label>
             <mat-select formControlName="status" required>
             <mat-option *ngFor="let status of statusOptions" [value]="status">{{ status }}</mat-option>
-            <mat-error *ngIf="constructionForm.get('status')?.hasError('required')">To pole jest wymagane</mat-error>
+            <mat-error *ngIf="constructionForm.get('status')?.hasError('required')">  To pole jest wymagane</mat-error>
             </mat-select>
         </mat-form-field>
     </form>

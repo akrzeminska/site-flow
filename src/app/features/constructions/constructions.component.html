@@ -23,7 +23,7 @@
                     <button mat-icon-button [matMenuTriggerFor]="menu">{{ column.cell(element) }}<mat-icon>more_vert</mat-icon></button>
                     <mat-menu #menu="matMenu">
                         <button mat-menu-item (click)="editElement(element)">Edytuj</button>
-                        <button mat-menu-item (click)="deleteElement(element)">Usuń</button>
+                        <button mat-menu-item (click)="deleteElement(element.id)">Usuń</button>
                     </mat-menu>
                 </ng-template>
             </td>

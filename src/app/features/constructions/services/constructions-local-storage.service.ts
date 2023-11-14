@@ -38,7 +38,7 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
       }
     }
     constructions.sort((a, b) => a.id - b.id)
-    return of(constructions)
+    return of(constructions);
   }
 
   private generateNewId(): number {
@@ -51,21 +51,23 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     return newId;
   }
   
-
-  public override create(newConstructionData: Construction): Observable<Construction[]> {
+  public override create(newConstructionData: Construction): Observable<number> {
     newConstructionData.id = this.generateNewId();
     
     localStorage.setItem(`construction_${newConstructionData.id}`, JSON.stringify(newConstructionData));
 
-    return this.getAll();
+    return of(newConstructionData.id);
   }
 
-  public override update(id: number): Observable<any[]> {
+  public override update(id: number): Observable<Construction[]> {
     throw new Error('Method not implemented.');
   }
-  public override delete(id: number): Observable<any[]> {
-    throw new Error('Method not implemented.');
+
+  public override delete(id: number): Observable<any> {
+    const localStorageKey = `construction_${id}`;
+    localStorage.removeItem(localStorageKey);
+    return of([]);
   }
 }
 
-// napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update w 'bazie', z delete przy przycisku usunąć pozycji delete z tabeli danych constructions, edycja ma otworzyc uzupelniony formularz i po zapisie wykonywać uppate, dodaj ma być przypięte do create
+// napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update w 'bazie', z delete przy przycisku usunąć pozycji delete z tabeli danych constructions, edycja ma otworzyc uzupelniony formularz i po zapisie wykonywać update

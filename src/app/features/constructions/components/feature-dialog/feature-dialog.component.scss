@@ -1,25 +1,28 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
 form {
     display: flex;
     flex-direction: column;
 }
 
-form > * {
-    width: 100%;
-}
-
-.id {
+.first-row {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    
-    > :first-child {
-      flex: 0 0 15%;
-    }
-  
-    > :not(:first-child) {
-      flex: 1;
-    }
-  }
+    align-items: center;
+}
+
+:first-child {
+    flex: 0 0 10%; 
+}
+
+:last-child {
+    flex: 0 0 calc(90% - 10px);
+}
 
 .buttons-container {
     display: flex;

@@ -8,21 +8,25 @@ import { MatSort } from '@angular/material/sort';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-constructions',
   templateUrl: './constructions.component.html',
-  styleUrls: ['./constructions.component.scss']
+  styleUrls: ['./constructions.component.scss'],
 })
 export class ConstructionsComponent implements OnInit, AfterViewInit {
-
   dataSource: MatTableDataSource<Construction>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatMenuTrigger) menu!: MatMenuTrigger;
 
-  constructor(private seederService: LocalStorageSeederService, private constructionsService: ConstructionsService, private dialog: MatDialog){
+  constructor(
+    private seederService: LocalStorageSeederService,
+    private constructionsService: ConstructionsService,
+    private dialog: MatDialog
+  ) {
     seederService.ensureDataSeeder();
     this.dataSource = new MatTableDataSource<Construction>();
   }
@@ -35,11 +39,6 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   }
 
   columns = [
-    {
-      columnDef: 'position',
-      header: 'Nr',
-      cell: (element: Construction) => `${element.id}`,
-    },
     {
       columnDef: 'name',
       header: 'Nazwa',
@@ -89,53 +88,70 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       columnDef: 'menu',
       header: '',
       cell: () => null,
-    }
+    },
   ];
-  
-  displayedColumns = this.columns.map(c => c.columnDef);
+
+  displayedColumns = this.columns.map((c) => c.columnDef);
 
   getDataById() {
     const constructionId: number = 1;
 
-    this.constructionsService.getById(constructionId).subscribe((construction: any) => {
-      if (construction) {
-        this.dataSource.data = [construction];
-      } else {
-        console.log('Nie znaleziono konstrukcji o podanym id.');
-      }
-      console.log('Dane po pobraniu przez getById:', this.dataSource.data);
-    });
+    this.constructionsService
+      .getById(constructionId)
+      .subscribe((construction: any) => {
+        if (construction) {
+          this.dataSource.data = [construction];
+        } else {
+          console.log('Nie znaleziono konstrukcji o podanym id.');
+        }
+        console.log('Dane po pobraniu przez getById:', this.dataSource.data);
+      });
   }
 
   getAllData() {
-    this.constructionsService.getAll().subscribe((constructions: Array<Construction>) => {
-      if (constructions) {
-        this.dataSource.data = constructions;
-      } else {
-        console.log('Nie znaleziono konstrukcji o podanym id.');
-      }
-      console.log('Dane po pobraniu przez getAllData:', this.dataSource.data);
-    });
+    this.constructionsService
+      .getAll()
+      .subscribe((constructions: Array<Construction>) => {
+        if (constructions) {
+          this.dataSource.data = constructions;
+        } else {
+          console.log('Nie znaleziono konstrukcji o podanym id.');
+        }
+        console.log('Dane po pobraniu przez getAllData:', this.dataSource.data);
+      });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  //metody do przycików w menu-button
-  editElement(construction: Construction) {
-    // Obsługa edycji budowy
-  }
+  //edytowanie
+  editElement(construction: Construction): void {
+    let dialogRef = this.dialog.open(FeatureDialogComponent, {
+      width: '700px',
+      data: construction
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Okno zostało zamknięte', result);
+    });
   
-  deleteElement(construction: Construction) {
-    // Obsługa usuwania budowy
+  }
+// usuwanie
+  deleteElement(id: number) {
+      this.constructionsService.delete(id).subscribe(() => {
+      this.getAllData();
+    });
   }
 
-  //metoda do uruchomienia okna dialogowego z formularzem
+  //metoda do uruchomienia okna dialogowego z formularzem 'dodaj'
   openAddFeatureDialog(): void {
-    let dialogRef = this.dialog.open(FeatureDialogComponent, {width: '700px'});
-    
-    dialogRef.afterClosed().subscribe(result => {
+    let dialogRef = this.dialog.open(FeatureDialogComponent, {
+      width: '700px',
+      data: null
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('Okno zostało zamknięte', result);
     });
   }

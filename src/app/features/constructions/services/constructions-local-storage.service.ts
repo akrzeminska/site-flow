@@ -59,15 +59,22 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     return of(newConstructionData.id);
   }
 
-  public override update(id: number): Observable<Construction[]> {
-    throw new Error('Method not implemented.');
+  public override update(updatedConstruction: Construction): Observable<any> {
+    const localStorageKey = `construction_${updatedConstruction.id}`;
+    const localstorageData = localStorage.getItem(localStorageKey);
+
+    if (localstorageData) {
+      const existingConstruction: Construction = JSON.parse(localstorageData);
+      localStorage.setItem(localStorageKey, JSON.stringify(updatedConstruction));
+      return of([]);
+    } else {
+      return of([]);
+    }
   }
 
   public override delete(id: number): Observable<any> {
     const localStorageKey = `construction_${id}`;
     localStorage.removeItem(localStorageKey);
-    return of([]);
+    return of(undefined);
   }
 }
-
-// napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update w 'bazie', z delete przy przycisku usunąć pozycji delete z tabeli danych constructions, edycja ma otworzyc uzupelniony formularz i po zapisie wykonywać update

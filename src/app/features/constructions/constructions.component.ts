@@ -133,6 +133,9 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.refreshTable();
+      }
       console.log('Okno zostało zamknięte', result);
     });
   
@@ -140,7 +143,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
 // usuwanie
   deleteElement(id: number) {
       this.constructionsService.delete(id).subscribe(() => {
-      this.getAllData();
+      this.refreshTable();
     });
   }
 
@@ -154,5 +157,9 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Okno zostało zamknięte', result);
     });
+  }
+
+  private refreshTable() {
+    this.getAllData();
   }
 }

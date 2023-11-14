@@ -70,14 +70,25 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     if (this.constructionForm.valid) {
-      const newConstructionData: Construction = this.constructionForm.value;
-      
-      this.constructionsService.create(newConstructionData).subscribe((updatedConstructions) => {
-        console.log('pomyślnie dodano');
-        this.dialogRef.close(newConstructionData);
-      }),
-      (error:string) => {
-        console.error('Błąd podczas zapisywania wprowadzonych danych')
+      const constructionData: Construction = this.constructionForm.getRawValue();
+      console.log('Id konstrukcji:', constructionData.id);
+
+      if (constructionData.id) {
+        this.constructionsService.update(constructionData).subscribe((updatedConstruction) => {
+          console.log('Pomyślnie zaktualizowano');
+          this.dialogRef.close(updatedConstruction);
+        },
+        (error: string) => {
+          console.error('Błąd podczas aktualizacji danych');
+        });
+      } else {
+        this.constructionsService.create(constructionData).subscribe((newConstruction) => {
+          console.log('Pomyślnie dodano');
+          this.dialogRef.close(newConstruction);
+        }),
+        (error:string) => {
+          console.error('Błąd podczas zapisywania wprowadzonych danych')
+        }
       }
     }
   }

@@ -10,20 +10,6 @@ form {
     flex-direction: column;
 }
 
-.first-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-:first-child {
-    flex: 0 0 10%; 
-}
-
-:last-child {
-    flex: 0 0 calc(90% - 10px);
-}
-
 .buttons-container {
     display: flex;
     align-items: center;

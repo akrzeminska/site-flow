@@ -31,7 +31,7 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
     this.isEditMode = !!this.data;
     
     this.constructionForm = this.formBuilder.group({
-      id: [this.data ? this.data.id : null],
+      id: [{value: this.data ? this.data.id : null, disabled: true}],
       name: [this.data ? this.data.name: '', Validators.required],
       location: [this.data ? this.data.location: '', Validators.required],
       client: [this.data ? this.data.client: '', Validators.required],
@@ -72,7 +72,7 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
     if (this.constructionForm.valid) {
       const constructionData: Construction = this.constructionForm.getRawValue();
       console.log('Id konstrukcji:', constructionData.id);
-
+      
       if (constructionData.id && this.constructionsService.getById(constructionData.id)) {
         this.constructionsService.update(constructionData).subscribe((updatedConstruction) => {
           console.log('Pomyślnie zaktualizowano');

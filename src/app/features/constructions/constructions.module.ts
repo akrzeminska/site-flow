@@ -10,6 +10,7 @@ import { ConstructionsLocalStorageService } from './services/constructions-local
 import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     MatInputModule
   ],
   providers: [LocalStorageSeederService,
-    { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService }]
+    { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService },
+  NotificationService]
 })
 export class ConstructionsModule { }

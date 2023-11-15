@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
 import { HttpClient } from '@angular/common/http';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-constructions',
@@ -26,7 +27,8 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   constructor(
     private seederService: LocalStorageSeederService,
     private constructionsService: ConstructionsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private notificationService: NotificationService
   ) {
     seederService.ensureDataSeeder();
     this.dataSource = new MatTableDataSource<Construction>();
@@ -150,6 +152,7 @@ deleteElement(id: number) {
   dialogRef.afterClosed().subscribe(result => {
     if (result === true) {
       this.constructionsService.delete(id).subscribe(() => {
+        this.notificationService.openSnackBar('Element został pomyślnie usunięty', 'Zamknij');
         this.refreshTable();
       });
     }

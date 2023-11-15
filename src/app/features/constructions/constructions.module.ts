@@ -9,10 +9,11 @@ import { ConstructionsService } from './services/constructions.service';
 import { ConstructionsLocalStorageService } from './services/constructions-local-storage.service';
 import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
 import { MatInputModule } from '@angular/material/input';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
-  declarations: [ConstructionsComponent, FeatureDialogComponent],
+  declarations: [ConstructionsComponent, FeatureDialogComponent, ConfirmDialogComponent],
   imports: [
     CommonModule,
     ConstructionsRoutingModule,

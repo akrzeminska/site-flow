@@ -9,6 +9,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
 import { HttpClient } from '@angular/common/http';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-constructions',
@@ -140,12 +141,20 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     });
   
   }
-// usuwanie
-  deleteElement(id: number) {
+// usuwanie z potwierdzeniem
+deleteElement(id: number) {
+  const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    data: { message: 'Czy na pewno chcesz usunąć ten element?' }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result === true) {
       this.constructionsService.delete(id).subscribe(() => {
-      this.refreshTable();
-    });
-  }
+        this.refreshTable();
+      });
+    }
+  });
+}
 
   //metoda do uruchomienia okna dialogowego z formularzem 'dodaj'
   openAddFeatureDialog(): void {

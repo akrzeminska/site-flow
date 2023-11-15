@@ -41,7 +41,7 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
 
 @NgModule({
   declarations: [
-    MenuButtonComponent
+    MenuButtonComponent,
   ],
   exports: [
     MatAutocompleteModule,

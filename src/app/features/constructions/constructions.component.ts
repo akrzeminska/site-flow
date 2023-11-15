@@ -9,6 +9,8 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { MatDialog } from '@angular/material/dialog';
 import { FeatureDialogComponent } from './components/feature-dialog/feature-dialog.component';
 import { HttpClient } from '@angular/common/http';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { NotificationService } from 'src/app/shared/services/notification.service';
 
 @Component({
   selector: 'app-constructions',
@@ -25,7 +27,8 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   constructor(
     private seederService: LocalStorageSeederService,
     private constructionsService: ConstructionsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private notificationService: NotificationService
   ) {
     seederService.ensureDataSeeder();
     this.dataSource = new MatTableDataSource<Construction>();
@@ -133,16 +136,28 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.refreshTable();
+      }
       console.log('Okno zostało zamknięte', result);
     });
   
   }
-// usuwanie
-  deleteElement(id: number) {
+// usuwanie z potwierdzeniem
+deleteElement(id: number) {
+  const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    data: { message: 'Czy na pewno chcesz usunąć ten element?' }
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result === true) {
       this.constructionsService.delete(id).subscribe(() => {
-      this.getAllData();
-    });
-  }
+        this.notificationService.openSnackBar('Element został pomyślnie usunięty', 'Zamknij');
+        this.refreshTable();
+      });
+    }
+  });
+}
 
   //metoda do uruchomienia okna dialogowego z formularzem 'dodaj'
   openAddFeatureDialog(): void {
@@ -154,5 +169,9 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('Okno zostało zamknięte', result);
     });
+  }
+
+  private refreshTable() {
+    this.getAllData();
   }
 }

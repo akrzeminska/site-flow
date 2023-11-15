@@ -14,17 +14,13 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     super();
   }
 
-  public override getById(id: number): Observable<Construction | null> {
+    
+  public override getById(id: number): Observable<boolean> {
     const localStorageKey = `construction_${id}`;
     const localStorageData = localStorage.getItem(localStorageKey);
-
-    if (localStorageData) {
-      const construction: Construction = JSON.parse(localStorageData);
-      return of(construction);
-    } else {
-      return of(null);
-    }
+    return of(localStorageData !== null);
   }
+
   public override getAll(): Observable<Construction[]> {
     const constructions: Construction[] = [];
 
@@ -50,7 +46,7 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     const newId = Math.max(...ids, 0) + 1;
     return newId;
   }
-  
+
   public override create(newConstructionData: Construction): Observable<number> {
     newConstructionData.id = this.generateNewId();
     
@@ -59,15 +55,22 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     return of(newConstructionData.id);
   }
 
-  public override update(id: number): Observable<Construction[]> {
-    throw new Error('Method not implemented.');
+  public override update(updatedConstruction: Construction): Observable<any> {
+    const localStorageKey = `construction_${updatedConstruction.id}`;
+    const localstorageData = localStorage.getItem(localStorageKey);
+
+    if (localstorageData) {
+      const existingConstruction: Construction = JSON.parse(localstorageData);
+      localStorage.setItem(localStorageKey, JSON.stringify(updatedConstruction));
+      return of([]);
+    } else {
+      return of([]);
+    }
   }
 
   public override delete(id: number): Observable<any> {
     const localStorageKey = `construction_${id}`;
     localStorage.removeItem(localStorageKey);
-    return of([]);
+    return of(undefined);
   }
 }
-
-// napisać metody, które będą wywoływać odpowiednie wartości z local storage, np przy submit w formularzu ma zadziałać update w 'bazie', z delete przy przycisku usunąć pozycji delete z tabeli danych constructions, edycja ma otworzyc uzupelniony formularz i po zapisie wykonywać update

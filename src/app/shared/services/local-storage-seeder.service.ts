@@ -13,9 +13,9 @@ export class LocalStorageSeederService {
       "client": "IMS",
       "costEstimateId": 1,
       "manager": "John Doe",
-      "contactId": 1,
+      "contactId": [1],
       "description": "Example Construction Description",
-      "taskId": 1,
+      "taskId": [1],
       "status": "In progress"
     },
     {
@@ -25,9 +25,9 @@ export class LocalStorageSeederService {
       "client": "ABC Inc.",
       "costEstimateId": 2,
       "manager": "Sarah Johnson",
-      "contactId": 2,
+      "contactId": [2],
       "description": "New office building construction.",
-      "taskId": 2,
+      "taskId": [2],
       "status": "Planning"
     },
     
@@ -38,8 +38,8 @@ export class LocalStorageSeederService {
       "client": "XYZ Developers",
       "costEstimateId": 3,
       "manager": "Michael Brown",
-      "contactId": 3,
-      "taskId": 3,
+      "contactId": [3],
+      "taskId": [3],
       "description": "Construction of a luxury apartment complex.",
       "status": "In progress"
     },
@@ -51,9 +51,9 @@ export class LocalStorageSeederService {
       "client": "City Healthcare",
       "costEstimateId": 4,
       "manager": "Emily Davis",
-      "contactId": 4,
+      "contactId": [4],
       "description": "Renovation of the city hospital's facilities.",
-      "taskId": 4,
+      "taskId": [4],
       "status": "Completed"
     },
   ];

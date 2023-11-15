@@ -17,8 +17,8 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
   isEditMode: boolean = false;
 
   costSelect: string[] = ['brak', 'Kosztorys nr 1', 'Kosztorys nr 2', 'Kosztorys nr 3'];
-  contactList: string[] = ['contact_1', 'contact_2', 'contact_3', 'contact_4'];
-  taskList: string[] = ['task_1', 'task_2', 'task_3', 'task_4'];
+  contactList: number[] = [1, 2, 3, 4];
+  taskList: number[] = [1, 2, 3, 4];
   statusOptions: string[] = ['In progress', 'Planning', 'Completed'];
 
   constructor(
@@ -73,7 +73,7 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
       const constructionData: Construction = this.constructionForm.getRawValue();
       console.log('Id konstrukcji:', constructionData.id);
 
-      if (constructionData.id) {
+      if (constructionData.id && this.constructionsService.getById(constructionData.id)) {
         this.constructionsService.update(constructionData).subscribe((updatedConstruction) => {
           console.log('Pomyślnie zaktualizowano');
           this.dialogRef.close(updatedConstruction);

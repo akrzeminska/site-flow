@@ -14,17 +14,13 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     super();
   }
 
-  public override getById(id: number): Observable<Construction | null> {
+    
+  public override getById(id: number): Observable<boolean> {
     const localStorageKey = `construction_${id}`;
     const localStorageData = localStorage.getItem(localStorageKey);
-
-    if (localStorageData) {
-      const construction: Construction = JSON.parse(localStorageData);
-      return of(construction);
-    } else {
-      return of(null);
-    }
+    return of(localStorageData !== null);
   }
+
   public override getAll(): Observable<Construction[]> {
     const constructions: Construction[] = [];
 
@@ -50,7 +46,7 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     const newId = Math.max(...ids, 0) + 1;
     return newId;
   }
-  
+
   public override create(newConstructionData: Construction): Observable<number> {
     newConstructionData.id = this.generateNewId();
     

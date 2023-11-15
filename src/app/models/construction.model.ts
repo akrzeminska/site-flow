@@ -9,8 +9,8 @@ export interface Construction {
     client: string;
     costEstimateId: number;
     manager: string;
-    contactId: number;
+    contactId: number[];
     description: string;
-    taskId: number;
+    taskId: number[];
     status: string;
   }

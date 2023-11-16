@@ -1,0 +1,36 @@
+.card-class {
+    max-width: 400px;
+    margin: 16px;
+    width: 90%;
+  }
+
+.card-header {
+    background-color: #ebebeb;
+}
+  
+.header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+mat-card-content {
+    padding-top: 10px;
+}
+.name, .second-name, .email, .phone, .adress, .role {
+    display: flex;
+    justify-content: space-between;
+}
+
+.name, .second-name, .email, .phone, .adress, .role span {
+    flex: 0 0 30%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    button {
+        width: 100%;
+    }
+}

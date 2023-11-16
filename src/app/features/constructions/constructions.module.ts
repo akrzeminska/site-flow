@@ -23,7 +23,8 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
     ReactiveFormsModule,
     MatInputModule
   ],
-  providers: [LocalStorageSeederService,
+  providers: [
+    LocalStorageSeederService,
     { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService },
   NotificationService]
 })

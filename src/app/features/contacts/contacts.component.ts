@@ -40,11 +40,17 @@ export class ContactsComponent {
       });
   }
 
-  // applyFilter(event: Event) {
-  //   const filterValue = (event.target as HTMLInputElement).value;
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
-  // }
-  //edytowanie
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    
+    const filteredData = this.dataSource.filter((contact: Contact) => {
+      const fullName = `${contact.name} ${contact.surname} ${contact.company}`.toLowerCase();
+      return fullName.includes(filterValue.trim().toLowerCase());
+    });
+    
+    this.dataSource = filteredData;
+  }
+  // edytowanie
   // editElement(constact: Contact): void {
   //   let dialogRef = this.dialog.open(FeatureDialogComponent, {
   //     width: '700px',

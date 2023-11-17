@@ -10,7 +10,7 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
 </mat-form-field>
 <div class="cards-contacts">
-    <mat-card *ngFor="let contact of dataSource" class="card-class">
+    <mat-card *ngFor="let contact of dataContacts" class="card-class">
         <mat-card-header class="card-header">
           <div mat-card-avatar class="header-image"></div>
           <mat-card-subtitle>Firma</mat-card-subtitle>
@@ -31,7 +31,7 @@
         <mat-divider></mat-divider>
         <mat-card-actions class="buttons">
             <button mat-button color="accent">Usuń</button>
-            <button mat-button color="primary">Edytuj</button>
+            <button mat-button (click)="editElement(contact)" color="primary">Edytuj</button>
         </mat-card-actions>
     </mat-card>
 </div>

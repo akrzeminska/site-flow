@@ -8,14 +8,17 @@ import { LocalStorageSeederService } from 'src/app/shared/services/local-storage
 import { ContactsService } from './services/contacts.service';
 import { ContactsLocalStorageService } from './services/contacts-local-storage.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [ContactsComponent],
+  declarations: [ContactsComponent, ContactFormComponent],
   imports: [
     CommonModule,
     ContactsRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     LocalStorageSeederService,

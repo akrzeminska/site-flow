@@ -1,0 +1,27 @@
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+  }
+  
+  form {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .buttons-container {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+  
+      .right-buttons-container {
+          margin-left: auto;
+      }
+  }
+  
+  .example-additional-selection {
+      opacity: 0.75;
+      font-size: 0.75em;
+  }
+  

@@ -1,0 +1,73 @@
+<div class="title">
+    <h2 mat-dialog-title>{{ isEditMode ? 'Edytowanie budowy' : 'Dodawanie budowy'}}</h2>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Nr</mat-label>
+            <input matInput formControlName="id">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Nazwa</mat-label>
+            <input matInput formControlName="name">
+            <mat-error *ngIf="contactForm.get('name')?.hasError('required')">To pole jest wymagane</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Lokalizacja</mat-label>
+            <input matInput formControlName="location">
+            <mat-error *ngIf="contactForm.get('location')?.hasError('required')">To pole jest wymagane</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Klient</mat-label>
+            <input matInput formControlName="client">
+            <mat-error *ngIf="contactForm.get('client')?.hasError('required')">To pole jest wymagane</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Kosztorys</mat-label>
+            <mat-select formControlName="costEstimateId" required>
+            <mat-option *ngFor="let cost of costSelect" [value]="cost">{{ cost }}</mat-option>
+            <mat-error *ngIf="contactForm.get('costEstimateId')?.hasError('required')">To pole jest wymagane</mat-error>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Kierownik projektu</mat-label>
+            <input matInput formControlName="manager">
+            <mat-error *ngIf="contactForm.get('manager')?.hasError('required')">To pole jest wymagane</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Kontakty</mat-label>
+            <mat-select formControlName="contactId" multiple required>
+            <mat-option *ngFor="let contact of contactList" [value]="contact">{{ contact }}</mat-option>
+            <mat-error *ngIf="contactForm.get('contactId')?.hasError('required')">  To pole jest wymagane</mat-error>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Opis</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Zadania</mat-label>
+            <mat-select formControlName="taskId" multiple required>
+            <mat-option *ngFor="let task of taskList" [value]="task">{{ task }}</mat-option>
+            <mat-error *ngIf="contactForm.get('taskId')?.hasError('required')">  To pole jest wymagane</mat-error>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status" required>
+            <mat-option *ngFor="let status of statusOptions" [value]="status">{{ status }}</mat-option>
+            <mat-error *ngIf="contactForm.get('status')?.hasError('required')">  To pole jest wymagane</mat-error>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="buttons-container">
+    <button mat-button color="primary" (click)="clean()" [disabled]="isEditMode"><mat-icon>cancel
+    </mat-icon>Wyczyść</button>
+    <div class="right-buttons-container">
+        <button mat-button color="primary" (click)="dismiss()"><mat-icon>cancel
+        </mat-icon>Anuluj</button>
+        <button mat-button color="primary"(click)="onSubmit()" [disabled]="saveButtonDisabled"><mat-icon>save
+        </mat-icon>Zapisz</button>
+    </div>
+</mat-dialog-actions>

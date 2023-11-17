@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
 import { Contact } from 'src/app/models/contact.model';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
 @Component({
   selector: 'app-contacts',
@@ -12,7 +13,7 @@ import { Contact } from 'src/app/models/contact.model';
 })
 export class ContactsComponent {
   showFiller = false;
-  dataSource: Array<Contact> = [];
+  dataContacts: Array<Contact> = [];
 
   constructor(    
     private seederService: LocalStorageSeederService,
@@ -32,31 +33,31 @@ export class ContactsComponent {
       .getAll()
       .subscribe((contacts: Array<Contact>) => {
         if (contacts) {
-          this.dataSource = contacts;
+          this.dataContacts = contacts;
         } else {
           console.log('Nie znaleziono konstrukcji o podanym id.');
         }
-        console.log('Dane po pobraniu przez getAllData:', this.dataSource);
+        console.log('Dane po pobraniu przez getAllData:', this.dataContacts);
       });
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    
-    const filteredData = this.dataSource.filter((contact: Contact) => {
+
+    const filteredData = this.dataContacts.filter((contact: Contact) => {
       const fullName = `${contact.name} ${contact.surname} ${contact.company}`.toLowerCase();
       return fullName.includes(filterValue.trim().toLowerCase());
     });
     
-    this.dataSource = filteredData;
+    this.dataContacts = filteredData;
   }
-  // edytowanie
-  // editElement(constact: Contact): void {
-  //   let dialogRef = this.dialog.open(FeatureDialogComponent, {
-  //     width: '700px',
-  //     data: contact
-  //   });
 
+  editElement(contact: Contact): void {
+    let dialogRef = this.dialog.open(ContactFormComponent, {
+      width: '700px',
+      data: contact
+    });
+  }
   //   dialogRef.afterClosed().subscribe((result) => {
   //     if (result) {
   //       this.refreshTable();

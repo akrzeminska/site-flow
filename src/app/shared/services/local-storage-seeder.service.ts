@@ -63,53 +63,56 @@ export class LocalStorageSeederService {
       "id": 1,
       "name": "John",
       "surname": "Doe",
-      "company": "ABC Company",
-      "phone": "123-456-7890",
+      "company": "IMS Budownictwo",
+      "phone": 1234567890,
       "email": "john.doe@example.com",
       "role": "Project Manager",
-      "description": "Primary contact person for the project.",
-      "taskId": 1,
-      "constructionId": 1
+      "description": "Główna osoba kontaktowa dla projektu.",
+      "taskId": [1,3,4],
+      "constructionId": [1,3],
+      "category": "Zarządzanie"
     },
     {
       "id": 2,
       "name": "Alice",
       "surname": "Johnson",
-      "company": "XYZ Corporation",
-      "phone": "555-123-4567",
+      "company": "GWK System",
+      "phone": 5551234567,
       "email": "alice.j@example.com",
       "role": "Project Coordinator",
-      "description": "Key contact for project coordination.",
-      "taskId": 2,
-      "constructionId": 2
+      "description": "Kluczowy kontakt do koordynacji projektu.",
+      "taskId": [1,3,4],
+      "constructionId": [1,3],
+      "category": "Projektowanie"
     },
-    
     {
       "id": 3,
       "name": "Michael",
       "surname": "Brown",
-      "company": "Development Pros",
-      "phone": "987-654-3210",
+      "company": "Max Development",
+      "phone": 9876543210,
       "email": "michael.b@example.com",
       "role": "Project Director",
-      "description": "Director overseeing construction projects.",
-      "taskId": 3,
-      "constructionId": 3
+      "description": "Dyrektor nadzorujący projekty budowlane.",
+      "taskId": [1,3,4],
+      "constructionId": [1,3],
+      "category": "Projektowanie"
     },
-    
     {
       "id": 4,
       "name": "Emily",
       "surname": "Davis",
-      "company": "City Hospital",
-      "phone": "333-111-9999",
+      "company": "Garden Residence",
+      "phone": 3331119999,
       "email": "emily.d@example.com",
       "role": "Project Manager",
-      "description": "Responsible for hospital renovation project.",
-      "taskId": 4,
-      "constructionId": 4
+      "description": "Odpowiedzialna za projekt renowacji szpitala.",
+      "taskId": [1,3,4],
+      "constructionId": [1,3],
+      "category": "Wykonawstwo"
     }
   ];
+  
 
   private costEstimateSeed = [
     {

@@ -1,30 +1,33 @@
-<mat-card class="card-class">
-    <mat-card-header class="card-header">
-      <div mat-card-avatar class="header-image"></div>
-      <mat-card-subtitle>Firma</mat-card-subtitle>
-      <mat-card-title>GWK System</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="first-row">
-            <p class="name">Imię:<span>Tomasz</span></p>
-            <p class="second-name">Nazwisko:<span>Dzik</span></p>
-        </div>
-        <div class="second-row">
-            <p class="email">E-mail:<span>tomasz@gwk_system.pl</span></p>
-            <p class="phone">Telefon:<span>+48 600-700-888</span></p>
-        </div>
-        <div class="third-row">
-            <p class="adress">Adres:<span>Mogilany 73C, 31-400 Mogilany</span></p>
-        </div>
-        <div class="fourth-row">
-            <p class="role">Rola:<span>Podwykonawca</span></p>
-        </div>
-    </mat-card-content>
-    <mat-card-actions class="buttons">
-        <button mat-button color="accent">Usuń</button>
-        <button mat-button color="primary">Edytuj</button>
-    </mat-card-actions>
-    <mat-card-footer>
-        <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
-        </mat-card-footer>
-</mat-card>
+<section>
+    <div class="sec">
+        <div class="title"><h1>Kontakty</h1></div>
+        <div class="button"><button mat-flat-button color="primary">+ Dodaj</button></div>
+    </div>
+</section>
+<mat-divider></mat-divider>
+<div class="cards-contacts">
+    <mat-card *ngFor="let contact of contacts" class="card-class">
+        <mat-card-header class="card-header">
+          <div mat-card-avatar class="header-image"></div>
+          <mat-card-subtitle>Firma</mat-card-subtitle>
+          <mat-card-title>{{ contact.company }}</mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <p class="data">Imię:<span>{{ contact.name }}</span></p>
+            <p class="data">Nazwisko:<span>{{ contact.surname }}</span></p>
+            <p class="data">Telefon:<span>{{ contact.phone }}</span></p>
+            <p class="data">E-mail:<span>{{ contact.email }}</span></p>
+            <p class="data">Rola:<span>{{ contact.role }}</span></p>
+            <p class="data">Opis:<span>{{ contact.description }}</span></p>
+            <p class="data">Przypisane zadania:<span>{{ contact.taskId }}</span></p>
+            <p class="data">Przypisane budowy:<span>{{ contact.constructionId }}</span></p>
+            <p class="data">Kategoria:<span>{{ contact.category }}</span></p>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions class="buttons">
+            <button mat-button color="accent">Usuń</button>
+            <button mat-button color="primary">Edytuj</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

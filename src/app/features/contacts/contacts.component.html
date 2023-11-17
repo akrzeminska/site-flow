@@ -5,8 +5,12 @@
     </div>
 </section>
 <mat-divider></mat-divider>
+<!-- <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+</mat-form-field> -->
 <div class="cards-contacts">
-    <mat-card *ngFor="let contact of contacts" class="card-class">
+    <mat-card *ngFor="let contact of dataSource" class="card-class">
         <mat-card-header class="card-header">
           <div mat-card-avatar class="header-image"></div>
           <mat-card-subtitle>Firma</mat-card-subtitle>

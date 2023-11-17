@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { ContactsService } from './services/contacts.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NotificationService } from 'src/app/shared/services/notification.service';
+import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
+import { Contact } from 'src/app/models/contact.model';
 
 @Component({
   selector: 'app-contacts',
@@ -7,59 +12,82 @@ import { Component } from '@angular/core';
 })
 export class ContactsComponent {
   showFiller = false;
-  contacts: any[] = [
-    {
-      "id": 1,
-      "name": "John",
-      "surname": "Doe",
-      "company": "IMS Budownictwo",
-      "phone": 1234567890,
-      "email": "john.doe@example.com",
-      "role": "Project Manager",
-      "description": "Główna osoba kontaktowa dla projektu.",
-      "taskId": [1,3,4],
-      "constructionId": [1,3],
-      "category": "Zarządzanie"
-    },
-    {
-      "id": 2,
-      "name": "Alice",
-      "surname": "Johnson",
-      "company": "GWK System",
-      "phone": 5551234567,
-      "email": "alice.j@example.com",
-      "role": "Project Coordinator",
-      "description": "Kluczowy kontakt do koordynacji projektu.",
-      "taskId": [1,3,4],
-      "constructionId": [1,3],
-      "category": "Projektowanie"
-    },
-    {
-      "id": 3,
-      "name": "Michael",
-      "surname": "Brown",
-      "company": "Max Development",
-      "phone": 9876543210,
-      "email": "michael.b@example.com",
-      "role": "Project Director",
-      "description": "Dyrektor nadzorujący projekty budowlane.",
-      "taskId": [1,3,4],
-      "constructionId": [1,3],
-      "category": "Projektowanie"
-    },
-    {
-      "id": 4,
-      "name": "Emily",
-      "surname": "Davis",
-      "company": "Garden Residence",
-      "phone": 3331119999,
-      "email": "emily.d@example.com",
-      "role": "Project Manager",
-      "description": "Odpowiedzialna za projekt renowacji szpitala.",
-      "taskId": [1,3,4],
-      "constructionId": [1,3],
-      "category": "Wykonawstwo"
+  dataSource: Array<Contact> = [];
+
+  constructor(    
+    private seederService: LocalStorageSeederService,
+    private contactsService: ContactsService,
+    private dialog: MatDialog,
+    private notificationService: NotificationService
+    ) {
+      seederService.ensureDataSeeder();
     }
-  ];
+
+  ngOnInit(): void {
+      this.getAllData();
+  }
+
+  getAllData() {
+    this.contactsService
+      .getAll()
+      .subscribe((contacts: Array<Contact>) => {
+        if (contacts) {
+          this.dataSource = contacts;
+        } else {
+          console.log('Nie znaleziono konstrukcji o podanym id.');
+        }
+        console.log('Dane po pobraniu przez getAllData:', this.dataSource);
+      });
+  }
+
+  // applyFilter(event: Event) {
+  //   const filterValue = (event.target as HTMLInputElement).value;
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+  // }
+  //edytowanie
+  // editElement(constact: Contact): void {
+  //   let dialogRef = this.dialog.open(FeatureDialogComponent, {
+  //     width: '700px',
+  //     data: contact
+  //   });
+
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     if (result) {
+  //       this.refreshTable();
+  //     }
+  //     console.log('Okno zostało zamknięte', result);
+  //   });
   
+  // }
+// usuwanie z potwierdzeniem
+// deleteElement(id: number) {
+//   const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+//     data: { message: 'Czy na pewno chcesz usunąć ten element?' }
+//   });
+
+//   dialogRef.afterClosed().subscribe(result => {
+//     if (result === true) {
+//       this.contactsService.delete(id).subscribe(() => {
+//         this.notificationService.openSnackBar('Element został pomyślnie usunięty', 'Zamknij');
+//         this.refreshTable();
+//       });
+//     }
+//   });
+// }
+
+  //metoda do uruchomienia okna dialogowego z formularzem 'dodaj'
+  // openAddFeatureDialog(): void {
+  //   let dialogRef = this.dialog.open(FeatureDialogComponent, {
+  //     width: '700px',
+  //     data: null
+  //   });
+
+  //   dialogRef.afterClosed().subscribe((result) => {
+  //     console.log('Okno zostało zamknięte', result);
+  //   });
+  // }
+
+  // private refreshTable() {
+  //   this.getAllData();
+  // }
 }

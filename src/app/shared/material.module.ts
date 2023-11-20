@@ -38,10 +38,12 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     MenuButtonComponent,
+    ConfirmDialogComponent
   ],
   exports: [
     MatAutocompleteModule,

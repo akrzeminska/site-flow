@@ -30,7 +30,7 @@
         </mat-card-content>
         <mat-divider></mat-divider>
         <mat-card-actions class="buttons">
-            <button mat-button color="accent">Usuń</button>
+            <button mat-button (click)="deleteElement(contact.id)" color="accent">Usuń</button>
             <button mat-button (click)="editElement(contact)" color="primary">Edytuj</button>
         </mat-card-actions>
     </mat-card>

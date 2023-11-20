@@ -5,6 +5,7 @@ import { NotificationService } from 'src/app/shared/services/notification.servic
 import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-contacts',
@@ -57,7 +58,23 @@ export class ContactsComponent {
       width: '700px',
       data: contact
     });
-    
+  }
+
+  deleteElement(id: number) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Czy na pewno chcesz usunąć ten element?' }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.contactsService.delete(id).subscribe(() => {
+          this.notificationService.openSnackBar('Element został pomyślnie usunięty', 'Zamknij');
+          this.getAllData();
+        });
+      }
+    });
+  }
+  
   //   dialogRef.afterClosed().subscribe((result) => {
   //     if (result) {
   //       this.refreshTable();
@@ -97,5 +114,5 @@ export class ContactsComponent {
   // private refreshTable() {
   //   this.getAllData();
   // }
-  }
+  
 }

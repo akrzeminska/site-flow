@@ -75,44 +75,16 @@ export class ContactsComponent {
     });
   }
   
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     if (result) {
-  //       this.refreshTable();
-  //     }
-  //     console.log('Okno zostało zamknięte', result);
-  //   });
-  
-  // }
-// usuwanie z potwierdzeniem
-// deleteElement(id: number) {
-//   const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-//     data: { message: 'Czy na pewno chcesz usunąć ten element?' }
-//   });
+  openAddContactDialog(): void {
+    let dialogRef = this.dialog.open(ContactFormComponent, {
+      width: '700px',
+      data: null
+    });
 
-//   dialogRef.afterClosed().subscribe(result => {
-//     if (result === true) {
-//       this.contactsService.delete(id).subscribe(() => {
-//         this.notificationService.openSnackBar('Element został pomyślnie usunięty', 'Zamknij');
-//         this.refreshTable();
-//       });
-//     }
-//   });
-// }
-
-  //metoda do uruchomienia okna dialogowego z formularzem 'dodaj'
-  // openAddFeatureDialog(): void {
-  //   let dialogRef = this.dialog.open(FeatureDialogComponent, {
-  //     width: '700px',
-  //     data: null
-  //   });
-
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     console.log('Okno zostało zamknięte', result);
-  //   });
-  // }
-
-  // private refreshTable() {
-  //   this.getAllData();
-  // }
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Okno zostało zamknięte', result);
+      this.getAllData();
+    });
+  }
   
 }

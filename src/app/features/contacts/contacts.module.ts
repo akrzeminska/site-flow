@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { ConstructionsService } from '../constructions/services/constructions.service';
 import { ConstructionsLocalStorageService } from '../constructions/services/constructions-local-storage.service';
+import { TasksService } from '../tasks/services/tasks.service';
+import { TasksLocalStorageService } from '../tasks/services/tasks-local-storage.service';
 
 @NgModule({
   declarations: [ContactsComponent, ContactFormComponent],
@@ -29,6 +31,7 @@ import { ConstructionsLocalStorageService } from '../constructions/services/cons
     { provide: ContactsService, useExisting: ContactsLocalStorageService },
     NotificationService,
     { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService },
+    { provide: TasksService, useExisting: TasksLocalStorageService }
   ]
 })
 export class ContactsModule { }

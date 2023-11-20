@@ -41,13 +41,13 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Przypisane zadania:</mat-label>
-            <mat-select formControlName="taskId">
-            <mat-option *ngFor="let task of taskList" [value]="task">{{ task }}</mat-option>
+            <mat-select formControlName="taskId" multiple>
+            <mat-option *ngFor="let task of taskList" [value]="task.id">{{ task.name }}</mat-option>
             </mat-select>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Przypisane budowy:</mat-label>
-            <mat-select formControlName="constructionId">
+            <mat-select formControlName="constructionId" multiple>
             <mat-option *ngFor="let construction of constructionList" [value]="construction.id">{{ construction.name }}</mat-option>
             </mat-select>
         </mat-form-field>

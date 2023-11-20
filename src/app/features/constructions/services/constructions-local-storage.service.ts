@@ -90,7 +90,6 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
       }
     }
     constructionOptions.sort((a,b) => a.id - b.id);
-    console.log(constructionOptions);
     return of(constructionOptions);
   }
 }

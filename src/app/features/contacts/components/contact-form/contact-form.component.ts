@@ -8,6 +8,7 @@ import { ContactsService } from '../../services/contacts.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import { TasksService } from 'src/app/features/tasks/services/tasks.service';
 
 
 @Component({
@@ -22,8 +23,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   isEditMode: boolean = false;
 
   costSelect: string[] = ['brak', 'Kosztorys nr 1', 'Kosztorys nr 2', 'Kosztorys nr 3'];
-  contactList: number[] = [1, 2, 3, 4];
-  taskList: number[] = [1, 2, 3, 4];
+  taskList: {id: number; name: string}[] = [];
   constructionList: {id: number; name: string}[] = [];
   categoryList: string[] = ['Zarządzanie', 'Projektowanie', 'Wykonawstwo'];
   
@@ -32,6 +32,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     private formBuilder: NonNullableFormBuilder, 
     private contactsService: ContactsService,
     private constructionsService: ConstructionsService,
+    private tasksService: TasksService,
     @Inject(MAT_DIALOG_DATA) public data: Contact | null) {}
 
   ngOnInit(): void {
@@ -46,8 +47,8 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       email: [this.data ? this.data.email: '', Validators.required],
       role: [this.data ? this.data.role: '', Validators.required],
       description: [this.data ? this.data.description: ''],
-      taskId: [this.data ? this.data.taskId: '', Validators.required],
-      constructionId: [this.data ? this.data.constructionId: '', Validators.required],
+      taskId: [this.data ? this.data.taskId: [], Validators.required],
+      constructionId: [this.data ? this.data.constructionId: [], Validators.required],
       category: [this.data ? this.data.category: '', Validators.required]
     });
 
@@ -55,8 +56,17 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       this.contactForm.get('id')?.disable();
     }
 
+    // wyświetlanie wybranych budów przypisanych do kontaktu
     this.constructionsService.getOptions().subscribe((options: { id: number; name: string }[]) => {
       this.constructionList = options.map((option: { id: number; name: string }) => {
+        // console.log(this.constructionList)
+        return { id: option.id, name: option.name };
+      });
+    });
+
+    //wyświetlanie wybranych zadań przypisanych do kontaktu
+    this.tasksService.getOptions().subscribe((options: { id: number; name: string }[]) => {
+      this.taskList = options.map((option: { id: number; name: string }) => {
         // console.log(this.constructionList)
         return { id: option.id, name: option.name };
       });

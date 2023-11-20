@@ -9,8 +9,10 @@ import { ContactsService } from './services/contacts.service';
 import { ContactsLocalStorageService } from './services/contacts-local-storage.service';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { ConstructionsService } from '../constructions/services/constructions.service';
+import { ConstructionsLocalStorageService } from '../constructions/services/constructions-local-storage.service';
 
 @NgModule({
   declarations: [ContactsComponent, ContactFormComponent],
@@ -18,12 +20,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ContactsRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule,
   ],
   providers: [
     LocalStorageSeederService,
     { provide: ContactsService, useExisting: ContactsLocalStorageService },
-    NotificationService
+    NotificationService,
+    { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService },
   ]
 })
 export class ContactsModule { }

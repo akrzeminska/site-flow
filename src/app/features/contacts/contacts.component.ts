@@ -48,7 +48,7 @@ export class ContactsComponent {
       const fullName = `${contact.name} ${contact.surname} ${contact.company}`.toLowerCase();
       return fullName.includes(filterValue.trim().toLowerCase());
     });
-    
+
     this.dataContacts = filteredData;
   }
 
@@ -57,7 +57,7 @@ export class ContactsComponent {
       width: '700px',
       data: contact
     });
-  }
+    
   //   dialogRef.afterClosed().subscribe((result) => {
   //     if (result) {
   //       this.refreshTable();
@@ -97,4 +97,5 @@ export class ContactsComponent {
   // private refreshTable() {
   //   this.getAllData();
   // }
+  }
 }

@@ -5,6 +5,10 @@ import { Subscription } from 'rxjs';
 import { ConstructionsService } from 'src/app/features/constructions/services/constructions.service';
 import { Contact } from 'src/app/models/contact.model';
 import { ContactsService } from '../../services/contacts.service';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+
 
 @Component({
   selector: 'app-contact-form',
@@ -20,20 +24,21 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   costSelect: string[] = ['brak', 'Kosztorys nr 1', 'Kosztorys nr 2', 'Kosztorys nr 3'];
   contactList: number[] = [1, 2, 3, 4];
   taskList: number[] = [1, 2, 3, 4];
-  statusOptions: string[] = ['In progress', 'Planning', 'Completed'];
+  constructionList: {id: number; name: string}[] = [];
+  categoryList: string[] = ['Zarządzanie', 'Projektowanie', 'Wykonawstwo'];
   
   constructor(
     private dialogRef: MatDialogRef<ContactFormComponent>, 
     private formBuilder: NonNullableFormBuilder, 
     private contactsService: ContactsService,
+    private constructionsService: ConstructionsService,
     @Inject(MAT_DIALOG_DATA) public data: Contact | null) {}
-  
 
   ngOnInit(): void {
     this.isEditMode = !!this.data;
     
     this.contactForm = this.formBuilder.group({
-      // id: [{value: this.data ? this.data.id : null, disabled: true}],
+      id: [{value: this.data ? this.data.id : null, disabled: true}],
       company: [this.data ? this.data.company: '', Validators.required],
       name: [this.data ? this.data.name: '', Validators.required],
       surname: [this.data ? this.data.surname: '', Validators.required],
@@ -50,6 +55,13 @@ export class ContactFormComponent implements OnInit, OnDestroy {
       this.contactForm.get('id')?.disable();
     }
 
+    this.constructionsService.getOptions().subscribe((options: { id: number; name: string }[]) => {
+      this.constructionList = options.map((option: { id: number; name: string }) => {
+        // console.log(this.constructionList)
+        return { id: option.id, name: option.name };
+      });
+    });
+    
     this.statusChangesSubscription = this.contactForm.statusChanges.subscribe((status) => {
       if (status === 'VALID') {
         this.saveButtonDisabled = false;
@@ -63,7 +75,6 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     this.statusChangesSubscription.unsubscribe();
   }
 
-  
   clean() {
     this.contactForm.reset();
   }
@@ -90,7 +101,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
           console.log('Pomyślnie dodano');
           this.dialogRef.close(newContact);
         }),
-        (error:string) => {
+        (error: string) => {
           console.error('Błąd podczas zapisywania wprowadzonych danych')
         }
       }

@@ -39,11 +39,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { PhoneFormatPipe } from './pipes/phone-format/phone-format.pipe';
 
 @NgModule({
   declarations: [
     MenuButtonComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    PhoneFormatPipe
   ],
   exports: [
     MatAutocompleteModule,
@@ -82,7 +84,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    PhoneFormatPipe
   ],
   imports: [
     MatAutocompleteModule,

@@ -29,7 +29,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   
   constructor(
     private dialogRef: MatDialogRef<ContactFormComponent>, 
-    private formBuilder: NonNullableFormBuilder, 
+    private formBuilder: NonNullableFormBuilder,
     private contactsService: ContactsService,
     private constructionsService: ConstructionsService,
     private tasksService: TasksService,
@@ -67,7 +67,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     //wyświetlanie wybranych zadań przypisanych do kontaktu
     this.tasksService.getOptions().subscribe((options: { id: number; name: string }[]) => {
       this.taskList = options.map((option: { id: number; name: string }) => {
-        // console.log(this.constructionList)
+        // console.log(this.constructionList);
         return { id: option.id, name: option.name };
       });
     });

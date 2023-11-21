@@ -15,9 +15,10 @@ import { ConstructionsService } from '../constructions/services/constructions.se
 import { ConstructionsLocalStorageService } from '../constructions/services/constructions-local-storage.service';
 import { TasksService } from '../tasks/services/tasks.service';
 import { TasksLocalStorageService } from '../tasks/services/tasks-local-storage.service';
+import { ContactCardComponent } from './components/contact-card/contact-card.component';
 
 @NgModule({
-  declarations: [ContactsComponent, ContactFormComponent],
+  declarations: [ContactsComponent, ContactFormComponent, ContactCardComponent],
   imports: [
     CommonModule,
     ContactsRoutingModule,

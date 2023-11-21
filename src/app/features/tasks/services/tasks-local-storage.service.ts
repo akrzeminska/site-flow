@@ -7,9 +7,13 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class TasksLocalStorageService extends TasksService {
+  
   public override getById(id: number): Observable<boolean> {
-    throw new Error('Method not implemented.');
+    const localStorageKey = `task_${id}`;
+    const localStorageData = localStorage.getItem(localStorageKey);
+    return of(localStorageData !== null);
   }
+
   public override getAll(): Observable<Task[]> {
     throw new Error('Method not implemented.');
   }

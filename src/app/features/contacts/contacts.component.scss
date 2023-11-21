@@ -8,12 +8,12 @@
         margin-left: 30px;
         margin-bottom: 16px;
     }
-  }
+}
 
-  .mat-mdc-form-field {
+.mat-mdc-form-field {
     width: 100%;
     // padding: 16px;
-  }
+}
 
 .cards-contacts {
     display: flex;
@@ -22,38 +22,3 @@
     margin: 20px;
 }
 
-.card-class {
-    max-width: 400px;
-    margin: 16px;
-    width: 90%;
-  }
-
-  
-.header-image {
-    background-image: url('../../../assets/images/logos/logo.png');
-    background-size: cover;
-}
-
-mat-card-content {
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.data {
-    display: flex;
-    justify-content: space-between;
-
-    span {
-        flex: 0 0 50%;
-    }
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    button {
-        width: 100%;
-    }
-}

@@ -10,28 +10,6 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
 </mat-form-field>
 <div class="cards-contacts">
-    <mat-card *ngFor="let contact of dataContacts" class="card-class">
-        <mat-card-header class="card-header">
-          <div mat-card-avatar class="header-image"></div>
-          <mat-card-subtitle>Firma</mat-card-subtitle>
-          <mat-card-title>{{ contact.company }}</mat-card-title>
-        </mat-card-header>
-        <mat-divider></mat-divider>
-        <mat-card-content>
-            <p class="data">Imię:<span>{{ contact.name }}</span></p>
-            <p class="data">Nazwisko:<span>{{ contact.surname }}</span></p>
-            <p class="data">Telefon:<span>{{ contact.phone }}</span></p>
-            <p class="data">E-mail:<span>{{ contact.email }}</span></p>
-            <p class="data">Rola:<span>{{ contact.role }}</span></p>
-            <p class="data">Opis:<span>{{ contact.description }}</span></p>
-            <p class="data">Przypisane zadania:<span>{{ contact.taskId }}</span></p>
-            <p class="data">Przypisane budowy:<span>{{ contact.constructionId }}</span></p>
-            <p class="data">Kategoria:<span>{{ contact.category }}</span></p>
-        </mat-card-content>
-        <mat-divider></mat-divider>
-        <mat-card-actions class="buttons">
-            <button mat-button (click)="deleteElement(contact.id)" color="accent">Usuń</button>
-            <button mat-button (click)="editElement(contact)" color="primary">Edytuj</button>
-        </mat-card-actions>
-    </mat-card>
+    <app-contact-card *ngFor="let contact of dataContacts" [contact]="contact" (onDelete)="deleteElement($event)" (onEdit)="editElement($event)"/>
 </div>
+

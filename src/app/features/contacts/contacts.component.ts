@@ -20,7 +20,7 @@ export class ContactsComponent {
     private seederService: LocalStorageSeederService,
     private contactsService: ContactsService,
     private dialog: MatDialog,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
     ) {
       seederService.ensureDataSeeder();
     }
@@ -36,7 +36,7 @@ export class ContactsComponent {
         if (contacts) {
           this.dataContacts = contacts;
         } else {
-          console.log('Nie znaleziono konstrukcji o podanym id.');
+          console.log('Nie znaleziono kontaktu o podanym id.');
         }
         console.log('Dane po pobraniu przez getAllData:', this.dataContacts);
       });
@@ -86,5 +86,6 @@ export class ContactsComponent {
       this.getAllData();
     });
   }
+
   
 }

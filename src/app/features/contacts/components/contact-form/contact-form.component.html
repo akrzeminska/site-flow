@@ -1,12 +1,9 @@
 <div class="title">
+    <app-contact-avatar></app-contact-avatar>
     <h2 mat-dialog-title>{{ isEditMode ? 'Edytowanie kontaktu' : 'Dodawanie kontaktu'}}</h2>
 </div>
 <mat-dialog-content>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-        <mat-form-field>
-            <mat-label>Avatar</mat-label>
-            <input matInput formControlName="logo">
-        </mat-form-field>
         <mat-form-field>
             <mat-label>Nr</mat-label>
             <input matInput formControlName="id">

@@ -1,0 +1,6 @@
+<div lass="avatar-container" *ngIf="contact.avatar">
+    <img class="avatar" [src]="contact.avatar" alt="Avatar">
+  </div>
+  <div *ngIf="!contact.avatar">
+    <p>Brak awatara</p>
+</div>

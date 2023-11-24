@@ -12,13 +12,12 @@
 
 .mat-mdc-form-field {
     width: 100%;
-    // padding: 16px;
 }
 
 .cards-contacts {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 20px;
 }
 

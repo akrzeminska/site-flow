@@ -12,5 +12,6 @@ export interface Contact {
     description: string;
     taskId: number[];
     constructionId: number[];
-    category: string
+    category: string;
+    avatar?: string
   }

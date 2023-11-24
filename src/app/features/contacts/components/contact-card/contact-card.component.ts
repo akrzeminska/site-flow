@@ -20,4 +20,5 @@ export class ContactCardComponent {
   editElement() {
     this.onEdit.emit(this.contact);
   }
+  
 }

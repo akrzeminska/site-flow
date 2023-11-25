@@ -1,1 +1,15 @@
-<p>contacts works!</p>
+<section>
+    <div class="sec">
+        <div class="title"><h1>Kontakty</h1></div>
+        <div class="button"><button mat-flat-button (click)="openAddContactDialog()" color="primary">+ Dodaj</button></div>
+    </div>
+</section>
+<mat-divider></mat-divider>
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
+</mat-form-field>
+<div class="cards-contacts">
+    <app-contact-card *ngFor="let contact of dataContacts" [contact]="contact" (onDelete)="deleteElement($event)" (onEdit)="editElement($event)"></app-contact-card>
+</div>
+

@@ -1,0 +1,34 @@
+.card-class {
+    max-width: 500px;
+    margin: 16px;
+}
+
+.header-image {
+    background-size: cover;
+}
+
+mat-card-content {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 350px;
+    overflow: auto;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        flex: 0 0 50%;
+    }
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    button {
+        width: 100%;
+    }
+}

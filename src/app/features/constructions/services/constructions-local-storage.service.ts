@@ -13,7 +13,6 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
   constructor() {
     super();
   }
-
     
   public override getById(id: number): Observable<boolean> {
     const localStorageKey = `construction_${id}`;
@@ -72,5 +71,25 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     const localStorageKey = `construction_${id}`;
     localStorage.removeItem(localStorageKey);
     return of(undefined);
+  }
+
+  public override getOptions(): Observable<{ id: number, name: string}[]> {
+    const constructionOptions: { id: number, name: string }[] = [];
+
+    for (let key in localStorage) {
+      if (key.startsWith('construction_')) {
+        const localStorageData = localStorage.getItem(key);
+        if (localStorageData) {
+          const construction: Construction = JSON.parse(localStorageData);
+          const constructionInfo = {
+            id: construction.id,
+            name: construction.name
+          };
+          constructionOptions.push(constructionInfo);
+        }
+      }
+    }
+    constructionOptions.sort((a,b) => a.id - b.id);
+    return of(constructionOptions);
   }
 }

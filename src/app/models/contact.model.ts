@@ -1,13 +1,17 @@
 import { Construction } from "./construction.model";
 
 export interface Contact {
+    taskName: any;
     id: number;
     name: string;
     surname: string;
     company: string;
-    phone: string;
+    phone: number;
     email: string;
     role: string;
     description: string;
-    construction: Construction[];
+    taskId: number[];
+    constructionId: number[];
+    category: string;
+    avatar?: string
   }

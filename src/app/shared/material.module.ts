@@ -38,10 +38,14 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { PhoneFormatPipe } from './pipes/phone-format/phone-format.pipe';
 
 @NgModule({
   declarations: [
     MenuButtonComponent,
+    ConfirmDialogComponent,
+    PhoneFormatPipe
   ],
   exports: [
     MatAutocompleteModule,
@@ -80,7 +84,8 @@ import { MenuButtonComponent } from './components/menu-button/menu-button.compon
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    PhoneFormatPipe
   ],
   imports: [
     MatAutocompleteModule,

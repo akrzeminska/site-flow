@@ -1,0 +1,66 @@
+<div class="title">
+    <app-contact-avatar></app-contact-avatar>
+    <h2 mat-dialog-title>{{ isEditMode ? 'Edytowanie kontaktu' : 'Dodawanie kontaktu'}}</h2>
+</div>
+<mat-dialog-content>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Nr</mat-label>
+            <input matInput formControlName="id">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Firma:</mat-label>
+            <input matInput formControlName="company">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Imię:</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Nazwisko:</mat-label>
+            <input matInput formControlName="surname">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Telefon:</mat-label>
+            <input matInput formControlName="phone">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email:</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Rola:</mat-label>
+            <input matInput formControlName="role">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Opis:</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Przypisane zadania:</mat-label>
+            <mat-select formControlName="taskId" multiple>
+            <mat-option *ngFor="let task of taskList" [value]="task.id">{{ task.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Przypisane budowy:</mat-label>
+            <mat-select formControlName="constructionId" multiple>
+            <mat-option *ngFor="let construction of constructionList" [value]="construction.id">{{ construction.name }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Kategoria:</mat-label>
+            <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categoryList" [value]="category">{{ category }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="buttons-container">
+    <div class="right-buttons-container">
+        <button mat-button color="primary" (click)="dismiss()"><mat-icon>cancel
+        </mat-icon>Anuluj</button>
+        <button mat-button color="primary"(click)="onSubmit()" [disabled]="saveButtonDisabled"><mat-icon>save
+        </mat-icon>Zapisz</button>
+    </div>
+</mat-dialog-actions>

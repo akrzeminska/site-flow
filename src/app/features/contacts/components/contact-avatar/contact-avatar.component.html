@@ -1,4 +1,5 @@
-<div class="avatar-container" *ngIf="source" matBadge="edit" matBadgePosition ="above" matBadgeOverlap="false" [matBadgeHidden]="isBadgeHidden">
+<div class="avatar-container" *ngIf="source" matBadge="edit" matBadgePosition ="above" matBadgeOverlap="false" [matBadgeHidden]="isBadgeHidden" (mouseenter)="isBadgeHidden = false"
+(mouseleave)="isBadgeHidden = true" (click)="openAvatarUploadDialog()">
   <img class="avatar" [src]="source" alt="Avatar">
 </div>
 <div *ngIf="!source">

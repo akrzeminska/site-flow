@@ -59,7 +59,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     // wyświetlanie wybranych budów przypisanych do kontaktu
     this.constructionsService.getOptions().subscribe((options: { id: number; name: string }[]) => {
       this.constructionList = options.map((option: { id: number; name: string }) => {
-        // console.log(this.constructionList)
+        // console.log(this.constructionList);
         return { id: option.id, name: option.name };
       });
     });

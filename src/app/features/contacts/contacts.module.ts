@@ -17,9 +17,10 @@ import { TasksService } from '../tasks/services/tasks.service';
 import { TasksLocalStorageService } from '../tasks/services/tasks-local-storage.service';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
 import { ContactAvatarComponent } from './components/contact-avatar/contact-avatar.component';
+import { AvatarUploadDialogComponent } from './components/avatar-upload-dialog/avatar-upload-dialog.component';
 
 @NgModule({
-  declarations: [ContactsComponent, ContactFormComponent, ContactCardComponent, ContactAvatarComponent],
+  declarations: [ContactsComponent, ContactFormComponent, ContactCardComponent, ContactAvatarComponent, AvatarUploadDialogComponent],
   imports: [
     CommonModule,
     ContactsRoutingModule,

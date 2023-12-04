@@ -1,0 +1,45 @@
+.title {
+    display: flex;
+    align-items: top;
+    justify-content: left;
+  }
+  
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  
+    .right-buttons-container {
+      margin-left: auto;
+    }
+  }
+  
+  .example-additional-selection {
+    opacity: 0.75;
+    font-size: 0.75em;
+  }
+  
+  .test2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .header-text {
+      padding-left: 15px;
+  }
+
+  .dialog-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .choose {
+    width: 100%;
+  }
+
+  .file-name {
+    padding-top: 10px;
+}
+  

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
+import { AvatarUploadDialogComponent } from '../avatar-upload-dialog/avatar-upload-dialog.component';
 
 @Component({
   selector: 'app-contact-avatar',
@@ -11,9 +13,24 @@ export class ContactAvatarComponent implements OnInit {
   @Input() source: string | undefined;
   @Input() isBadgeHidden: boolean = true;
 
+  constructor(private dialog: MatDialog) { }
+
   ngOnInit(): void {
     console.log(this.contact);
     this.checkAndAssignDefaultAvatar();
+  }
+
+  openAvatarUploadDialog(): void {
+    const dialogRef = this.dialog.open(AvatarUploadDialogComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      if (result) {
+        // this.contact.avatar = result.base64Image;
+        console.log('Base64 avatar:', result.base64Image);
+      }
+    });
   }
 
   checkAndAssignDefaultAvatar(): void {

@@ -1,4 +1,4 @@
-<div class="avatar-container" *ngIf="source">
+<div class="avatar-container" *ngIf="source" matBadge="edit" matBadgePosition ="above" matBadgeOverlap="false" [matBadgeHidden]="isBadgeHidden">
   <img class="avatar" [src]="source" alt="Avatar">
 </div>
 <div *ngIf="!source">

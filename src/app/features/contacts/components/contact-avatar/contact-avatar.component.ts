@@ -9,6 +9,7 @@ import { Contact } from 'src/app/models/contact.model';
 export class ContactAvatarComponent implements OnInit {
   @Input() contact!: Contact;
   @Input() source: string | undefined;
+  @Input() isBadgeHidden: boolean = true;
 
   ngOnInit(): void {
     console.log(this.contact);

@@ -9,8 +9,8 @@ import { UploadedFileService } from 'src/app/shared/services/uploaded-file.servi
   styleUrls: ['./avatar-upload-dialog.component.scss']
 })
 export class AvatarUploadDialogComponent {
-  
-  selectedFile: any = 'null';
+    selectedFile: any = 'null';
+    base64Image: string ='';
 
   constructor(private uploadedFileService: UploadedFileService,
     private dialogRef: MatDialogRef<AvatarUploadDialogComponent>,
@@ -21,27 +21,28 @@ export class AvatarUploadDialogComponent {
     console.log(event);
     this.selectedFile = event.target.files[0] ?? null;
     console.log(this.selectedFile);
-  }
 
-  onUpload() {
     if (this.selectedFile) {
       const reader = new FileReader();
 
       reader.readAsDataURL(this.selectedFile);
 
       reader.onload = () => {
-        const base64Image = reader.result as string;
+        this.base64Image = reader.result as string;
 
-        this.uploadedFileService.create(this.data.id, base64Image).subscribe((result) => {
+        this.uploadedFileService.create(this.data.id, this.base64Image).subscribe((result) => {
           if (result) {
             console.log('Pomyślnie zapisano obraz.')
-            this.dialogRef.close();
           } else {
             console.log('Błąd pocdczas zapisania obrazu')
           }
         })
       }
     }
+  }
+
+  onSave() {
+    this.dialogRef.close(null);
   }
 
   dismiss() {

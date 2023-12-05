@@ -1,7 +1,7 @@
 .title {
     display: flex;
     align-items: top;
-    justify-content: left;
+    justify-content: center;
   }
   
   .buttons-container {
@@ -13,26 +13,12 @@
       margin-left: auto;
     }
   }
-  
-  .example-additional-selection {
-    opacity: 0.75;
-    font-size: 0.75em;
-  }
-  
-  .test2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .header-text {
-      padding-left: 15px;
-  }
 
-  .dialog-content {
+  mat-dialog-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
   }
 
   .choose {

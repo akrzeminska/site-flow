@@ -1,27 +1,23 @@
 <div class="title">
     <h2 mat-dialog-title>
-        <div class="test2">
-            <div>
-                <app-contact-avatar [isBadgeHidden]="true"></app-contact-avatar>
-            </div>
-            <div class="header-text">
-                Edytowanie obrazu
-            </div>
-        </div> 
+        <div class="header-text">
+            Edytowanie obrazu
+        </div>
     </h2>
 </div>
 <div class="dialog-content">
     <mat-dialog-content>
-        <button type="button" mat-raised-button (click)="fileInput.click()" class="choose">Wybierz plik...</button>
+        <img class="editedAvatar" [src]="base64Image">
+        <button class="chooseBtn" type="button" mat-raised-button (click)="fileInput.click()" class="choose">Wybierz plik...</button>
         <input hidden (change)="onFileSelected($event)" #fileInput type="file">
-        <span class="file-name">{{selectedFile?.name}}</span>
+        <p class="file-name">{{selectedFile?.name}}</p>
     </mat-dialog-content>
 </div>
 <mat-dialog-actions class="buttons-container">
     <div class="right-buttons-container">
         <button mat-button color="primary" (click)="dismiss()"><mat-icon>cancel
         </mat-icon>Anuluj</button>
-        <button mat-button color="primary" (click)="onUpload()"><mat-icon>save
+        <button mat-button color="primary" (click)="onSave()"><mat-icon>save
         </mat-icon>Zapisz</button>
     </div>
 </mat-dialog-actions>

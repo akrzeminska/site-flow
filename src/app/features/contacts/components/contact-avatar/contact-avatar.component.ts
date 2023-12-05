@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
 import { AvatarUploadDialogComponent } from '../avatar-upload-dialog/avatar-upload-dialog.component';
@@ -13,7 +13,7 @@ export class ContactAvatarComponent implements OnInit {
   @Input() source: string | undefined;
   @Input() isBadgeHidden: boolean = true;
 
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
     console.log(this.contact);
@@ -23,6 +23,7 @@ export class ContactAvatarComponent implements OnInit {
   openAvatarUploadDialog(): void {
     const dialogRef = this.dialog.open(AvatarUploadDialogComponent, {
       width: '400px',
+      data: this.contact,
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {

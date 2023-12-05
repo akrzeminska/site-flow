@@ -33,7 +33,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     private contactsService: ContactsService,
     private constructionsService: ConstructionsService,
     private tasksService: TasksService,
-    @Inject(MAT_DIALOG_DATA) public data: Contact | null) {}
+    @Inject(MAT_DIALOG_DATA) public data: Contact) {}
 
   ngOnInit(): void {
     this.isEditMode = !!this.data;

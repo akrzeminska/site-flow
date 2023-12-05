@@ -10,11 +10,11 @@ import { UploadedFileService } from 'src/app/shared/services/uploaded-file.servi
 })
 export class AvatarUploadDialogComponent {
     selectedFile: any = 'null';
-    base64Image: string ='';
+    base64Image: string = '';
 
   constructor(private uploadedFileService: UploadedFileService,
     private dialogRef: MatDialogRef<AvatarUploadDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Contact) { }
+    @Inject(MAT_DIALOG_DATA) public data: Contact) {}
     
 
   onFileSelected(event: any): void {
@@ -28,25 +28,24 @@ export class AvatarUploadDialogComponent {
       reader.readAsDataURL(this.selectedFile);
 
       reader.onload = () => {
-        this.base64Image = reader.result as string;
-
-        this.uploadedFileService.create(this.data.id, this.base64Image).subscribe((result) => {
+        this.uploadedFileService.create(this.data.id, reader.result as string).subscribe((result) => {
           if (result) {
-            console.log('Pomyślnie zapisano obraz.')
+            console.log('Pomyślnie zapisano obraz.');
+            this.base64Image = reader.result as string;
+            // console.log(this.base64Image);
           } else {
-            console.log('Błąd pocdczas zapisania obrazu')
+            console.log('Błąd podczas zapisania obrazu.');
           }
-        })
+        });
       }
     }
   }
 
   onSave() {
-    this.dialogRef.close(null);
+    this.dialogRef.close(true);
   }
 
   dismiss() {
-    this.dialogRef.close(null);
+    this.dialogRef.close(false);
   }
-  
 }

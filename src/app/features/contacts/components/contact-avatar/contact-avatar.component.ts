@@ -2,6 +2,8 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
 import { AvatarUploadDialogComponent } from '../avatar-upload-dialog/avatar-upload-dialog.component';
+import { UploadedFileService } from 'src/app/shared/services/uploaded-file.service';
+import { ContactsService } from '../../services/contacts.service';
 
 @Component({
   selector: 'app-contact-avatar',
@@ -13,10 +15,11 @@ export class ContactAvatarComponent implements OnInit {
   @Input() source: string | undefined;
   @Input() isBadgeHidden: boolean = true;
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog,
+    private uploadedFileService: UploadedFileService,
+    private contactsService: ContactsService) {}
 
   ngOnInit(): void {
-    console.log(this.contact);
     this.checkAndAssignDefaultAvatar();
   }
 
@@ -26,10 +29,14 @@ export class ContactAvatarComponent implements OnInit {
       data: this.contact,
     });
 
-    dialogRef.afterClosed().subscribe((result: any) => {
+    dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        // this.contact.avatar = result.base64Image;
-        console.log('Base64 avatar:', result.base64Image);
+        const base64Image = this.uploadedFileService.getById(this.contact.id).subscribe((res: string) => {
+          console.log(res);
+          this.source = res;
+          const updatedContact = {...this.contact, avatar: res};
+          this.contactsService.update(updatedContact);
+        });
       }
     });
   }

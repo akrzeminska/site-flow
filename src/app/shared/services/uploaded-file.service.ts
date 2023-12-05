@@ -5,5 +5,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export abstract class UploadedFileService {
-  public abstract create(id: number, base64Image: string): Observable<any>
+  public abstract create(id: number, result: string): Observable<any>;
+  public abstract getById(id: number): Observable<string>;
 }

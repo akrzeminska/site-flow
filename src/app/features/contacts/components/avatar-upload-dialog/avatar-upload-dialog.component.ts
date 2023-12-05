@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
 import { UploadedFileService } from 'src/app/shared/services/uploaded-file.service';
 
@@ -13,6 +13,7 @@ export class AvatarUploadDialogComponent {
   selectedFile: any = 'null';
 
   constructor(private uploadedFileService: UploadedFileService,
+    private dialogRef: MatDialogRef<AvatarUploadDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Contact) { }
     
 
@@ -34,6 +35,7 @@ export class AvatarUploadDialogComponent {
         this.uploadedFileService.create(this.data.id, base64Image).subscribe((result) => {
           if (result) {
             console.log('Pomyślnie zapisano obraz.')
+            this.dialogRef.close();
           } else {
             console.log('Błąd pocdczas zapisania obrazu')
           }
@@ -41,4 +43,9 @@ export class AvatarUploadDialogComponent {
       }
     }
   }
+
+  dismiss() {
+    this.dialogRef.close(null);
+  }
+  
 }

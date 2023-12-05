@@ -7,10 +7,17 @@
 </div>
 <div class="dialog-content">
     <mat-dialog-content>
-        <img class="editedAvatar" [src]="base64Image">
-        <button class="chooseBtn" type="button" mat-raised-button (click)="fileInput.click()" class="choose">Wybierz plik...</button>
-        <input hidden (change)="onFileSelected($event)" #fileInput type="file">
-        <p class="file-name">{{selectedFile?.name}}</p>
+        <div class="editedImg">
+            <img class="editedAvatar" [src]="base64Image">
+        </div>
+        <div class="chooseBtn">
+            <button class="choose" type="button" mat-raised-button (click)="fileInput.click()">Wybierz plik...</button>
+            <input hidden (change)="onFileSelected($event)" #fileInput type="file">
+        </div>
+        <div class="file-name">
+            <p class="file-name">{{selectedFile?.name}}</p>
+        </div>
+        
     </mat-dialog-content>
 </div>
 <mat-dialog-actions class="buttons-container">

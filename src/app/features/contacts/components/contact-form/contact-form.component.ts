@@ -93,6 +93,38 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     this.dialogRef.close(null);
   }
 
+  onAvatarChanged() {
+    this.updateContactFromLocalStorage();
+  }
+
+updateContactFromLocalStorage() {
+  const contactId = this.contactForm.get('id')?.value;
+  const localStorageKey = `uploaded_file_contact_${contactId}`;
+  const uploadedFile = localStorage.getItem(localStorageKey);
+  const localStorageContactKey = `contact_${contactId}`;
+  const localData = localStorage.getItem(localStorageContactKey);
+
+  if (!localData) {
+    console.error('Brak danych w local storage dla danego kontaktu');
+    return;
+  }
+
+  const updatedContactData: any = JSON.parse(localData);
+  updatedContactData.avatar = uploadedFile;
+
+  localStorage.setItem(localStorageContactKey, JSON.stringify(updatedContactData));
+
+  this.contactsService.update(updatedContactData).subscribe(
+    (updatedContact) => {
+      console.log('Pomyślnie zaktualizowano kontakt na podstawie danych z local storage');
+     
+    },
+    (error: string) => {
+      console.error('Błąd podczas aktualizacji danych na podstawie danych z local storage');
+    }
+  );
+}
+
   onSubmit() {
     if (this.contactForm.valid) {
       const contactData: Contact = this.contactForm.getRawValue();

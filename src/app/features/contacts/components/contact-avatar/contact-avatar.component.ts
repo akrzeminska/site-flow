@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
 import { AvatarUploadDialogComponent } from '../avatar-upload-dialog/avatar-upload-dialog.component';
@@ -14,6 +14,7 @@ export class ContactAvatarComponent implements OnInit {
   @Input() contact!: Contact;
   @Input() source: string | undefined;
   @Input() isBadgeHidden: boolean = true;
+  @Output() avatarChanged: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private dialog: MatDialog,
     private uploadedFileService: UploadedFileService,
@@ -23,13 +24,15 @@ export class ContactAvatarComponent implements OnInit {
     this.checkAndAssignDefaultAvatar();
   }
 
+  onAvatarChanged() {
+    this.avatarChanged.emit();
+  }
+
   openAvatarUploadDialog(): void {
     const dialogRef = this.dialog.open(AvatarUploadDialogComponent, {
       width: '400px',
       data: this.contact,
     });
-
-TODO: //linia 38 i 39 wędruje do forma, ma dziać się na zapisz, gdy form dostaje info o change z comp.avatar, wtedy strzela do local storage i zaciąga aktualny kontakt z awatar
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
@@ -37,8 +40,7 @@ TODO: //linia 38 i 39 wędruje do forma, ma dziać się na zapisz, gdy form dost
           console.log(res);
           this.source = res;
           
-          const updatedContact = {...this.contact, avatar: res};
-          this.contactsService.update(updatedContact);
+          this.onAvatarChanged();
         });
       }
     });

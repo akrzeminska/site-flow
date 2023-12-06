@@ -52,17 +52,20 @@ export class ContactsLocalStorageService extends ContactsService {
     return of(newcontactData.id);
   }
 
-  public override update(updatedContact: Contact): Observable<any> {
+  public update(updatedContact: Contact): Observable<any> {
     const localStorageKey = `contact_${updatedContact.id}`;
     const localstorageData = localStorage.getItem(localStorageKey);
+  
     if (localstorageData) {
-      const existingConstruction: Contact = JSON.parse(localstorageData);
-      localStorage.setItem(localStorageKey, JSON.stringify(updatedContact));
+      const existingContact: Contact = JSON.parse(localstorageData);
+      existingContact.avatar = localStorage.getItem(`uploaded_file_contact_${updatedContact.id}`) || '';
+      localStorage.setItem(localStorageKey, JSON.stringify(existingContact));
       return of([]);
     } else {
       return of([]);
     }
   }
+  
 
   public override delete(id: number): Observable<any> {
     const localStorageKey = `contact_${id}`;

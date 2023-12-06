@@ -55,7 +55,6 @@ export class ContactsLocalStorageService extends ContactsService {
   public override update(updatedContact: Contact): Observable<any> {
     const localStorageKey = `contact_${updatedContact.id}`;
     const localstorageData = localStorage.getItem(localStorageKey);
-
     if (localstorageData) {
       const existingConstruction: Contact = JSON.parse(localstorageData);
       localStorage.setItem(localStorageKey, JSON.stringify(updatedContact));

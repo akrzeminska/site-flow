@@ -26,5 +26,4 @@ export class UploadedFileLocalStorageService extends UploadedFileService {
     
     return of(localStorageData);
   }
-  
 }

@@ -1,0 +1,963 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>site-flow documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+
+               if ($darkModeToggles.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">site-flow documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >LocalStorageSeederService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/shared/services/local-storage-seeder.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#constructionSeed" >constructionSeed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#contactSeed" >contactSeed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#costEstimateSeed" >costEstimateSeed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#localStorageKey" >localStorageKey</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#taskSeed" >taskSeed</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ensureDataSeeder" >ensureDataSeeder</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="226" class="link-to-prism">src/app/shared/services/local-storage-seeder.service.ts:226</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ensureDataSeeder"></a>
+                    <span class="name">
+                        <span ><b>ensureDataSeeder</b></span>
+                        <a href="#ensureDataSeeder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ensureDataSeeder()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">src/app/shared/services/local-storage-seeder.service.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="constructionSeed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>constructionSeed</b></span>
+                        <a href="#constructionSeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;Green House&quot;,
+      &quot;location&quot;: &quot;Romanowicza Street, Cracow&quot;,
+      &quot;client&quot;: &quot;IMS&quot;,
+      &quot;costEstimateId&quot;: 1,
+      &quot;manager&quot;: &quot;John Doe&quot;,
+      &quot;contactId&quot;: [1],
+      &quot;description&quot;: &quot;Example Construction Description&quot;,
+      &quot;taskId&quot;: [1],
+      &quot;status&quot;: &quot;In progress&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;Office Building&quot;,
+      &quot;location&quot;: &quot;Main Street, Los Angeles&quot;,
+      &quot;client&quot;: &quot;ABC Inc.&quot;,
+      &quot;costEstimateId&quot;: 2,
+      &quot;manager&quot;: &quot;Sarah Johnson&quot;,
+      &quot;contactId&quot;: [2],
+      &quot;description&quot;: &quot;New office building construction.&quot;,
+      &quot;taskId&quot;: [2],
+      &quot;status&quot;: &quot;Planning&quot;
+    },
+    
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Apartment Complex&quot;,
+      &quot;location&quot;: &quot;Oak Avenue, New York&quot;,
+      &quot;client&quot;: &quot;XYZ Developers&quot;,
+      &quot;costEstimateId&quot;: 3,
+      &quot;manager&quot;: &quot;Michael Brown&quot;,
+      &quot;contactId&quot;: [3],
+      &quot;taskId&quot;: [3],
+      &quot;description&quot;: &quot;Construction of a luxury apartment complex.&quot;,
+      &quot;status&quot;: &quot;In progress&quot;
+    },
+    
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Hospital Renovation&quot;,
+      &quot;location&quot;: &quot;Maple Street, Chicago&quot;,
+      &quot;client&quot;: &quot;City Healthcare&quot;,
+      &quot;costEstimateId&quot;: 4,
+      &quot;manager&quot;: &quot;Emily Davis&quot;,
+      &quot;contactId&quot;: [4],
+      &quot;description&quot;: &quot;Renovation of the city hospital&#x27;s facilities.&quot;,
+      &quot;taskId&quot;: [4],
+      &quot;status&quot;: &quot;Completed&quot;
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/shared/services/local-storage-seeder.service.ts:8</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contactSeed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>contactSeed</b></span>
+                        <a href="#contactSeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;John&quot;,
+      &quot;surname&quot;: &quot;Doe&quot;,
+      &quot;company&quot;: &quot;IMS Budownictwo&quot;,
+      &quot;phone&quot;: 123456789,
+      &quot;email&quot;: &quot;john.doe@example.com&quot;,
+      &quot;role&quot;: &quot;Project Manager&quot;,
+      &quot;description&quot;: &quot;Główna osoba kontaktowa dla projektu.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Zarządzanie&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;Alice&quot;,
+      &quot;surname&quot;: &quot;Johnson&quot;,
+      &quot;company&quot;: &quot;GWK System&quot;,
+      &quot;phone&quot;: 555123456,
+      &quot;email&quot;: &quot;alice.j@example.com&quot;,
+      &quot;role&quot;: &quot;Project Coordinator&quot;,
+      &quot;description&quot;: &quot;Kluczowy kontakt do koordynacji projektu.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Projektowanie&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Michael&quot;,
+      &quot;surname&quot;: &quot;Brown&quot;,
+      &quot;company&quot;: &quot;Max Development&quot;,
+      &quot;phone&quot;: 987654321,
+      &quot;email&quot;: &quot;michael.b@example.com&quot;,
+      &quot;role&quot;: &quot;Project Director&quot;,
+      &quot;description&quot;: &quot;Dyrektor nadzorujący projekty budowlane.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Projektowanie&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Emily&quot;,
+      &quot;surname&quot;: &quot;Davis&quot;,
+      &quot;company&quot;: &quot;Garden Residence&quot;,
+      &quot;phone&quot;: 333111999,
+      &quot;email&quot;: &quot;emily.d@example.com&quot;,
+      &quot;role&quot;: &quot;Project Manager&quot;,
+      &quot;description&quot;: &quot;Odpowiedzialna za projekt renowacji szpitala.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Wykonawstwo&quot;
+    }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/shared/services/local-storage-seeder.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="costEstimateSeed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>costEstimateSeed</b></span>
+                        <a href="#costEstimateSeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      &quot;id&quot;: 1,
+      &quot;description&quot;: &quot;Example Cost Estimate&quot;,
+      &quot;costOfConstructionWorks&quot;: 50000,
+      &quot;subcontractorCosts&quot;: 10000,
+      &quot;administrationCosts&quot;: 5000,
+      &quot;totalCost&quot;: 65000,
+      &quot;budget&quot;: 70000,
+      &quot;profit&quot;: 5000,
+      &quot;constructionId&quot;: 1,
+      &quot;paymentTerms&quot;: &quot;Net 30 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Payment due upon completion&quot;,
+      &quot;attachments&quot;: [&quot;attachment1.pdf&quot;, &quot;attachment2.docx&quot;]
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;description&quot;: &quot;Office Building Estimation&quot;,
+      &quot;costOfConstructionWorks&quot;: 80000,
+      &quot;subcontractorCosts&quot;: 15000,
+      &quot;administrationCosts&quot;: 8000,
+      &quot;totalCost&quot;: 103000,
+      &quot;budget&quot;: 110000,
+      &quot;profit&quot;: 7000,
+      &quot;constructionId&quot;: 2,
+      &quot;paymentTerms&quot;: &quot;Net 45 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Progress-based payments&quot;,
+      &quot;attachments&quot;: [&quot;office-estimation.pdf&quot;, &quot;office-plans.docx&quot;]
+    },
+    
+    {
+      &quot;id&quot;: 3,
+      &quot;description&quot;: &quot;Apartment Complex Budget&quot;,
+      &quot;costOfConstructionWorks&quot;: 120000,
+      &quot;subcontractorCosts&quot;: 25000,
+      &quot;administrationCosts&quot;: 10000,
+      &quot;totalCost&quot;: 155000,
+      &quot;budget&quot;: 160000,
+      &quot;profit&quot;: 5000,
+      &quot;constructionId&quot;: 3,
+      &quot;paymentTerms&quot;: &quot;Net 60 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Payment on project milestones&quot;,
+      &quot;attachments&quot;: [&quot;apartment-estimate.pdf&quot;, &quot;complex-plans.docx&quot;]
+    },
+    
+    {
+      &quot;id&quot;: 4,
+      &quot;description&quot;: &quot;Hospital Renovation Costs&quot;,
+      &quot;costOfConstructionWorks&quot;: 30000,
+      &quot;subcontractorCosts&quot;: 6000,
+      &quot;administrationCosts&quot;: 3000,
+      &quot;totalCost&quot;: 39000,
+      &quot;budget&quot;: 40000,
+      &quot;profit&quot;: 1000,
+      &quot;constructionId&quot;: 4,
+      &quot;paymentTerms&quot;: &quot;Net 30 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Payment upon completion and inspection&quot;,
+      &quot;attachments&quot;: [&quot;hospital-costs.pdf&quot;, &quot;renovation-plans.docx&quot;]
+    }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/app/shared/services/local-storage-seeder.service.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="localStorageKey"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>localStorageKey</b></span>
+                        <a href="#localStorageKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;construction&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/shared/services/local-storage-seeder.service.ts:7</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskSeed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>taskSeed</b></span>
+                        <a href="#taskSeed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;Task 1&quot;,
+      &quot;description&quot;: &quot;Example task description&quot;,
+      &quot;scope&quot;: &quot;Project scope&quot;,
+      &quot;constructionid&quot;: 1,
+      &quot;responsiblePerson&quot;: &quot;Alice Smith&quot;,
+      &quot;contactId&quot;: 1,
+      &quot;completionDate&quot;: &quot;2023-11-30&quot;,
+      &quot;cost&quot;: 2000
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;Task 2&quot;,
+      &quot;description&quot;: &quot;Design office building layout&quot;,
+      &quot;scope&quot;: &quot;Architectural design&quot;,
+      &quot;constructionid&quot;: 2,
+      &quot;responsiblePerson&quot;: &quot;Ella White&quot;,
+      &quot;contactId&quot;: 2,
+      &quot;completionDate&quot;: &quot;2023-12-15&quot;,
+      &quot;cost&quot;: 3500
+    },
+    
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Task 3&quot;,
+      &quot;description&quot;: &quot;Apartment complex site survey&quot;,
+      &quot;scope&quot;: &quot;Site analysis and survey&quot;,
+      &quot;constructionid&quot;: 3,
+      &quot;responsiblePerson&quot;: &quot;David Clark&quot;,
+      &quot;contactId&quot;: 3,
+      &quot;completionDate&quot;: &quot;2024-01-10&quot;,
+      &quot;cost&quot;: 5000
+    },
+    
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Task 4&quot;,
+      &quot;description&quot;: &quot;Hospital renovation electrical work&quot;,
+      &quot;scope&quot;: &quot;Electrical installation&quot;,
+      &quot;constructionid&quot;: 4,
+      &quot;responsiblePerson&quot;: &quot;Olivia Turner&quot;,
+      &quot;contactId&quot;: 4,
+      &quot;completionDate&quot;: &quot;2023-12-30&quot;,
+      &quot;cost&quot;: 4500
+    }
+    
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="178" class="link-to-prism">src/app/shared/services/local-storage-seeder.service.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class LocalStorageSeederService {
+  private localStorageKey &#x3D; &#x27;construction&#x27;;
+  private constructionSeed &#x3D; [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;Green House&quot;,
+      &quot;location&quot;: &quot;Romanowicza Street, Cracow&quot;,
+      &quot;client&quot;: &quot;IMS&quot;,
+      &quot;costEstimateId&quot;: 1,
+      &quot;manager&quot;: &quot;John Doe&quot;,
+      &quot;contactId&quot;: [1],
+      &quot;description&quot;: &quot;Example Construction Description&quot;,
+      &quot;taskId&quot;: [1],
+      &quot;status&quot;: &quot;In progress&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;Office Building&quot;,
+      &quot;location&quot;: &quot;Main Street, Los Angeles&quot;,
+      &quot;client&quot;: &quot;ABC Inc.&quot;,
+      &quot;costEstimateId&quot;: 2,
+      &quot;manager&quot;: &quot;Sarah Johnson&quot;,
+      &quot;contactId&quot;: [2],
+      &quot;description&quot;: &quot;New office building construction.&quot;,
+      &quot;taskId&quot;: [2],
+      &quot;status&quot;: &quot;Planning&quot;
+    },
+    
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Apartment Complex&quot;,
+      &quot;location&quot;: &quot;Oak Avenue, New York&quot;,
+      &quot;client&quot;: &quot;XYZ Developers&quot;,
+      &quot;costEstimateId&quot;: 3,
+      &quot;manager&quot;: &quot;Michael Brown&quot;,
+      &quot;contactId&quot;: [3],
+      &quot;taskId&quot;: [3],
+      &quot;description&quot;: &quot;Construction of a luxury apartment complex.&quot;,
+      &quot;status&quot;: &quot;In progress&quot;
+    },
+    
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Hospital Renovation&quot;,
+      &quot;location&quot;: &quot;Maple Street, Chicago&quot;,
+      &quot;client&quot;: &quot;City Healthcare&quot;,
+      &quot;costEstimateId&quot;: 4,
+      &quot;manager&quot;: &quot;Emily Davis&quot;,
+      &quot;contactId&quot;: [4],
+      &quot;description&quot;: &quot;Renovation of the city hospital&#x27;s facilities.&quot;,
+      &quot;taskId&quot;: [4],
+      &quot;status&quot;: &quot;Completed&quot;
+    },
+  ];
+
+  private contactSeed &#x3D; [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;John&quot;,
+      &quot;surname&quot;: &quot;Doe&quot;,
+      &quot;company&quot;: &quot;IMS Budownictwo&quot;,
+      &quot;phone&quot;: 123456789,
+      &quot;email&quot;: &quot;john.doe@example.com&quot;,
+      &quot;role&quot;: &quot;Project Manager&quot;,
+      &quot;description&quot;: &quot;Główna osoba kontaktowa dla projektu.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Zarządzanie&quot;
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;Alice&quot;,
+      &quot;surname&quot;: &quot;Johnson&quot;,
+      &quot;company&quot;: &quot;GWK System&quot;,
+      &quot;phone&quot;: 555123456,
+      &quot;email&quot;: &quot;alice.j@example.com&quot;,
+      &quot;role&quot;: &quot;Project Coordinator&quot;,
+      &quot;description&quot;: &quot;Kluczowy kontakt do koordynacji projektu.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Projektowanie&quot;
+    },
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Michael&quot;,
+      &quot;surname&quot;: &quot;Brown&quot;,
+      &quot;company&quot;: &quot;Max Development&quot;,
+      &quot;phone&quot;: 987654321,
+      &quot;email&quot;: &quot;michael.b@example.com&quot;,
+      &quot;role&quot;: &quot;Project Director&quot;,
+      &quot;description&quot;: &quot;Dyrektor nadzorujący projekty budowlane.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Projektowanie&quot;
+    },
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Emily&quot;,
+      &quot;surname&quot;: &quot;Davis&quot;,
+      &quot;company&quot;: &quot;Garden Residence&quot;,
+      &quot;phone&quot;: 333111999,
+      &quot;email&quot;: &quot;emily.d@example.com&quot;,
+      &quot;role&quot;: &quot;Project Manager&quot;,
+      &quot;description&quot;: &quot;Odpowiedzialna za projekt renowacji szpitala.&quot;,
+      &quot;taskId&quot;: [1,3,4],
+      &quot;constructionId&quot;: [1,3],
+      &quot;category&quot;: &quot;Wykonawstwo&quot;
+    }
+  ];
+  
+
+  private costEstimateSeed &#x3D; [
+    {
+      &quot;id&quot;: 1,
+      &quot;description&quot;: &quot;Example Cost Estimate&quot;,
+      &quot;costOfConstructionWorks&quot;: 50000,
+      &quot;subcontractorCosts&quot;: 10000,
+      &quot;administrationCosts&quot;: 5000,
+      &quot;totalCost&quot;: 65000,
+      &quot;budget&quot;: 70000,
+      &quot;profit&quot;: 5000,
+      &quot;constructionId&quot;: 1,
+      &quot;paymentTerms&quot;: &quot;Net 30 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Payment due upon completion&quot;,
+      &quot;attachments&quot;: [&quot;attachment1.pdf&quot;, &quot;attachment2.docx&quot;]
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;description&quot;: &quot;Office Building Estimation&quot;,
+      &quot;costOfConstructionWorks&quot;: 80000,
+      &quot;subcontractorCosts&quot;: 15000,
+      &quot;administrationCosts&quot;: 8000,
+      &quot;totalCost&quot;: 103000,
+      &quot;budget&quot;: 110000,
+      &quot;profit&quot;: 7000,
+      &quot;constructionId&quot;: 2,
+      &quot;paymentTerms&quot;: &quot;Net 45 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Progress-based payments&quot;,
+      &quot;attachments&quot;: [&quot;office-estimation.pdf&quot;, &quot;office-plans.docx&quot;]
+    },
+    
+    {
+      &quot;id&quot;: 3,
+      &quot;description&quot;: &quot;Apartment Complex Budget&quot;,
+      &quot;costOfConstructionWorks&quot;: 120000,
+      &quot;subcontractorCosts&quot;: 25000,
+      &quot;administrationCosts&quot;: 10000,
+      &quot;totalCost&quot;: 155000,
+      &quot;budget&quot;: 160000,
+      &quot;profit&quot;: 5000,
+      &quot;constructionId&quot;: 3,
+      &quot;paymentTerms&quot;: &quot;Net 60 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Payment on project milestones&quot;,
+      &quot;attachments&quot;: [&quot;apartment-estimate.pdf&quot;, &quot;complex-plans.docx&quot;]
+    },
+    
+    {
+      &quot;id&quot;: 4,
+      &quot;description&quot;: &quot;Hospital Renovation Costs&quot;,
+      &quot;costOfConstructionWorks&quot;: 30000,
+      &quot;subcontractorCosts&quot;: 6000,
+      &quot;administrationCosts&quot;: 3000,
+      &quot;totalCost&quot;: 39000,
+      &quot;budget&quot;: 40000,
+      &quot;profit&quot;: 1000,
+      &quot;constructionId&quot;: 4,
+      &quot;paymentTerms&quot;: &quot;Net 30 days&quot;,
+      &quot;paymentConditions&quot;: &quot;Payment upon completion and inspection&quot;,
+      &quot;attachments&quot;: [&quot;hospital-costs.pdf&quot;, &quot;renovation-plans.docx&quot;]
+    }
+  ];
+
+  private taskSeed &#x3D; [
+    {
+      &quot;id&quot;: 1,
+      &quot;name&quot;: &quot;Task 1&quot;,
+      &quot;description&quot;: &quot;Example task description&quot;,
+      &quot;scope&quot;: &quot;Project scope&quot;,
+      &quot;constructionid&quot;: 1,
+      &quot;responsiblePerson&quot;: &quot;Alice Smith&quot;,
+      &quot;contactId&quot;: 1,
+      &quot;completionDate&quot;: &quot;2023-11-30&quot;,
+      &quot;cost&quot;: 2000
+    },
+    {
+      &quot;id&quot;: 2,
+      &quot;name&quot;: &quot;Task 2&quot;,
+      &quot;description&quot;: &quot;Design office building layout&quot;,
+      &quot;scope&quot;: &quot;Architectural design&quot;,
+      &quot;constructionid&quot;: 2,
+      &quot;responsiblePerson&quot;: &quot;Ella White&quot;,
+      &quot;contactId&quot;: 2,
+      &quot;completionDate&quot;: &quot;2023-12-15&quot;,
+      &quot;cost&quot;: 3500
+    },
+    
+    {
+      &quot;id&quot;: 3,
+      &quot;name&quot;: &quot;Task 3&quot;,
+      &quot;description&quot;: &quot;Apartment complex site survey&quot;,
+      &quot;scope&quot;: &quot;Site analysis and survey&quot;,
+      &quot;constructionid&quot;: 3,
+      &quot;responsiblePerson&quot;: &quot;David Clark&quot;,
+      &quot;contactId&quot;: 3,
+      &quot;completionDate&quot;: &quot;2024-01-10&quot;,
+      &quot;cost&quot;: 5000
+    },
+    
+    {
+      &quot;id&quot;: 4,
+      &quot;name&quot;: &quot;Task 4&quot;,
+      &quot;description&quot;: &quot;Hospital renovation electrical work&quot;,
+      &quot;scope&quot;: &quot;Electrical installation&quot;,
+      &quot;constructionid&quot;: 4,
+      &quot;responsiblePerson&quot;: &quot;Olivia Turner&quot;,
+      &quot;contactId&quot;: 4,
+      &quot;completionDate&quot;: &quot;2023-12-30&quot;,
+      &quot;cost&quot;: 4500
+    }
+    
+  ];
+
+  constructor() { }
+
+  ensureDataSeeder(): void {
+    const dataToStore: any &#x3D; {};
+
+    this.constructionSeed.forEach((construction, index) &#x3D;&gt; {
+      dataToStore[&#x60;construction_${index + 1}&#x60;] &#x3D; JSON.stringify(construction);
+    });
+
+    this.contactSeed.forEach((contact, index) &#x3D;&gt; {
+      dataToStore[&#x60;contact_${index + 1}&#x60;] &#x3D; JSON.stringify(contact);
+    });
+
+    this.costEstimateSeed.forEach((costEstimate, index) &#x3D;&gt; {
+      dataToStore[&#x60;costEstimate_${index + 1}&#x60;] &#x3D; JSON.stringify(costEstimate);
+    });
+
+    this.taskSeed.forEach((task, index) &#x3D;&gt; {
+      dataToStore[&#x60;task_${index + 1}&#x60;] &#x3D; JSON.stringify(task);
+    });
+
+    for (const key in dataToStore) {
+      localStorage.setItem(key, dataToStore[key]);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'LocalStorageSeederService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

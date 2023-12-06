@@ -29,11 +29,14 @@ export class ContactAvatarComponent implements OnInit {
       data: this.contact,
     });
 
+TODO: //linia 38 i 39 wędruje do forma, ma dziać się na zapisz, gdy form dostaje info o change z comp.avatar, wtedy strzela do local storage i zaciąga aktualny kontakt z awatar
+
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
         const base64Image = this.uploadedFileService.getById(this.contact.id).subscribe((res: string) => {
           console.log(res);
           this.source = res;
+          
           const updatedContact = {...this.contact, avatar: res};
           this.contactsService.update(updatedContact);
         });

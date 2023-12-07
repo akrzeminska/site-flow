@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -9,7 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core'
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
@@ -40,13 +40,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MenuButtonComponent } from './components/menu-button/menu-button.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { PhoneFormatPipe } from './pipes/phone-format/phone-format.pipe';
+import { UploadedFileService } from './services/uploaded-file.service';
+import { UploadedFileLocalStorageService } from './services/uploaded-file-local-storage.service';
 
 @NgModule({
-  declarations: [
-    MenuButtonComponent,
-    ConfirmDialogComponent,
-    PhoneFormatPipe
-  ],
+  declarations: [MenuButtonComponent, ConfirmDialogComponent, PhoneFormatPipe],
   exports: [
     MatAutocompleteModule,
     MatCheckboxModule,
@@ -85,7 +83,7 @@ import { PhoneFormatPipe } from './pipes/phone-format/phone-format.pipe';
     MatSortModule,
     MatTableModule,
     CommonModule,
-    PhoneFormatPipe
+    PhoneFormatPipe,
   ],
   imports: [
     MatAutocompleteModule,
@@ -124,7 +122,13 @@ import { PhoneFormatPipe } from './pipes/phone-format/phone-format.pipe';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+  ],
+  providers: [
+    {
+      provide: UploadedFileService,
+      useExisting: UploadedFileLocalStorageService,
+    },
   ]
 })
-export class MaterialModule { }
+export class SharedModule {}

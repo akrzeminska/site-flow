@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './core/components/page-not-found/page-not
 
 import { LayoutComponent } from './layout/layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './shared/material.module';
+import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { MainContentComponent } from './layout/main-content/main-content.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -21,19 +21,19 @@ import { HeaderComponent } from './layout/header/header.component';
     LayoutComponent,
     MainContentComponent,
     NavbarComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
 
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
+    SharedModule,
     FormsModule,
     AppRoutingModule,
-    CommonModule
+    CommonModule,
   ],
-  
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

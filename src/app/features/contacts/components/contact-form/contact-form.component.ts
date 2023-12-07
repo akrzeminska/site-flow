@@ -33,7 +33,7 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     private contactsService: ContactsService,
     private constructionsService: ConstructionsService,
     private tasksService: TasksService,
-    @Inject(MAT_DIALOG_DATA) public data: Contact | null) {}
+    @Inject(MAT_DIALOG_DATA) public data: Contact) {}
 
   ngOnInit(): void {
     this.isEditMode = !!this.data;
@@ -93,23 +93,55 @@ export class ContactFormComponent implements OnInit, OnDestroy {
     this.dialogRef.close(null);
   }
 
+  onAvatarChanged() {
+    this.updateContactFromLocalStorage();
+  }
+
+updateContactFromLocalStorage() {
+  const contactId = this.contactForm.get('id')?.value;
+  const localStorageKey = `uploaded_file_contact_${contactId}`;
+  const uploadedFile = localStorage.getItem(localStorageKey);
+  const localStorageContactKey = `contact_${contactId}`;
+  const localData = localStorage.getItem(localStorageContactKey);
+
+  if (!localData) {
+    console.error('Brak danych w local storage dla danego kontaktu');
+    return;
+  }
+
+  const updatedContactData: any = JSON.parse(localData);
+  updatedContactData.avatar = uploadedFile;
+
+  localStorage.setItem(localStorageContactKey, JSON.stringify(updatedContactData));
+
+  this.contactsService.update(updatedContactData).subscribe(
+    (updatedContact) => {
+      console.log('Pomyślnie zaktualizowano kontakt na podstawie danych z local storage');
+     
+    },
+    (error: string) => {
+      console.error('Błąd podczas aktualizacji danych na podstawie danych z local storage');
+    }
+  );
+}
+
   onSubmit() {
     if (this.contactForm.valid) {
       const contactData: Contact = this.contactForm.getRawValue();
       console.log('Id konstrukcji:', contactData.id);
       
       if (contactData.id && this.contactsService.getById(contactData.id)) {
-        this.contactsService.update(contactData).subscribe((updatedContact) => {
+        this.contactsService.update(contactData).subscribe(() => {
           console.log('Pomyślnie zaktualizowano');
-          this.dialogRef.close(updatedContact);
+          this.dialogRef.close(true);
         },
         (error: string) => {
           console.error('Błąd podczas aktualizacji danych');
         });
       } else {
-        this.contactsService.create(contactData).subscribe((newContact) => {
+        this.contactsService.create(contactData).subscribe(() => {
           console.log('Pomyślnie dodano');
-          this.dialogRef.close(newContact);
+          this.dialogRef.close(false);
         }),
         (error: string) => {
           console.error('Błąd podczas zapisywania wprowadzonych danych')

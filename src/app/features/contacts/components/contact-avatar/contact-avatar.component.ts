@@ -1,5 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.model';
+import { AvatarUploadDialogComponent } from '../avatar-upload-dialog/avatar-upload-dialog.component';
+import { UploadedFileService } from 'src/app/shared/services/uploaded-file.service';
+import { ContactsService } from '../../services/contacts.service';
 
 @Component({
   selector: 'app-contact-avatar',
@@ -9,10 +13,42 @@ import { Contact } from 'src/app/models/contact.model';
 export class ContactAvatarComponent implements OnInit {
   @Input() contact!: Contact;
   @Input() source: string | undefined;
+  @Input() isBadgeHidden: boolean = true;
+  isBadgeHidden2: boolean = true;
+  @Output() avatarChanged: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(private dialog: MatDialog,
+    private uploadedFileService: UploadedFileService,
+    private contactsService: ContactsService) {}
 
   ngOnInit(): void {
-    console.log(this.contact);
     this.checkAndAssignDefaultAvatar();
+  }
+
+  onAvatarChanged() {
+    this.avatarChanged.emit();
+  }
+
+  openAvatarUploadDialog(): void {
+    if (this.isBadgeHidden) {
+      return;
+    }
+
+    const dialogRef = this.dialog.open(AvatarUploadDialogComponent, {
+      width: '400px',
+      data: this.contact,
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        const base64Image = this.uploadedFileService.getById(this.contact.id).subscribe((res: string) => {
+          console.log(res);
+          this.source = res;
+          
+          this.onAvatarChanged();
+        });
+      }
+    });
   }
 
   checkAndAssignDefaultAvatar(): void {

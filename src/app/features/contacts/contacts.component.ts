@@ -58,6 +58,12 @@ export class ContactsComponent {
       width: '700px',
       data: contact
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.getAllData();
+      }
+    });
   }
 
   deleteElement(id: number) {

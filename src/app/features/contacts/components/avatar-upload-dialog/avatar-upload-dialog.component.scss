@@ -1,0 +1,32 @@
+.title {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+  }
+  
+  mat-dialog-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .choose {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .file-name {
+    padding-top: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+
+  .right-buttons-container {
+    margin-left: auto;
+  }
+}
+  

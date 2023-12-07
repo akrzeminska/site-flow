@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ContactsRoutingModule } from './contacts-routing.module';
 import { ContactsComponent } from './contacts.component';
-import { MaterialModule } from 'src/app/shared/material.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
 import { ContactsService } from './services/contacts.service';
 import { ContactsLocalStorageService } from './services/contacts-local-storage.service';
@@ -17,13 +17,20 @@ import { TasksService } from '../tasks/services/tasks.service';
 import { TasksLocalStorageService } from '../tasks/services/tasks-local-storage.service';
 import { ContactCardComponent } from './components/contact-card/contact-card.component';
 import { ContactAvatarComponent } from './components/contact-avatar/contact-avatar.component';
+import { AvatarUploadDialogComponent } from './components/avatar-upload-dialog/avatar-upload-dialog.component';
 
 @NgModule({
-  declarations: [ContactsComponent, ContactFormComponent, ContactCardComponent, ContactAvatarComponent],
+  declarations: [
+    ContactsComponent,
+    ContactFormComponent,
+    ContactCardComponent,
+    ContactAvatarComponent,
+    AvatarUploadDialogComponent,
+  ],
   imports: [
     CommonModule,
     ContactsRoutingModule,
-    MaterialModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
@@ -32,8 +39,11 @@ import { ContactAvatarComponent } from './components/contact-avatar/contact-avat
     LocalStorageSeederService,
     { provide: ContactsService, useExisting: ContactsLocalStorageService },
     NotificationService,
-    { provide: ConstructionsService, useExisting: ConstructionsLocalStorageService },
-    { provide: TasksService, useExisting: TasksLocalStorageService }
-  ]
+    {
+      provide: ConstructionsService,
+      useExisting: ConstructionsLocalStorageService,
+    },
+    { provide: TasksService, useExisting: TasksLocalStorageService },
+  ],
 })
-export class ContactsModule { }
+export class ContactsModule {}

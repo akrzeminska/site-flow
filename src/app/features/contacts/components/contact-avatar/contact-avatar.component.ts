@@ -14,6 +14,7 @@ export class ContactAvatarComponent implements OnInit {
   @Input() contact!: Contact;
   @Input() source: string | undefined;
   @Input() isBadgeHidden: boolean = true;
+  isBadgeHidden2: boolean = true;
   @Output() avatarChanged: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private dialog: MatDialog,
@@ -29,6 +30,10 @@ export class ContactAvatarComponent implements OnInit {
   }
 
   openAvatarUploadDialog(): void {
+    if (this.isBadgeHidden) {
+      return;
+    }
+
     const dialogRef = this.dialog.open(AvatarUploadDialogComponent, {
       width: '400px',
       data: this.contact,

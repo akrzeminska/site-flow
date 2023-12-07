@@ -131,17 +131,17 @@ updateContactFromLocalStorage() {
       console.log('Id konstrukcji:', contactData.id);
       
       if (contactData.id && this.contactsService.getById(contactData.id)) {
-        this.contactsService.update(contactData).subscribe((updatedContact) => {
+        this.contactsService.update(contactData).subscribe(() => {
           console.log('Pomyślnie zaktualizowano');
-          this.dialogRef.close(updatedContact);
+          this.dialogRef.close(true);
         },
         (error: string) => {
           console.error('Błąd podczas aktualizacji danych');
         });
       } else {
-        this.contactsService.create(contactData).subscribe((newContact) => {
+        this.contactsService.create(contactData).subscribe(() => {
           console.log('Pomyślnie dodano');
-          this.dialogRef.close(newContact);
+          this.dialogRef.close(false);
         }),
         (error: string) => {
           console.error('Błąd podczas zapisywania wprowadzonych danych')

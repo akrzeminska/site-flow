@@ -18,7 +18,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatAccordion, MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatStepperModule } from '@angular/material/stepper';
@@ -83,7 +83,7 @@ import { UploadedFileLocalStorageService } from './services/uploaded-file-local-
     MatSortModule,
     MatTableModule,
     CommonModule,
-    PhoneFormatPipe,
+    PhoneFormatPipe
   ],
   imports: [
     MatAutocompleteModule,
@@ -122,7 +122,7 @@ import { UploadedFileLocalStorageService } from './services/uploaded-file-local-
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule,
+    CommonModule
   ],
   providers: [
     {

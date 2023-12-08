@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cost-estimates',
@@ -11,7 +12,7 @@ import {MatTableModule} from '@angular/material/table';
 
 
 export class CostEstimatesComponent {
-
+  constructor(private router: Router) {}
 
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   
@@ -31,6 +32,9 @@ export class CostEstimatesComponent {
     }
   }
 
+  navigateToDetails() {
+    this.router.navigate(['/costs/details'])
+  }
   
 
   

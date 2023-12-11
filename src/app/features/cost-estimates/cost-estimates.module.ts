@@ -6,6 +6,8 @@ import { CostEstimatesComponent } from './cost-estimates.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MatInputModule } from '@angular/material/input';
 import { CostEstimatesDetailsComponent } from './components/cost-estimates-details/cost-estimates-details.component';
+import { CostEstimatesService } from './services/cost-estimates.service';
+import { CostEstimatesLocalStorageService } from './services/cost-estimates-local-storage.service';
 
 
 @NgModule({
@@ -15,6 +17,10 @@ import { CostEstimatesDetailsComponent } from './components/cost-estimates-detai
     CostEstimatesRoutingModule,
     SharedModule,
     MatInputModule
+  ],
+  providers: [
+    { provide: CostEstimatesService, useExisting: CostEstimatesLocalStorageService },
+
   ]
 })
 export class CostEstimatesModule { }

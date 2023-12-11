@@ -9,15 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./cost-estimates.component.scss']
 })
 
-
-
 export class CostEstimatesComponent {
   constructor(private router: Router) {}
 
   @ViewChild(MatAccordion) accordion!: MatAccordion;
   
   applyFilter(event: Event) {
-
   }
 
   openAllPanels() {
@@ -33,9 +30,7 @@ export class CostEstimatesComponent {
   }
 
   navigateToDetails() {
-    this.router.navigate(['/costs/details'])
+    const objectId = '2';
+    this.router.navigate(['/costs-estimates/', objectId])
   }
-  
-
-  
 }

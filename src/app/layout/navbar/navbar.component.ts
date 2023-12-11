@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
   public links = [
     { path: '/', label: 'Panel użytkownika', icon: 'account_circle' },
     { path: '/constructions', label: 'Budowy', icon: 'businessaccount' },
-    { path: '/costs', label: 'Kosztorysy', icon: 'date_range' },
+    { path: '/costs-estimates', label: 'Kosztorysy', icon: 'date_range' },
     { path: '/contacts', label: 'Kontakty', icon: 'phone' },
     { path: '/tasks', label: 'Zadania', icon: 'description' },
   ];

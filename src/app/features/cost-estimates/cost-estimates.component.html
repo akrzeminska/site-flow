@@ -14,70 +14,26 @@
     <button mat-button (click)="closeAllPanels()">Ukryj wszystko</button>
   </div>
   <mat-accordion class="example-headers-align" multi>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          K1/03/2021 "Osiedle pod Dębami"
-        </mat-panel-title>
-        <mat-panel-description>
-          Autor: Janusz Brzęczyszczykiewicz
-          <mat-icon>date_range</mat-icon>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      
-      <mat-grid-list cols="3" rowHeight="60px" gutterSize="5px">
-        <mat-grid-tile>Opis: Roboty budowlane w zakresie stanu surowego otwartego</mat-grid-tile>
-        <mat-grid-tile>Inwestor: IMS Budownictwo Sp. z o.o.</mat-grid-tile>
-        <mat-grid-tile>Wartość kosztorysu: 1 550 300 zł</mat-grid-tile>
-        <mat-grid-tile>Lokalizacja: ul. Zabłocie 13, 30-702 Kraków</mat-grid-tile>
-        <mat-grid-tile>Umowa nr: 273/2021-UPL</mat-grid-tile>
-        <mat-grid-tile><button mat-flat-button (click)="navigateToDetails(1)" color="primary">Szczegóły</button></mat-grid-tile>
-      </mat-grid-list>
-
-    </mat-expansion-panel>
-
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            K2/03/2021 "Pasaż Podgórski"
-          </mat-panel-title>
-          <mat-panel-description>
-            Autor: Jan Nowak
-            <mat-icon>date_range</mat-icon>
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        
-        <mat-grid-list cols="3" rowHeight="60px" gutterSize="5px">
-          <mat-grid-tile>Opis: Roboty budowlane w zakresie stanu surowego otwartego</mat-grid-tile>
-          <mat-grid-tile>Inwestor: IMS Budownictwo Sp. z o.o.</mat-grid-tile>
-          <mat-grid-tile>Wartość kosztorysu: 1 550 300 zł</mat-grid-tile>
-          <mat-grid-tile>Lokalizacja: ul. Zabłocie 13, 30-702 Kraków</mat-grid-tile>
-          <mat-grid-tile>Umowa nr: 273/2021-UPL</mat-grid-tile>
-          <mat-grid-tile><button mat-flat-button (click)="navigateToDetails(2)" color="primary">Szczegóły</button></mat-grid-tile>
-        </mat-grid-list>
-  
-      </mat-expansion-panel>
-  
+    <ng-container *ngFor="let dataCost of dataCostEstimates">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
-            K3/03/2021 "Green House"
+            {{ dataCost.name }}
           </mat-panel-title>
           <mat-panel-description>
-            Autor: Jolanta Wyka
+            Autor: {{ dataCost.author }}
             <mat-icon>date_range</mat-icon>
           </mat-panel-description>
         </mat-expansion-panel-header>
-        
         <mat-grid-list cols="3" rowHeight="60px" gutterSize="5px">
-          <mat-grid-tile>Opis: Roboty budowlane w zakresie stanu surowego otwartego</mat-grid-tile>
-          <mat-grid-tile>Inwestor: IMS Budownictwo Sp. z o.o.</mat-grid-tile>
-          <mat-grid-tile>Wartość kosztorysu: 1 550 300 zł</mat-grid-tile>
-          <mat-grid-tile>Lokalizacja: ul. Zabłocie 13, 30-702 Kraków</mat-grid-tile>
-          <mat-grid-tile>Umowa nr: 273/2021-UPL</mat-grid-tile>
-          <mat-grid-tile><button mat-flat-button (click)="navigateToDetails(3)" color="primary">Szczegóły</button></mat-grid-tile>
+          <mat-grid-tile>Opis: {{ dataCost.description }}</mat-grid-tile>
+          <mat-grid-tile>Inwestor: {{ dataCost.client }}</mat-grid-tile>
+          <mat-grid-tile>Wartość kosztorysu: {{ dataCost.costEstimateValue }} zł</mat-grid-tile>
+          <mat-grid-tile>Lokalizacja: {{ dataCost.location }}</mat-grid-tile>
+          <mat-grid-tile>Umowa nr: {{ dataCost.contractNumber }}</mat-grid-tile>
+          <mat-grid-tile><button mat-flat-button (click)="navigateToDetails(dataCost.id)" color="primary">Szczegóły</button></mat-grid-tile>
         </mat-grid-list>
-  
       </mat-expansion-panel>
+    </ng-container>
   </mat-accordion>
 

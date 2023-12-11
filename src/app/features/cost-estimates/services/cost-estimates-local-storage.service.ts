@@ -15,8 +15,6 @@ export class CostEstimatesLocalStorageService extends CostEstimatesService {
   public override getById(id: number): Observable<string | null> {
     const localStorageKey = `costEstimate_${id}`;
     const localStorageData = localStorage.getItem(localStorageKey);
-    console.log(localStorageData);
-
     return of(localStorageData);
   }
   

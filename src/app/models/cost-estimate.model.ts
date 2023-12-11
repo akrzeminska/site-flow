@@ -2,15 +2,13 @@ import { Construction } from "./construction.model";
 
 export interface CostEstimate {
     id: number;
+    name: string;
+    author: string;
     description: string;
-    costOfConstructionWorks: number;
-    subcontractorCosts: number;
-    administrationCosts: number;
-    construction: Construction;
-    paymentTerms: string;
-    paymentConditions: string;
-    attachments: string[];
-    totalCost: number;
-    budget: number;
-    profit: number;
+    client: string;
+    location: string;
+    contractNumber: string;
+    costEstimateValue: number;
+    constructionId: number;
+    contactId: number[];
   }

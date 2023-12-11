@@ -117,62 +117,53 @@ export class LocalStorageSeederService {
   private costEstimateSeed = [
     {
       "id": 1,
-      "description": "Example Cost Estimate",
-      "costOfConstructionWorks": 50000,
-      "subcontractorCosts": 10000,
-      "administrationCosts": 5000,
-      "totalCost": 65000,
-      "budget": 70000,
-      "profit": 5000,
+      "name": 'K1/03/2021 "Osiedle pod Dębami"',
+      "author": 'Janusz Brzęczyszczykiewicz',
+      "description": 'Roboty budowlane w zakresie stanu surowego otwartego',
+      "client": 'IMS Budownictwo Sp. z o.o.',
+      "location": 'ul. Zabłocie 13, 30-702 Kraków',
+      "contractNumber": '273/2021-UPL',
+      "costEstimateValue": 1500000,
       "constructionId": 1,
-      "paymentTerms": "Net 30 days",
-      "paymentConditions": "Payment due upon completion",
-      "attachments": ["attachment1.pdf", "attachment2.docx"]
+      "contactId": [1]
     },
     {
       "id": 2,
-      "description": "Office Building Estimation",
-      "costOfConstructionWorks": 80000,
-      "subcontractorCosts": 15000,
-      "administrationCosts": 8000,
-      "totalCost": 103000,
-      "budget": 110000,
-      "profit": 7000,
+      "name": 'B2/05/2022 "Apartamenty Nad Jeziorem"',
+      "author": 'Alicja Kowalska',
+      "description": 'Budowa luksusowych apartamentów nad jeziorem',
+      "client": 'Firma Deweloperska XYZ Sp. z o.o.',
+      "location": 'ul. Nadbrzeżna 7, 50-200 Wrocław',
+      "contractNumber": '109/2022-XYZ',
+      "costEstimateValue": 3000000,
       "constructionId": 2,
-      "paymentTerms": "Net 45 days",
-      "paymentConditions": "Progress-based payments",
-      "attachments": ["office-estimation.pdf", "office-plans.docx"]
+      "contactId": [2]
     },
-    
     {
       "id": 3,
-      "description": "Apartment Complex Budget",
-      "costOfConstructionWorks": 120000,
-      "subcontractorCosts": 25000,
-      "administrationCosts": 10000,
-      "totalCost": 155000,
-      "budget": 160000,
-      "profit": 5000,
+      "name": 'C3/07/2023 "Nowoczesne Biurowce Plaza"',
+      "author": 'Marcin Nowak',
+      "description": 'Budowa nowoczesnych biurowców w centrum miasta',
+      "client": 'Plaza Development Sp. z o.o.',
+      "location": 'Plac Wolności 5, 00-001 Warszawa',
+      "contractNumber": '512/2023-PLD',
+      "costEstimateValue": 5000000,
       "constructionId": 3,
-      "paymentTerms": "Net 60 days",
-      "paymentConditions": "Payment on project milestones",
-      "attachments": ["apartment-estimate.pdf", "complex-plans.docx"]
+      "contactId": [3]
     },
-    
     {
       "id": 4,
-      "description": "Hospital Renovation Costs",
-      "costOfConstructionWorks": 30000,
-      "subcontractorCosts": 6000,
-      "administrationCosts": 3000,
-      "totalCost": 39000,
-      "budget": 40000,
-      "profit": 1000,
+      "name": 'D4/09/2024 "Parkowa Rezydencja"',
+      "author": 'Magdalena Zielińska',
+      "description": 'Realizacja ekskluzywnej parkowej rezydencji',
+      "client": 'Firma Inwestycyjna ABC Sp. z o.o.',
+      "location": 'ul. Parkowa 10, 80-300 Gdańsk',
+      "contractNumber": '701/2024-ABC',
+      "costEstimateValue": 8000000,
       "constructionId": 4,
-      "paymentTerms": "Net 30 days",
-      "paymentConditions": "Payment upon completion and inspection",
-      "attachments": ["hospital-costs.pdf", "renovation-plans.docx"]
+      "contactId": [4]
     }
+    
   ];
 
   private taskSeed = [

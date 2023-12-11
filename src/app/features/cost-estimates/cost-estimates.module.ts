@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CostEstimatesDetailsComponent } from './components/cost-estimates-details/cost-estimates-details.component';
 import { CostEstimatesService } from './services/cost-estimates.service';
 import { CostEstimatesLocalStorageService } from './services/cost-estimates-local-storage.service';
+import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { CostEstimatesLocalStorageService } from './services/cost-estimates-loca
     MatInputModule
   ],
   providers: [
+    LocalStorageSeederService,
     { provide: CostEstimatesService, useExisting: CostEstimatesLocalStorageService },
 
   ]

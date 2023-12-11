@@ -1,3 +1,12 @@
-<p>cost-estimates-details works!</p>
+<section>
+    <div class="sec">
+        <div class="title"><h1>Szczegóły kosztorysu nr {{ objectId }}</h1></div>
+        <div class="button"><button mat-flat-button color="primary">+ Dodaj</button></div>
+    </div>
+</section>
+<mat-divider></mat-divider>
+<mat-form-field>
+    <mat-label>Filtruj</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtruj" #input>
+</mat-form-field>
 
-<p>ID obiektu: {{ objectId }}</p>

@@ -1,1 +1,39 @@
-<p>cost-estimates works!</p>
+<section>
+    <div class="sec">
+        <div class="title"><h1>Kosztorysy</h1></div>
+        <div class="button"><button mat-flat-button color="primary">+ Dodaj</button></div>
+    </div>
+</section>
+<mat-divider></mat-divider>
+<mat-form-field>
+    <mat-label>Filtruj</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtruj" #input>
+</mat-form-field>
+<div class="example-action-buttons">
+    <button mat-button (click)="openAllPanels()">Pokaż wszystko</button>
+    <button mat-button (click)="closeAllPanels()">Ukryj wszystko</button>
+  </div>
+  <mat-accordion class="example-headers-align" multi>
+    <ng-container *ngFor="let dataCost of dataCostEstimates">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ dataCost.name }}
+          </mat-panel-title>
+          <mat-panel-description>
+            Autor: {{ dataCost.author }}
+            <mat-icon>date_range</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-grid-list cols="3" rowHeight="60px" gutterSize="5px">
+          <mat-grid-tile>Opis: {{ dataCost.description }}</mat-grid-tile>
+          <mat-grid-tile>Inwestor: {{ dataCost.client }}</mat-grid-tile>
+          <mat-grid-tile>Wartość kosztorysu: {{ dataCost.costEstimateValue }} zł</mat-grid-tile>
+          <mat-grid-tile>Lokalizacja: {{ dataCost.location }}</mat-grid-tile>
+          <mat-grid-tile>Umowa nr: {{ dataCost.contractNumber }}</mat-grid-tile>
+          <mat-grid-tile><button mat-flat-button (click)="navigateToDetails(dataCost.id)" color="primary">Szczegóły</button></mat-grid-tile>
+        </mat-grid-list>
+      </mat-expansion-panel>
+    </ng-container>
+  </mat-accordion>
+

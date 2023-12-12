@@ -10,7 +10,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'costs',
+    path: 'costs-estimates',
     loadChildren: () =>
       import('./features/cost-estimates/cost-estimates.module').then(
         (m) => m.CostEstimatesModule

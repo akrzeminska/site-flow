@@ -1,0 +1,47 @@
+<section>
+    <div class="sec">
+        <div class="title"><h1>Szczegóły kosztorysu nr {{ objectId }}</h1></div>
+        <div class="button"><button mat-flat-button color="primary">+ Edytuj</button></div>
+    </div>
+</section>
+<mat-divider></mat-divider>
+  
+  <table mat-table [dataSource]="dataAllWorks" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> Lp </th>
+      <td mat-cell *matCellDef="let element"> {{element['Lp']}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nazwa </th>
+      <td mat-cell *matCellDef="let element"> {{element['Nazwa']}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef> Ilość </th>
+      <td mat-cell *matCellDef="let element"> {{element['Ilość']}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> J.m. </th>
+      <td mat-cell *matCellDef="let element"> {{element['J.m.']}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Cena j.m. (M+R) </th>
+      <td mat-cell *matCellDef="let element"> {{element['Cena j.m. (M+R)']}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef> Wartość </th>
+      <td mat-cell *matCellDef="let element"> {{element['Wartość']}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+
+  </table>
+<br>
+{{ dataAllWorks[1]['Lp'] | json }}

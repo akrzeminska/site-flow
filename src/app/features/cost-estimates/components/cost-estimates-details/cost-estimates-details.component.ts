@@ -7,6 +7,7 @@ import { MatTableModule } from '@angular/material/table';
 import { NgFor, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { Work } from 'src/app/models/work.model';
 
 @Component({
   selector: 'app-cost-estimates-details',
@@ -24,7 +25,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class CostEstimatesDetailsComponent implements OnInit {
   objectId!: number;
   dataSource!: CostEstimate[];
-  dataAllWorks!: any[];
+  dataAllWorks!: Work[];
 
   columnsToDisplay = ['L.p.', 'Nazwa', 'Ilość', 'J.m.', 'Cena j.m. (M+R)', 'Wartość'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];

@@ -113,7 +113,6 @@ export class LocalStorageSeederService {
     }
   ];
   
-
   private costEstimateSeed = [
     {
       "id": 1,
@@ -126,10 +125,10 @@ export class LocalStorageSeederService {
       "costEstimateValue": 281595,
       "constructionId": 1,
       "contactId": [1],
-      "detailedCosts": [
+      "allWorks": [
         {
          "L.p.": "0.",
-         "Nazwa": "  PRACE PRZYGOTOWAWCZE",
+         "Nazwa": "PRACE PRZYGOTOWAWCZE",
          "Wartość": 27500
         },
         {
@@ -550,7 +549,7 @@ export class LocalStorageSeederService {
       "costEstimateValue": 3000000,
       "constructionId": 2,
       "contactId": [2],
-      "detailedCosts": []
+      "allWorks": []
     },
     {
       "id": 3,
@@ -563,7 +562,7 @@ export class LocalStorageSeederService {
       "costEstimateValue": 5000000,
       "constructionId": 3,
       "contactId": [3],
-      "detailedCosts": []
+      "allWorks": []
     },
     {
       "id": 4,
@@ -576,7 +575,7 @@ export class LocalStorageSeederService {
       "costEstimateValue": 8000000,
       "constructionId": 4,
       "contactId": [4],
-      "detailedCosts": []
+      "allWorks": []
     }
     
   ];

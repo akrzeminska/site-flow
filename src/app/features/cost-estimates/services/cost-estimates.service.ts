@@ -11,4 +11,5 @@ export abstract class CostEstimatesService {
   public abstract create(item: CostEstimate): Observable<number>;
   public abstract update(item: CostEstimate): Observable<any>;
   public abstract delete(id: number): Observable<any>;
+  public abstract getAllWorks(id: number): Observable<any[]>;
 }

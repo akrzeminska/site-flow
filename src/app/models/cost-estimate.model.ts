@@ -11,5 +11,5 @@ export interface CostEstimate {
     costEstimateValue: number;
     constructionId: number;
     contactId: number[];
-    detailedCosts: []
+    allWorks: []
   }

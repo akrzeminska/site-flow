@@ -1,5 +1,5 @@
 export interface Work {
-    "L.p."?: string;
+    "Lp"?: string;
     "Nazwa"?: string;
     "Wartość": number;
     "Ilość"?: number;

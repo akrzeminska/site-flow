@@ -127,12 +127,12 @@ export class LocalStorageSeederService {
       "contactId": [1],
       "allWorks": [
         {
-         "L.p.": "0.",
+         "Lp": "0.",
          "Nazwa": "PRACE PRZYGOTOWAWCZE",
          "Wartość": 27500
         },
         {
-         "L.p.": "0.1",
+         "Lp": "0.1",
          "Nazwa": "Drogi i place tymczasowe",
          "Ilość": 1,
          "J.m.": "kpl",
@@ -140,7 +140,7 @@ export class LocalStorageSeederService {
          "Wartość": 7000
         },
         {
-         "L.p.": "0.2",
+         "Lp": "0.2",
          "Nazwa": "Ogrodzenie i ochrona terenu budowy",
          "Ilość": 1,
          "J.m.": "kpl",
@@ -148,7 +148,7 @@ export class LocalStorageSeederService {
          "Wartość": 5200
         },
         {
-         "L.p.": "0.3",
+         "Lp": "0.3",
          "Nazwa": "Zapewnienie i koszt mediów do celów budowy",
          "Ilość": 12,
          "J.m.": "msc.",
@@ -156,7 +156,7 @@ export class LocalStorageSeederService {
          "Wartość": 7500
         },
         {
-         "L.p.": "0.4",
+         "Lp": "0.4",
          "Nazwa": "Zaplecze budowy - kontener socjalny, kontener magazynowy, wc",
          "Ilość": 12,
          "J.m.": "msc.",
@@ -164,7 +164,7 @@ export class LocalStorageSeederService {
          "Wartość": 4200
         },
         {
-         "L.p.": "0.5",
+         "Lp": "0.5",
          "Nazwa": "Wywóz odpadów budowlanych",
          "Ilość": 12,
          "J.m.": "msc.",
@@ -172,12 +172,12 @@ export class LocalStorageSeederService {
          "Wartość": 3600
         },
         {
-         "L.p.": "1.",
+         "Lp": "1.",
          "Nazwa": "  ROBOTY ZIEMNE",
          "Wartość": 19176
         },
         {
-         "L.p.": "1.1",
+         "Lp": "1.1",
          "Nazwa": "Wykopy mechaniczne na odkład - zebranie warstwy humusu gr. 30cm - założono pozostawienie ziemi z wykopów celem zagospodarowania na terenie inwestycji",
          "Ilość": 40.2,
          "J.m.": "m3",
@@ -185,7 +185,7 @@ export class LocalStorageSeederService {
          "Wartość": 1608
         },
         {
-         "L.p.": "1.2",
+         "Lp": "1.2",
          "Nazwa": "Wykop mechaniczny pod fundamenty - założono pozostawienie ziemi z wykopów w rejonie inwestycji celem zagospodarowania",
          "Ilość": 234.8,
          "J.m.": "m3",
@@ -193,7 +193,7 @@ export class LocalStorageSeederService {
          "Wartość": 9392
         },
         {
-         "L.p.": "1.3",
+         "Lp": "1.3",
          "Nazwa": "Obsypka fundamentów od wewnątrz - piasek zagęszczony mechanicznie",
          "Ilość": 92,
          "J.m.": "m3",
@@ -201,7 +201,7 @@ export class LocalStorageSeederService {
          "Wartość": 6440
         },
         {
-         "L.p.": "1.4",
+         "Lp": "1.4",
          "Nazwa": "Obsypka fundamentów z zewnątrz - ziemia z wykopów",
          "Ilość": 24.8,
          "J.m.": "m3",
@@ -209,12 +209,12 @@ export class LocalStorageSeederService {
          "Wartość": 1736
         },
         {
-         "L.p.": "2.",
+         "Lp": "2.",
          "Nazwa": "  FUNDAMENTY, IZOLACJE I ROBOTY ŻELBETOWE PODZIEMIA",
          "Wartość": 33018.75
         },
         {
-         "L.p.": "2.1",
+         "Lp": "2.1",
          "Nazwa": "Podkłady betonowe gr. 10cm pod ławy i stopy fundamentowe\nBeton B10 (C8\/10)",
          "Ilość": 6.5,
          "J.m.": "m3",
@@ -222,7 +222,7 @@ export class LocalStorageSeederService {
          "Wartość": 2015
         },
         {
-         "L.p.": "2.2",
+         "Lp": "2.2",
          "Nazwa": "Ławy fundamentowe żelbetowe 70x30cm, 80x30cm, 120x30cm\nBeton konstrukcyjny B25 (C20\/25)",
          "Ilość": 14.5,
          "J.m.": "m3",
@@ -230,7 +230,7 @@ export class LocalStorageSeederService {
          "Wartość": 4205
         },
         {
-         "L.p.": "2.3",
+         "Lp": "2.3",
          "Nazwa": "Ławy fundamentowe żelbetowe 70x30cm, 80x30cm, 120x30cm\nStal zbrojeniowa + ułożenie",
          "Ilość": 553,
          "J.m.": "kg",
@@ -238,7 +238,7 @@ export class LocalStorageSeederService {
          "Wartość": 3594.5
         },
         {
-         "L.p.": "2.4",
+         "Lp": "2.4",
          "Nazwa": "Trzpienie i wieńce fundamentowe żelbetowe\nBeton konstrukcyjny B25 (C20\/25)",
          "Ilość": 3.1,
          "J.m.": "m3",
@@ -246,7 +246,7 @@ export class LocalStorageSeederService {
          "Wartość": 899
         },
         {
-         "L.p.": "2.5",
+         "Lp": "2.5",
          "Nazwa": "Trzpienie i wieńce fundamentowe żelbetowe\nStal zbrojeniowa + ułożenie",
          "Ilość": 338.5,
          "J.m.": "kg",
@@ -254,7 +254,7 @@ export class LocalStorageSeederService {
          "Wartość": 2200.25
         },
         {
-         "L.p.": "2.6",
+         "Lp": "2.6",
          "Nazwa": "Ściany fundamentowe z bloczków betonowych\nBloczki na zaprawie cementowej",
          "Ilość": 35.9,
          "J.m.": "m2",
@@ -262,7 +262,7 @@ export class LocalStorageSeederService {
          "Wartość": 4667
         },
         {
-         "L.p.": "2.7",
+         "Lp": "2.7",
          "Nazwa": "Izolacja przeciwwilgociowa pozioma fundamentów\n2x papa termozgrzewalna",
          "Ilość": 48.2,
          "J.m.": "m2",
@@ -270,7 +270,7 @@ export class LocalStorageSeederService {
          "Wartość": 3374
         },
         {
-         "L.p.": "2.8",
+         "Lp": "2.8",
          "Nazwa": "Izolacja przeciwwilgociowa pionowa ścian fundamentowych np. membrana wodoszczelna typu średniego",
          "Ilość": 139.2,
          "J.m.": "m2",
@@ -278,7 +278,7 @@ export class LocalStorageSeederService {
          "Wartość": 9744
         },
         {
-         "L.p.": "2.9",
+         "Lp": "2.9",
          "Nazwa": "Izolacja termiczna pionowa ścian fundamentowych z EPS hydro gr. 15cm + folia kubełkowa",
          "Ilość": 35,
          "J.m.": "m2",
@@ -286,7 +286,7 @@ export class LocalStorageSeederService {
          "Wartość": 2100
         },
         {
-         "L.p.": "2.10",
+         "Lp": "2.10",
          "Nazwa": "Wypełnienie dylatacji między budynkami do poz. 0,00",
          "Ilość": 5.5,
          "J.m.": "m2",
@@ -294,12 +294,12 @@ export class LocalStorageSeederService {
          "Wartość": 220
         },
         {
-         "L.p.": "3.",
+         "Lp": "3.",
          "Nazwa": "  STROPY i ROBOTY ŻELBETOWE NADZIEMIA",
          "Wartość": 87334.84999999999
         },
         {
-         "L.p.": "3.1",
+         "Lp": "3.1",
          "Nazwa": "Płyta żelbetowa stropu nad parterem gr. 18cm\nBeton konstrukcyjny B25 (C20\/25)",
          "Ilość": 70.6,
          "J.m.": "m2",
@@ -307,7 +307,7 @@ export class LocalStorageSeederService {
          "Wartość": 15531.999999999998
         },
         {
-         "L.p.": "3.2",
+         "Lp": "3.2",
          "Nazwa": "Płyta żelbetowa stropu nad parterem gr. 18cm\nStal zbrojeniowa + ułożenie",
          "Ilość": 1372.9,
          "J.m.": "kg",
@@ -315,7 +315,7 @@ export class LocalStorageSeederService {
          "Wartość": 8923.85
         },
         {
-         "L.p.": "3.1",
+         "Lp": "3.1",
          "Nazwa": "Płyta żelbetowa stropodachu gr. 16cm\nBeton konstrukcyjny B25 (C20\/25)",
          "Ilość": 84.1,
          "J.m.": "m2",
@@ -323,7 +323,7 @@ export class LocalStorageSeederService {
          "Wartość": 27752.999999999996
         },
         {
-         "L.p.": "3.2",
+         "Lp": "3.2",
          "Nazwa": "Płyta żelbetowa stropodachu gr. 16cm\nStal zbrojeniowa + ułożenie",
          "Ilość": 1453.7,
          "J.m.": "kg",
@@ -331,7 +331,7 @@ export class LocalStorageSeederService {
          "Wartość": 9449.050000000001
         },
         {
-         "L.p.": "3.3",
+         "Lp": "3.3",
          "Nazwa": "Elementy żelbetowe - podciągi, słupy, wieńce\nBeton konstrukcyjny B25 (C20\/25)",
          "Ilość": 11.8,
          "J.m.": "m3",
@@ -339,7 +339,7 @@ export class LocalStorageSeederService {
          "Wartość": 3422
         },
         {
-         "L.p.": "3.4",
+         "Lp": "3.4",
          "Nazwa": "Elementy żelbetowe - podciągi, słupy, wieńce\nStal zbrojeniowa + ułożenie",
          "Ilość": 1806.2,
          "J.m.": "kg",
@@ -347,7 +347,7 @@ export class LocalStorageSeederService {
          "Wartość": 11740.300000000001
         },
         {
-         "L.p.": "3.5",
+         "Lp": "3.5",
          "Nazwa": "Schody żelbetowe\nBeton konstrukcyjny B25 (C20\/25)",
          "Ilość": 9.4,
          "J.m.": "m2",
@@ -355,7 +355,7 @@ export class LocalStorageSeederService {
          "Wartość": 8460
         },
         {
-         "L.p.": "3.6",
+         "Lp": "3.6",
          "Nazwa": "Schody żelbetowe\nStal zbrojeniowa + ułożenie",
          "Ilość": 316.1,
          "J.m.": "kg",
@@ -363,12 +363,12 @@ export class LocalStorageSeederService {
          "Wartość": 2054.65
         },
         {
-         "L.p.": "4.",
+         "Lp": "4.",
          "Nazwa": "  ROBOTY MUROWE",
          "Wartość": 64509
         },
         {
-         "L.p.": "4.1",
+         "Lp": "4.1",
          "Nazwa": "Roboty murowe ścian konstrukcyjnych zewnętrznych\nBloczki silikatowe gr. 24cm na zaprawie cem.-wap.",
          "Ilość": 193.9,
          "J.m.": "m2",
@@ -376,7 +376,7 @@ export class LocalStorageSeederService {
          "Wartość": 31024
         },
         {
-         "L.p.": "4.2",
+         "Lp": "4.2",
          "Nazwa": "Roboty murowe ścian konstrukcyjnych wewnętrznych\nBloczki silikatowe gr. 24cm na zaprawie cem.-wap.",
          "Ilość": 82,
          "J.m.": "m2",
@@ -384,7 +384,7 @@ export class LocalStorageSeederService {
          "Wartość": 13120
         },
         {
-         "L.p.": "4.3",
+         "Lp": "4.3",
          "Nazwa": "Roboty murowe ścian działowych\nBloczki silikatowe gr. 12cm na zaprawie cem.-wap. ",
          "Ilość": 54.9,
          "J.m.": "m2",
@@ -392,7 +392,7 @@ export class LocalStorageSeederService {
          "Wartość": 6313.5
         },
         {
-         "L.p.": "4.4",
+         "Lp": "4.4",
          "Nazwa": "Roboty murowe ścian działowych\nBloczki silikatowe gr. 8cm na zaprawie cem.-wap. ",
          "Ilość": 68,
          "J.m.": "m2",
@@ -400,7 +400,7 @@ export class LocalStorageSeederService {
          "Wartość": 7480
         },
         {
-         "L.p.": "4.5",
+         "Lp": "4.5",
          "Nazwa": "Nadproża prefabrykowane typu L-19N",
          "Ilość": 25.8,
          "J.m.": "mb",
@@ -408,7 +408,7 @@ export class LocalStorageSeederService {
          "Wartość": 3870
         },
         {
-         "L.p.": "4.6",
+         "Lp": "4.6",
          "Nazwa": "Przewody kominowe: powietrzno-spalinowe wraz z termoizolacją i okładziną kominów ponad połać dachu + czapka kominowa",
          "Ilość": 2,
          "J.m.": "kpl",
@@ -416,7 +416,7 @@ export class LocalStorageSeederService {
          "Wartość": 600
         },
         {
-         "L.p.": "4.7",
+         "Lp": "4.7",
          "Nazwa": "Wypełnienie dylatacji między budynkami od poz. 0,00",
          "Ilość": 46.7,
          "J.m.": "m2",
@@ -424,12 +424,12 @@ export class LocalStorageSeederService {
          "Wartość": 2101.5
         },
         {
-         "L.p.": "5.",
+         "Lp": "5.",
          "Nazwa": "  STROPODACH",
          "Wartość": 50056.8
         },
         {
-         "L.p.": "5.1",
+         "Lp": "5.1",
          "Nazwa": "Papa paroizolacyjna",
          "Ilość": 84.1,
          "J.m.": "m2",
@@ -437,7 +437,7 @@ export class LocalStorageSeederService {
          "Wartość": 5887
         },
         {
-         "L.p.": "5.2",
+         "Lp": "5.2",
          "Nazwa": "Kliny spadkowe ze styropianu EPS100 3%",
          "Ilość": 84.1,
          "J.m.": "m2",
@@ -445,7 +445,7 @@ export class LocalStorageSeederService {
          "Wartość": 3027.6
         },
         {
-         "L.p.": "5.3",
+         "Lp": "5.3",
          "Nazwa": "Termoizolacja ze styropianu EPS100 gr. 25cm",
          "Ilość": 84.1,
          "J.m.": "m2",
@@ -453,7 +453,7 @@ export class LocalStorageSeederService {
          "Wartość": 8073.599999999999
         },
         {
-         "L.p.": "5.4",
+         "Lp": "5.4",
          "Nazwa": "2x papa termozgrzewalna",
          "Ilość": 84.1,
          "J.m.": "m2",
@@ -461,7 +461,7 @@ export class LocalStorageSeederService {
          "Wartość": 10092
         },
         {
-         "L.p.": "5.5",
+         "Lp": "5.5",
          "Nazwa": "2x papa termozgrzewalna - wywinięcia na attyki i cokoły kominów, wyłazów",
          "Ilość": 37.1,
          "J.m.": "m2",
@@ -469,7 +469,7 @@ export class LocalStorageSeederService {
          "Wartość": 4823
         },
         {
-         "L.p.": "5.6",
+         "Lp": "5.6",
          "Nazwa": "Termoizolacja pionowa attyki i cokołu kominów, wyłazów dachowych ze styropianu EPS gr. 10cm",
          "Ilość": 25.8,
          "J.m.": "m2",
@@ -477,7 +477,7 @@ export class LocalStorageSeederService {
          "Wartość": 877.2
         },
         {
-         "L.p.": "5.7",
+         "Lp": "5.7",
          "Nazwa": "Termoizolacja pozioma attyki ze styropianu EPS gr. 5cm",
          "Ilość": 11.3,
          "J.m.": "m2",
@@ -485,7 +485,7 @@ export class LocalStorageSeederService {
          "Wartość": 316.40000000000003
         },
         {
-         "L.p.": "5.8",
+         "Lp": "5.8",
          "Nazwa": "Płyta OSB gr. 18mm pod obróbkę blacharska attyki",
          "Ilość": 24,
          "J.m.": "m2",
@@ -493,7 +493,7 @@ export class LocalStorageSeederService {
          "Wartość": 2160
         },
         {
-         "L.p.": "5.9",
+         "Lp": "5.9",
          "Nazwa": "Obróbka blacharska attyki z blachy stalowej powlekanej gr. 0.5mm w kolorze RAL standard",
          "Ilość": 36,
          "J.m.": "m2",
@@ -501,7 +501,7 @@ export class LocalStorageSeederService {
          "Wartość": 5400
         },
         {
-         "L.p.": "5.10",
+         "Lp": "5.10",
          "Nazwa": "Czapki kominów",
          "Ilość": 2,
          "J.m.": "kpl",
@@ -509,7 +509,7 @@ export class LocalStorageSeederService {
          "Wartość": 1000
         },
         {
-         "L.p.": "5.11",
+         "Lp": "5.11",
          "Nazwa": "Wpusty dachowe podgrzewane grawitacyjne",
          "Ilość": 2,
          "J.m.": "szt.",
@@ -517,7 +517,7 @@ export class LocalStorageSeederService {
          "Wartość": 2400
         },
         {
-         "L.p.": "5.12",
+         "Lp": "5.12",
          "Nazwa": "Przelewy awaryjne",
          "Ilość": 2,
          "J.m.": "szt.",
@@ -525,7 +525,7 @@ export class LocalStorageSeederService {
          "Wartość": 1000
         },
         {
-         "L.p.": "5.13",
+         "Lp": "5.13",
          "Nazwa": "Wyłaz dachowy",
          "Ilość": 2,
          "J.m.": "szt.",

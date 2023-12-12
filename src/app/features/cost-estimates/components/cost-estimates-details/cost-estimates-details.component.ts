@@ -3,33 +3,25 @@ import { ActivatedRoute } from '@angular/router';
 import { CostEstimatesService } from '../../services/cost-estimates.service';
 import { CostEstimate } from 'src/app/models/cost-estimate.model';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { NgFor, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { Work } from 'src/app/models/work.model';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-cost-estimates-details',
   templateUrl: './cost-estimates-details.component.html',
-  styleUrls: ['./cost-estimates-details.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
+  styleUrls: ['./cost-estimates-details.component.scss']
 })
 
 export class CostEstimatesDetailsComponent implements OnInit {
   objectId!: number;
-  dataSource!: CostEstimate[];
+  dataSourceTable!: CostEstimate[];
   dataAllWorks!: Work[];
 
-  columnsToDisplay = ['L.p.', 'Nazwa', 'Ilość', 'J.m.', 'Cena j.m. (M+R)', 'Wartość'];
-  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  expandedElement: any | null;
+  displayedColumns: string[] = ['no', 'name', 'amount', 'symbol', 'price', 'value'];
   
   constructor (private route: ActivatedRoute,
     private costEstimatesService: CostEstimatesService) {}
@@ -48,17 +40,13 @@ export class CostEstimatesDetailsComponent implements OnInit {
         .getById(id)
         .subscribe((costEstimate: any) => {
           if (costEstimate) {
-            this.dataSource = [costEstimate];
+            this.dataSourceTable = [costEstimate];
           } else {
             console.log('Nie znaleziono kosztorysu o podanym id.');
           }
-          console.log('Dane po pobraniu przez getById:', this.dataSource);
+          console.log('Dane po pobraniu przez getById:', this.dataSourceTable);
         });
   }
-
-  applyFilter(event: any) {
-      
-  } 
 
   getDataAllWorks(id: number) {
     this.costEstimatesService
@@ -69,7 +57,6 @@ export class CostEstimatesDetailsComponent implements OnInit {
         } else {
           console.log('Nie znaleziono robót w podanym kosztorysie')
         }
-        
         console.log('Dane po pobraniu getAllWorks', this.dataAllWorks);
       })
     

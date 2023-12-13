@@ -13,12 +13,11 @@
 
 .tasks-kanban-content {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 20px;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 20px;
 }
 .example-container {
-    width: 320px;
     max-width: 100%;
     margin: 0 25px 25px 0;
     display: inline-block;
@@ -30,14 +29,12 @@
         justify-content: center;
         padding: 10px;
     }
-    .example-card {
-        box-shadow: none;
-      }
   }
   
   .example-list {
+    width: 300px;
     border: solid 1px #ccc;
-    min-height: 60px;
+    min-height: 100vh;
     background: white;
     border-radius: 4px;
     overflow: hidden;
@@ -45,7 +42,6 @@
   }
   
   .example-box {
-    padding: 20px 10px;
     border-bottom: solid 1px #ccc;
     color: rgba(0, 0, 0, 0.87);
     display: flex;
@@ -81,4 +77,15 @@
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
+
+    button {
+        width: 100%;
+    }
+}
   

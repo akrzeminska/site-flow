@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {NgFor} from '@angular/common';
 import {
   CdkDragDrop,
@@ -8,16 +8,39 @@ import {
   moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
+import { TasksService } from './services/tasks.service';
+import { Task } from 'src/app/models/task.model';
 
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent {
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+export class TasksComponent implements OnInit {
+  dataTasks: Array<Task> = [];
+  todo: string[] = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  inProgress: string[] = [];
+  toAccept: string[] = [];
+  done: string[] = [];
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  constructor(private tasksService: TasksService) {}
+
+  ngOnInit(): void {
+    this.getAllData();
+  }
+  
+  getAllData() {
+    this.tasksService
+      .getAll()
+      .subscribe((task: Array<Task>) => {
+        if (task) {
+          this.dataTasks = task;
+        } else {
+          console.log('Nie znaleziono zadań.');
+        }
+        console.log('Zadania po pobraniu przez getAllData:', this.dataTasks);
+      });
+  }
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

@@ -7,7 +7,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class TasksLocalStorageService extends TasksService {
-  
+  tasksArr: Task[] = [];
+
   public override getById(id: number): Observable<boolean> {
     const localStorageKey = `task_${id}`;
     const localStorageData = localStorage.getItem(localStorageKey);
@@ -15,7 +16,17 @@ export class TasksLocalStorageService extends TasksService {
   }
 
   public override getAll(): Observable<Task[]> {
-    throw new Error('Method not implemented.');
+    for (let key in localStorage) {
+      if (key.startsWith('task_')) {
+        const localStorageData = localStorage.getItem(key);
+        if (localStorageData) {
+          const task: Task = JSON.parse(localStorageData);
+          this.tasksArr.push(task);
+        }
+      }
+    }
+    this.tasksArr.sort((a, b) => a.id - b.id)
+    return of(this.tasksArr);
   }
 
   public override getOptions(): Observable<{ id: number, name: string}[]> {

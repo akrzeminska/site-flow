@@ -4,11 +4,11 @@ import { Contact } from "./contact.model";
 export interface Task {
     id: number;
     name: string;
-    construction: Construction[];
+    constructionId: number[];
     description: string;
     scope: string;
     responsiblePerson: string;
-    contact: Contact;
-    completionDate: Date;
+    contactId: number;
+    completionDate: string;
     cost: number;
   }

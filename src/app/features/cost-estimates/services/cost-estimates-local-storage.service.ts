@@ -21,8 +21,6 @@ export class CostEstimatesLocalStorageService extends CostEstimatesService {
   }
   
   public override getAll(): Observable<CostEstimate[]> {
-
-
     for (let key in localStorage) {
       if (key.startsWith('costEstimate_')) {
         const localStorageData = localStorage.getItem(key);

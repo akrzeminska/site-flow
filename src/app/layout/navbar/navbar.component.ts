@@ -1,6 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 
+
 const SMALL_WIDTH_BREAKPOINT = 768;
 
 @Component({
@@ -18,7 +19,7 @@ export class NavbarComponent implements OnInit {
     { path: '/contacts', label: 'Kontakty', icon: 'phone' },
     { path: '/tasks', label: 'Zadania', icon: 'description' },
   ];
-  constructor( private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     this.breakpointObserver.observe([`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`])
@@ -26,4 +27,6 @@ export class NavbarComponent implements OnInit {
       this.isScreenSmall = state.matches;
     })
   }
+
+
 }

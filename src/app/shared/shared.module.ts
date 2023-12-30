@@ -42,6 +42,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 import { PhoneFormatPipe } from './pipes/phone-format/phone-format.pipe';
 import { UploadedFileService } from './services/uploaded-file.service';
 import { UploadedFileLocalStorageService } from './services/uploaded-file-local-storage.service';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [MenuButtonComponent, ConfirmDialogComponent, PhoneFormatPipe],
@@ -83,7 +84,8 @@ import { UploadedFileLocalStorageService } from './services/uploaded-file-local-
     MatSortModule,
     MatTableModule,
     CommonModule,
-    PhoneFormatPipe
+    PhoneFormatPipe,
+    DragDropModule
   ],
   imports: [
     MatAutocompleteModule,
@@ -122,7 +124,8 @@ import { UploadedFileLocalStorageService } from './services/uploaded-file-local-
     MatPaginatorModule,
     MatSortModule,
     MatTableModule,
-    CommonModule
+    CommonModule,
+    DragDropModule
   ],
   providers: [
     {

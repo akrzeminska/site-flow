@@ -1,0 +1,91 @@
+//#f2f8fc - background dashboarda
+.sec {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 20px 0 20px;
+
+    button {
+        margin-left: 30px;
+        margin-bottom: 16px;
+    }
+}
+
+.tasks-kanban-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+.example-container {
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+    
+    .example-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+  }
+  
+  .example-list {
+    width: 300px;
+    border: solid 1px #ccc;
+    min-height: 100vh;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+  }
+  
+  .example-box {
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .example-box:last-child {
+    border: none;
+  }
+  
+  .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 15px;
+
+    button {
+        width: 100%;
+    }
+}
+  

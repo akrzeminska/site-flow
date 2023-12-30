@@ -586,7 +586,7 @@ export class LocalStorageSeederService {
       "name": "Task 1",
       "description": "Example task description",
       "scope": "Project scope",
-      "constructionid": 1,
+      "constructionId": [1],
       "responsiblePerson": "Alice Smith",
       "contactId": 1,
       "completionDate": "2023-11-30",
@@ -597,7 +597,7 @@ export class LocalStorageSeederService {
       "name": "Task 2",
       "description": "Design office building layout",
       "scope": "Architectural design",
-      "constructionid": 2,
+      "constructionId": [2],
       "responsiblePerson": "Ella White",
       "contactId": 2,
       "completionDate": "2023-12-15",
@@ -609,7 +609,7 @@ export class LocalStorageSeederService {
       "name": "Task 3",
       "description": "Apartment complex site survey",
       "scope": "Site analysis and survey",
-      "constructionid": 3,
+      "constructionId": [3],
       "responsiblePerson": "David Clark",
       "contactId": 3,
       "completionDate": "2024-01-10",
@@ -621,13 +621,12 @@ export class LocalStorageSeederService {
       "name": "Task 4",
       "description": "Hospital renovation electrical work",
       "scope": "Electrical installation",
-      "constructionid": 4,
+      "constructionId": [4],
       "responsiblePerson": "Olivia Turner",
       "contactId": 4,
       "completionDate": "2023-12-30",
       "cost": 4500
     }
-    
   ];
 
   constructor() { }

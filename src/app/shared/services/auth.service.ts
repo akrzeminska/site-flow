@@ -13,8 +13,8 @@ export class AuthService {
   private configureOAuth() {
     const authConfig: AuthConfig = {
       issuer: 'https://accounts.google.com',
-      redirectUri: window.location.origin,
-      clientId: 'YOUR_GOOGLE_CLIENT_ID',
+      redirectUri: 'http://localhost:4200/login',
+      clientId: '876890439510-kc14p3sr0rq0nvhafru7umaeld578qpj.apps.googleusercontent.com',
       scope: 'openid profile email'
     };
 

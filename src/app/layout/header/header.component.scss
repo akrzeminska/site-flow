@@ -1,6 +1,10 @@
 $iconWidth: 56px;
 
 mat-toolbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+
     img {
         height: 100%;
     }
@@ -28,5 +32,10 @@ mat-toolbar {
         width: $iconWidth;
         line-height: $iconWidth;
     }
+}
+
+.left-content {
+    display: flex;
+    align-items: center;
 }
 

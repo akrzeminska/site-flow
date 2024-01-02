@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/shared/services/auth.service';
+import { AuthService, UserInfo } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -7,13 +7,20 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  constructor(private authService: AuthService) {}
 
-  login() {
-    this.authService.login();
+  userInfo?: UserInfo;
+  
+  constructor(private readonly authService: AuthService) {
+    authService.userProfileSubject.subscribe(info => {
+      this.userInfo = info;
+    })
   }
+ 
+  // isLoggedIn(): boolean {
+  //   return this.authService.isLoggedIn();
+  // }
 
   logOut() {
-    this.authService.logOut();
+    this.authService.signOut();
   }
 }

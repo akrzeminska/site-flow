@@ -13,6 +13,9 @@ import { FormsModule } from '@angular/forms';
 import { MainContentComponent } from './layout/main-content/main-content.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HeaderComponent } from './layout/header/header.component';
+import { OAuthModule } from 'angular-oauth2-oidc';
+import { LoginComponent } from './core/components/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,15 +25,18 @@ import { HeaderComponent } from './layout/header/header.component';
     MainContentComponent,
     NavbarComponent,
     HeaderComponent,
+    LoginComponent,
   ],
 
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
     FormsModule,
     AppRoutingModule,
     CommonModule,
+    OAuthModule.forRoot()
   ],
 
   providers: [],

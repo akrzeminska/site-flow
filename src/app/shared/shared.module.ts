@@ -43,6 +43,8 @@ import { PhoneFormatPipe } from './pipes/phone-format/phone-format.pipe';
 import { UploadedFileService } from './services/uploaded-file.service';
 import { UploadedFileLocalStorageService } from './services/uploaded-file-local-storage.service';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { AuthService } from './services/auth.service';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [MenuButtonComponent, ConfirmDialogComponent, PhoneFormatPipe],
@@ -132,6 +134,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
       provide: UploadedFileService,
       useExisting: UploadedFileLocalStorageService,
     },
+    AuthService,
+    NotificationService
   ]
 })
 export class SharedModule {}

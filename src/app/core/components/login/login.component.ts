@@ -11,7 +11,7 @@ export class LoginComponent {
   userInfo?: UserInfo;
   
   constructor(private readonly authService: AuthService) {
-    authService.userProfileSubject.subscribe(info => {
+    authService.userProfile$.subscribe(info => {
       this.userInfo = info;
     })
   }

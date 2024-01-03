@@ -24,8 +24,9 @@ export interface UserInfo {
   providedIn: 'root'
 })
 export class AuthService {
-
-  userProfileSubject = new Subject<UserInfo>();
+  
+  private userProfileSubject = new Subject<UserInfo>();
+  userProfile$: Observable<UserInfo> = this.userProfileSubject.asObservable();
 
   constructor(private readonly oAuthService: OAuthService) {
     oAuthService.configure(oAuthConfig);
@@ -37,7 +38,8 @@ export class AuthService {
         if(!oAuthService.hasValidAccessToken()) {
           oAuthService.initLoginFlow();
         } else {
-          oAuthService.loadUserProfile().then((userProfile) => {console.log(JSON.stringify(userProfile));
+          oAuthService.loadUserProfile().then((userProfile) => {
+            this.userProfileSubject.next(userProfile as UserInfo)
           })
         }
       })

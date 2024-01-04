@@ -32,9 +32,7 @@ export class AuthService {
     oAuthService.configure(oAuthConfig);
     oAuthService.logoutUrl = 'https://www.google.com/accounts/Logout';
     oAuthService.loadDiscoveryDocument().then(() => {
-          // Rozpocznij przepływ niejawnego logowania
       oAuthService.tryLoginImplicitFlow().then(() => {
-          // Sprawdź stan tokena i profil użytkownika po powrocie z przepływu
         if(!oAuthService.hasValidAccessToken()) {
           oAuthService.initLoginFlow();
         } else {

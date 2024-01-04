@@ -8,11 +8,15 @@ import { AuthService, UserInfo } from 'src/app/shared/services/auth.service';
 })
 export class LoginComponent {
 
-  userInfo?: UserInfo;
+  userProfile?: UserInfo;
+  pictureUrl: string | undefined;
+  userName: string | undefined;
   
   constructor(private readonly authService: AuthService) {
     authService.userProfile$.subscribe(info => {
-      this.userInfo = info;
+      this.userProfile = info;
+      this.pictureUrl = this.userProfile.info.picture;
+      this.userName = this.userProfile.info.name;
     })
   }
  

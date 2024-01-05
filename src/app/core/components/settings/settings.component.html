@@ -1,0 +1,23 @@
+<h2 mat-dialog-title>Ustawienia konta</h2>
+<mat-dialog-content class="mat-typography">
+    <section class="example-section">
+        <label class="example-margin">Wybierz tryb:</label>
+        <mat-slide-toggle>Tryb ciemny</mat-slide-toggle>
+    </section>
+  <section class="example-section">
+    <label class="example-margin">Wybierz język:</label>
+    <mat-radio-group [(ngModel)]="color">
+      <mat-radio-button class="example-margin" value="accent">
+        Polski
+      </mat-radio-button>
+      <mat-radio-button class="example-margin" value="primary">
+        English
+      </mat-radio-button>
+    </mat-radio-group>
+  </section>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Anuluj</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Zapisz</button>
+</mat-dialog-actions>

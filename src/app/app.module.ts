@@ -16,6 +16,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { LoginComponent } from './core/components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SettingsComponent } from './core/components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HeaderComponent,
     LoginComponent,
+    SettingsComponent,
   ],
 
   imports: [

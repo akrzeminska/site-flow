@@ -17,6 +17,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { LoginComponent } from './core/components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './core/components/settings/settings.component';
+import { WelcomeComponent } from './core/components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { SettingsComponent } from './core/components/settings/settings.component
     HeaderComponent,
     LoginComponent,
     SettingsComponent,
+    WelcomeComponent,
   ],
 
   imports: [

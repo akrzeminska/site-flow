@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { WelcomeComponent } from './core/components/welcome/welcome.component';
 
 const routes: Routes = [
   {
@@ -29,10 +30,11 @@ const routes: Routes = [
       import('./features/tasks/tasks.module').then((m) => m.TasksModule),
   },
   {
-    path: '',
+    path: 'dashboard',
     loadChildren: () =>
       import('./features/user-panel/user-panel.module').then((m) => m.UserPanelModule)
-  }
+  },
+  { path: '', component: WelcomeComponent }
 ];
 
 @NgModule({

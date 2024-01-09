@@ -31,12 +31,26 @@ export class AuthService {
   constructor(private readonly oAuthService: OAuthService) {
     oAuthService.configure(oAuthConfig);
     oAuthService.logoutUrl = 'https://www.google.com/accounts/Logout';
-    oAuthService.loadDiscoveryDocument().then(() => {
-      oAuthService.tryLoginImplicitFlow().then(() => {
-        if(!oAuthService.hasValidAccessToken()) {
-          oAuthService.initLoginFlow();
+    
+    this.oAuthService.loadDiscoveryDocument().then(() => {
+      this.oAuthService.tryLoginImplicitFlow().then(() => {
+        if(this.oAuthService.hasValidAccessToken()) {
+          this.oAuthService.loadUserProfile().then((userProfile) => {
+            this.userProfileSubject.next(userProfile as UserInfo)
+          })
+        }
+      })
+    })
+
+  }
+
+  initializeLoginFlow() {
+    this.oAuthService.loadDiscoveryDocument().then(() => {
+      this.oAuthService.tryLoginImplicitFlow().then(() => {
+        if(!this.oAuthService.hasValidAccessToken()) {
+          this.oAuthService.initLoginFlow();
         } else {
-          oAuthService.loadUserProfile().then((userProfile) => {
+          this.oAuthService.loadUserProfile().then((userProfile) => {
             this.userProfileSubject.next(userProfile as UserInfo)
           })
         }

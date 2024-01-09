@@ -14,10 +14,10 @@ import { MainContentComponent } from './layout/main-content/main-content.compone
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
-import { LoginComponent } from './core/components/login/login.component';
+import { AccountComponent } from './core/components/account/account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './core/components/settings/settings.component';
-import { WelcomeComponent } from './core/components/welcome/welcome.component';
+import { LoginComponent } from './core/components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import { WelcomeComponent } from './core/components/welcome/welcome.component';
     MainContentComponent,
     NavbarComponent,
     HeaderComponent,
-    LoginComponent,
+    AccountComponent,
     SettingsComponent,
-    WelcomeComponent,
+    LoginComponent,
   ],
 
   imports: [
@@ -40,7 +40,7 @@ import { WelcomeComponent } from './core/components/welcome/welcome.component';
     FormsModule,
     AppRoutingModule,
     CommonModule,
-    OAuthModule.forRoot()
+    OAuthModule.forRoot(),
   ],
 
   providers: [],

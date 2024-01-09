@@ -32,7 +32,7 @@ const routes: Routes = [
       canActivate: [AuthGuard]
   },
   {
-    path: 'dashboard',
+    path: 'user-panel',
     loadChildren: () =>
       import('./features/user-panel/user-panel.module').then(
         (m) => m.UserPanelModule

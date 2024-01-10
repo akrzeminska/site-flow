@@ -11,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule } from '@angular/forms';
 import { MainContentComponent } from './layout/main-content/main-content.component';
-import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AccountComponent } from './core/components/account/account.component';
@@ -25,7 +24,6 @@ import { LoginComponent } from './core/components/login/login.component';
     PageNotFoundComponent,
     LayoutComponent,
     MainContentComponent,
-    NavbarComponent,
     HeaderComponent,
     AccountComponent,
     SettingsComponent,

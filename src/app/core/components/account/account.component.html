@@ -1,7 +1,7 @@
 <div class="login">
     <button mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="Konto"
     aria-label="Button that displays a tooltip when focused or hovered over">
-        <img [src]="pictureUrl" alt="Profile Picture" *ngIf="pictureUrl">
+        <img [src]="pictureUrl" alt="Profile Picture" *ngIf="pictureUrl" referrerpolicy="no-referrer">
     </button>
     <mat-menu #userMenu="matMenu">
         <div class="user-info">

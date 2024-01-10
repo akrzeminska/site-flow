@@ -7,55 +7,46 @@ const oAuthConfig: AuthConfig = {
   issuer: 'https://accounts.google.com',
   strictDiscoveryDocumentValidation: false,
   redirectUri: 'http://localhost:4200',
-  clientId: '876890439510-kc14p3sr0rq0nvhafru7umaeld578qpj.apps.googleusercontent.com',
-  scope: 'openid profile email https://www.googleapis.com/auth/gmail.readonly'
-}
+  clientId:
+    '876890439510-kc14p3sr0rq0nvhafru7umaeld578qpj.apps.googleusercontent.com',
+  scope: 'openid profile email https://www.googleapis.com/auth/gmail.readonly',
+};
 
 export interface UserInfo {
   info: {
-    sub: string,
-    email: string,
-    name: string,
-    picture: string
-  }
+    sub: string;
+    email: string;
+    name: string;
+    picture: string;
+  };
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  
   private userProfileSubject = new Subject<UserInfo>();
   userProfile$: Observable<UserInfo> = this.userProfileSubject.asObservable();
 
   constructor(private readonly oAuthService: OAuthService) {
     oAuthService.configure(oAuthConfig);
     oAuthService.logoutUrl = 'https://www.google.com/accounts/Logout';
-    
-    this.oAuthService.loadDiscoveryDocument().then(() => {
-      this.oAuthService.tryLoginImplicitFlow().then(() => {
-        if(this.oAuthService.hasValidAccessToken()) {
-          this.oAuthService.loadUserProfile().then((userProfile) => {
-            this.userProfileSubject.next(userProfile as UserInfo)
-          })
-        }
-      })
-    })
 
+    this.tryEmitUserProfile();
   }
 
   initializeLoginFlow() {
     this.oAuthService.loadDiscoveryDocument().then(() => {
       this.oAuthService.tryLoginImplicitFlow().then(() => {
-        if(!this.oAuthService.hasValidAccessToken()) {
+        if (!this.oAuthService.hasValidAccessToken()) {
           this.oAuthService.initLoginFlow();
         } else {
           this.oAuthService.loadUserProfile().then((userProfile) => {
-            this.userProfileSubject.next(userProfile as UserInfo)
-          })
+            this.userProfileSubject.next(userProfile as UserInfo);
+          });
         }
-      })
-    })
+      });
+    });
   }
 
   isLoggedIn(): boolean {
@@ -64,5 +55,17 @@ export class AuthService {
 
   signOut() {
     this.oAuthService.logOut();
+  }
+
+  tryEmitUserProfile() {
+    this.oAuthService.loadDiscoveryDocument().then(() => {
+      this.oAuthService.tryLoginImplicitFlow().then(() => {
+        if (this.oAuthService.hasValidAccessToken()) {
+          this.oAuthService.loadUserProfile().then((userProfile) => {
+            this.userProfileSubject.next(userProfile as UserInfo);
+          });
+        }
+      });
+    });
   }
 }

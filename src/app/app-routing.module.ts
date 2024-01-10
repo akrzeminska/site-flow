@@ -41,9 +41,13 @@ const routes: Routes = [
   { 
     path: 'login', component: LoginComponent 
   },
-  { 
-    path: '', component: LoginComponent
-  }
+  {
+    path: '',
+    loadChildren: () =>
+      import('./features/user-panel/user-panel.module').then(
+        (m) => m.UserPanelModule
+      ), canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

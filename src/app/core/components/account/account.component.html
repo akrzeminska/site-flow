@@ -1,0 +1,22 @@
+<div class="login">
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" matTooltip="Konto"
+    aria-label="Button that displays a tooltip when focused or hovered over">
+        <img [src]="pictureUrl" alt="Profile Picture" *ngIf="pictureUrl" referrerpolicy="no-referrer">
+    </button>
+    <mat-menu #userMenu="matMenu">
+        <div class="user-info">
+            <span>Witaj {{ userName }}!</span>
+        </div>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="openDialog()">
+            <mat-icon>settings</mat-icon>
+            <span>Ustawienia</span>
+        </button>
+        <button mat-menu-item (click)="logOut()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Wyloguj</span>
+        </button>
+    </mat-menu>
+</div>
+
+

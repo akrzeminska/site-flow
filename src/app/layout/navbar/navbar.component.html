@@ -10,9 +10,7 @@
     </mat-drawer>
   
     <div class="app-sidenav-content">
-      <app-header (toogleSidenav)="drawer.toggle()">
-        <app-login></app-login>
-      </app-header>
+      <app-header (toogleSidenav)="drawer.toggle()"></app-header>
       <router-outlet></router-outlet>
     </div>
   </mat-drawer-container>

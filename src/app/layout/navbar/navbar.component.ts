@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
 
   public isScreenSmall: boolean | undefined;
   public links = [
-    { path: '/', label: 'Panel użytkownika', icon: 'account_circle' },
+    { path: '/user-panel', label: 'Panel użytkownika', icon: 'account_circle' },
     { path: '/constructions', label: 'Budowy', icon: 'businessaccount' },
     { path: '/costs-estimates', label: 'Kosztorysy', icon: 'date_range' },
     { path: '/contacts', label: 'Kontakty', icon: 'phone' },
@@ -27,6 +27,4 @@ export class NavbarComponent implements OnInit {
       this.isScreenSmall = state.matches;
     })
   }
-
-
 }

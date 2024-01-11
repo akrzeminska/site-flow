@@ -4,6 +4,17 @@
     height: 100vh;
     min-width: 100%;
     min-height: 100%;
+
+    .list-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .logo {
+    height: 45px;
+    width: 45px;
   }
   
   .app-sidenav-content {

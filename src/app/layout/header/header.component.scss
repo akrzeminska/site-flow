@@ -4,14 +4,22 @@ mat-toolbar {
     display: flex;
     justify-content: space-between; 
     align-items: center;
-
-    img {
-        height: 100%;
-    }
+    font-size: x-large;
 
     span {
         font-weight: bold;
     }
+}
+
+.logo {
+    height: 38px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.title {
+    padding-left: 10px;
 }
 
 .navbar-toogle {
@@ -37,5 +45,10 @@ mat-toolbar {
 .left-content {
     display: flex;
     align-items: center;
+}
+
+span:hover {
+    color: #1e2935;
+    cursor: pointer;
 }
 

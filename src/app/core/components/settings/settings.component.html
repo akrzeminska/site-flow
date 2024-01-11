@@ -1,23 +1,41 @@
-<h2 mat-dialog-title>Ustawienia konta</h2>
-<mat-dialog-content class="mat-typography">
-    <section class="example-section">
-        <label class="example-margin">Wybierz tryb:</label>
-        <mat-slide-toggle>Tryb ciemny</mat-slide-toggle>
-    </section>
-  <section class="example-section">
-    <label class="example-margin">Wybierz język:</label>
-    <mat-radio-group [(ngModel)]="color">
-      <mat-radio-button class="example-margin" value="accent">
-        Polski
-      </mat-radio-button>
-      <mat-radio-button class="example-margin" value="primary">
-        English
-      </mat-radio-button>
-    </mat-radio-group>
-  </section>
-
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Anuluj</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Zapisz</button>
-</mat-dialog-actions>
+<div class="settings-container">
+  <div class="settings-title">
+    <div class="icon">
+      <mat-icon>settings</mat-icon>
+    </div>
+    <div class="text">
+      <h2 mat-dialog-title>Ustawienia konta</h2>
+    </div>
+  </div>
+  <div class="settings-content">
+    <div class="image">
+      <mat-divider></mat-divider>
+      <img class="hero-image" src="../../../../assets/images/settings.svg" alt="">
+    </div>
+    <div class="dialog-content">
+      <mat-dialog-content class="mat-typography">
+        <section class="example-section">
+            <label class="example-margin">Wybierz tryb:</label>
+            <mat-slide-toggle>Tryb ciemny</mat-slide-toggle>
+        </section>
+      <section class="example-section">
+        <label class="example-margin">Wybierz język:</label>
+        <mat-radio-group [(ngModel)]="color">
+          <mat-radio-button class="example-margin" value="accent">
+            Polski
+          </mat-radio-button>
+          <mat-radio-button class="example-margin" value="primary">
+            English
+          </mat-radio-button>
+        </mat-radio-group>
+      </section>
+    </mat-dialog-content>
+    </div>
+  </div>
+  <div class="settings-actions">
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Anuluj</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Zapisz</button>
+    </mat-dialog-actions>
+  </div>
+</div>

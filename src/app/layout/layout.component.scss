@@ -5,7 +5,9 @@ mat-sidenav {
   padding: 16px;
   text-align: center;
 }
-
+.header {
+  width: 100%;
+}
 .content {
   height: calc(100vh - 98px);
   margin: 16px;

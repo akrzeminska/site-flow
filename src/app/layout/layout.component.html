@@ -7,7 +7,7 @@
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
   <div class="header">
-  <app-header></app-header>
+    <app-header></app-header>
   </div>
 </mat-toolbar>
 
@@ -15,7 +15,9 @@
   <mat-sidenav #sidenav="matSidenav">
     <mat-nav-list class="menu-list">
       <a mat-list-item *ngFor="let link of links" [routerLink]="link.path" [routerLinkActive]="'active'">
-        <mat-icon>{{ link.icon }}</mat-icon> {{ link.label }}
+        <div class="item-list">
+          <mat-icon>{{ link.icon }}</mat-icon> {{ link.label }}
+        </div>
       </a>
     </mat-nav-list>
     <mat-divider></mat-divider>

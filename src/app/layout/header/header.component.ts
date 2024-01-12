@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent {
 
-  @Output() toogleSidenav = new EventEmitter<void>();
-
   constructor(private router: Router){}
 
   navigateToHomepage() {

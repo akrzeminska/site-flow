@@ -1,5 +1,7 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 const SMALL_WIDTH_BREAKPOINT = 768;
 
@@ -8,9 +10,9 @@ const SMALL_WIDTH_BREAKPOINT = 768;
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
-
-  public isScreenSmall: boolean | undefined;
+export class LayoutComponent implements AfterViewInit {
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
   public links = [
     { path: '/user-panel', label: 'Panel użytkownika', icon: 'account_circle' },
     { path: '/constructions', label: 'Budowy', icon: 'businessaccount' },
@@ -18,12 +20,22 @@ export class LayoutComponent implements OnInit {
     { path: '/contacts', label: 'Kontakty', icon: 'phone' },
     { path: '/tasks', label: 'Zadania', icon: 'description' },
   ];
-  constructor(private breakpointObserver: BreakpointObserver) {}
 
-  ngOnInit(): void {
-    this.breakpointObserver.observe([`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`])
-    .subscribe((state: BreakpointState) => {
-      this.isScreenSmall = state.matches;
-    })
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+
+  navigate(path: string): void {
+    this.router.navigate([path]);
+  }
+
+  ngAfterViewInit() {
+    this.breakpointObserver.observe(["(max-width: 800px)"]).subscribe((res) => {
+      if (res.matches) {
+        this.sidenav.mode = "over";
+        this.sidenav.close();
+      } else {
+        this.sidenav.mode = "side";
+        this.sidenav.open();
+      }
+    });
   }
 }

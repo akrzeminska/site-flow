@@ -1,6 +1,4 @@
-$iconWidth: 56px;
-
-mat-toolbar {
+.container {
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -20,26 +18,6 @@ mat-toolbar {
 
 .title {
     padding-left: 10px;
-}
-
-.navbar-toogle {
-    display: none;
-    padding: 0;
-    margin: 8px;
-    min-width: $iconWidth;
-
-    @media (max-width: 768px) {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    mat-icon {
-        font-size: 30px;
-        height: $iconWidth;
-        width: $iconWidth;
-        line-height: $iconWidth;
-    }
 }
 
 .left-content {

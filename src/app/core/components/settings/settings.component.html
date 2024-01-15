@@ -16,7 +16,7 @@
       <mat-dialog-content class="mat-typography">
         <section class="example-section">
             <label class="example-margin">Wybierz tryb:</label>
-            <mat-slide-toggle>Tryb ciemny</mat-slide-toggle>
+            <mat-slide-toggle (change)="toogleTheme()">Tryb ciemny</mat-slide-toggle>
         </section>
       <section class="example-section">
         <label class="example-margin">Wybierz język:</label>

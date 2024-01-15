@@ -112,7 +112,6 @@ $my-app-light-theme: mat.define-light-theme((
   )
 ));
 
-@include mat.all-component-themes($my-app-light-theme);
 
 $my-app-dark-theme: mat.define-dark-theme((
   color: (
@@ -122,4 +121,10 @@ $my-app-dark-theme: mat.define-dark-theme((
   )
 ));
 
-@include mat.all-component-themes($my-app-dark-theme);
+.light-theme {
+    @include angular-material-theme($my-app-light-theme);
+}
+  
+  .dark-theme {
+    @include angular-material-theme($my-app-dark-theme);
+}

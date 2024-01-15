@@ -1,0 +1,125 @@
+@use '@angular/material' as mat;
+
+$my-custom-primary: (
+    50 : #e3f7f7,
+    100 : #b8eaec,
+    200 : #89dce0,
+    300 : #59ced3,
+    400 : #36c4c9,
+    500 : #12b9c0,
+    600 : #10b2ba,
+    700 : #0daab2,
+    800 : #0aa2aa,
+    900 : #05939c,
+    A100 : #c8fbff,
+    A200 : #95f8ff,
+    A400 : #62f4ff,
+    A700 : #48f2ff,
+    contrast: (
+        50 : #1e2935,
+        100 : #1e2935,
+        200 : #1e2935,
+        300 : #1e2935,
+        400 : #1e2935,
+        500 : #1e2935,
+        600 : #1e2935,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #1e2935,
+        A200 : #1e2935,
+        A400 : #1e2935,
+        A700 : #1e2935,
+    )
+);
+
+$my-custom-accent: (
+    50 : #e4e5e7,
+    100 : #bcbfc2,
+    200 : #8f949a,
+    300 : #626972,
+    400 : #404953,
+    500 : #1e2935,
+    600 : #1a2430,
+    700 : #161f28,
+    800 : #121922,
+    900 : #0a0f16,
+    A100 : #5897ff,
+    A200 : #2577ff,
+    A400 : #005bf1,
+    A700 : #0051d8,
+    contrast: (
+        50 : #1e2935,
+        100 : #1e2935,
+        200 : #1e2935,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #1e2935,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$my-custom-warn: (
+    50 : #fcf2e7,
+    100 : #f8dec3,
+    200 : #f3c89c,
+    300 : #eeb274,
+    400 : #eaa256,
+    500 : #e69138,
+    600 : #e38932,
+    700 : #df7e2b,
+    800 : #db7424,
+    900 : #d56217,
+    A100 : #ffffff,
+    A200 : #ffe3d4,
+    A400 : #ffc3a1,
+    A700 : #ffb287,
+    contrast: (
+        50 : #1e2935,
+        100 : #1e2935,
+        200 : #1e2935,
+        300 : #1e2935,
+        400 : #1e2935,
+        500 : #1e2935,
+        600 : #1e2935,
+        700 : #1e2935,
+        800 : #1e2935,
+        900 : #ffffff,
+        A100 : #1e2935,
+        A200 : #1e2935,
+        A400 : #1e2935,
+        A700 : #1e2935,
+    )
+);
+
+$my-app-primary: mat.define-palette($my-custom-primary);
+$my-app-accent: mat.define-palette($my-custom-accent, A200, A100, A400);
+$my-app-warn: mat.define-palette($my-custom-warn);
+
+
+$my-app-light-theme: mat.define-light-theme((
+  color: (
+    primary: $my-app-primary,
+    accent: $my-app-accent,
+    warn: $my-app-warn,
+  )
+));
+
+@include mat.all-component-themes($my-app-light-theme);
+
+$my-app-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $my-app-primary,
+    accent: $my-app-accent,
+    warn: $my-app-warn,
+  )
+));
+
+@include mat.all-component-themes($my-app-dark-theme);

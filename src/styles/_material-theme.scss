@@ -1,6 +1,7 @@
 @use '@angular/material' as mat;
+@import '@angular/material/theming';
 
-$my-custom-primary: (
+$my-custom-primary-scheme: (
     50 : #e3f7f7,
     100 : #b8eaec,
     200 : #89dce0,
@@ -33,7 +34,7 @@ $my-custom-primary: (
     )
 );
 
-$my-custom-accent: (
+$my-custom-accent-scheme: (
     50 : #e4e5e7,
     100 : #bcbfc2,
     200 : #8f949a,
@@ -66,7 +67,7 @@ $my-custom-accent: (
     )
 );
 
-$my-custom-warn: (
+$my-custom-warn-scheme: (
     50 : #fcf2e7,
     100 : #f8dec3,
     200 : #f3c89c,
@@ -99,10 +100,9 @@ $my-custom-warn: (
     )
 );
 
-$my-app-primary: mat.define-palette($my-custom-primary);
-$my-app-accent: mat.define-palette($my-custom-accent, A200, A100, A400);
-$my-app-warn: mat.define-palette($my-custom-warn);
-
+$my-app-primary: mat.define-palette($my-custom-primary-scheme);
+$my-app-accent: mat.define-palette($my-custom-accent-scheme, A200, A100, A400);
+$my-app-warn: mat.define-palette($my-custom-warn-scheme);
 
 $my-app-light-theme: mat.define-light-theme((
   color: (
@@ -112,6 +112,9 @@ $my-app-light-theme: mat.define-light-theme((
   )
 ));
 
+.light-mode {
+    @include angular-material-theme($my-app-light-theme);
+}
 
 $my-app-dark-theme: mat.define-dark-theme((
   color: (
@@ -121,10 +124,11 @@ $my-app-dark-theme: mat.define-dark-theme((
   )
 ));
 
-.light-theme {
-    @include angular-material-theme($my-app-light-theme);
-}
-  
-  .dark-theme {
+.dark-mode {
     @include angular-material-theme($my-app-dark-theme);
 }
+
+// @include mat.all-component-themes($my-app-dark-theme);
+// @include mat.all-component-themes($my-app-light-theme);
+
+

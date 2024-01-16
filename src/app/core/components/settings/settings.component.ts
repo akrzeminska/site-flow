@@ -11,14 +11,30 @@ export class SettingsComponent implements OnInit {
   color: ThemePalette = 'accent';
   checked = false;
   disabled = false;
-  isDarkTheme = this.themeService.isDarkTheme$;
+  isDarkMode!: boolean;
+  currentTheme!: 'dark-mode' | 'light-mode';
 
   constructor(private themeService: ThemeService) {
-
+    // this.themeService.initTheme();
   }
-  ngOnInit(): void {}
 
-  toogleTheme() {
-    this.themeService.toogleDarkTheme();
+  ngOnInit(): void {
+    this.isDarkMode = this.themeService.isDarkMode();
+    this.currentTheme = this.themeService.getCurrentTheme();
   }
+  
+  toogleDarkMode() {
+    this.isDarkMode = this.themeService.isDarkMode();
+    // if (this.isDarkMode) {
+    //   this.themeService.update('light-mode');
+    // } else {
+    //   this.themeService.update('dark-mode');
+    // }
+    this.isDarkMode ? this.themeService.update('light-mode') : this.themeService.update('dark-mode');
+  }
+
+  onCancel() {
+    this.themeService.update(this.currentTheme);
+  }
+
 }

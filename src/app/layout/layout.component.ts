@@ -1,7 +1,9 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
+import { ThemeService } from '../shared/services/theme.service';
 
 const SMALL_WIDTH_BREAKPOINT = 768;
 
@@ -21,7 +23,7 @@ export class LayoutComponent implements AfterViewInit {
     { path: '/tasks', label: 'Zadania', icon: 'description' },
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private themeService: ThemeService) {}
 
   navigate(path: string): void {
     this.router.navigate([path]);

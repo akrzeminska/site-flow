@@ -1,15 +1,48 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ThemeService {
-  private isDarkThemeSubject = new BehaviorSubject<boolean>(false);
-  isDarkTheme$ = this.isDarkThemeSubject.asObservable;
-  
-  toogleDarkTheme() {
-    const currentTheme = this.isDarkThemeSubject.value;
-    this.isDarkThemeSubject.next(!currentTheme);
+  private renderer!: Renderer2;
+  private colorTheme!: string | any;
+
+  constructor(rendererFactory: RendererFactory2) {
+    this.renderer = rendererFactory.createRenderer(null, null);
+    this.initTheme();
   }
+
+  initTheme() {
+    this.getColorTheme();
+    this.renderer.addClass(document.body, this.colorTheme);
+  }
+
+  update(theme: 'dark-mode' | 'light-mode') {
+    this.setClorTheme(theme);
+    const previousColorTheme = (theme === 'dark-mode' ? 'light-mode' : 'dark-mode');
+    this.renderer.removeClass(document.body, previousColorTheme);
+    this.renderer.addClass(document.body, theme);
+  }
+
+  isDarkMode() {
+    return this.colorTheme === 'dark-mode';
+  }
+
+  private setClorTheme(theme: string) {
+    this.colorTheme = theme;
+    localStorage.setItem('user-theme', theme);
+  }
+
+  private getColorTheme() {
+    if (localStorage.getItem('user-theme')) {
+      this.colorTheme = localStorage.getItem('user-theme');
+    } else {
+      this.colorTheme = 'light-mode';
+    }
+  }
+
+  public getCurrentTheme() {
+    return this.colorTheme;
+  }
+  
 }

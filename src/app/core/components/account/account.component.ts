@@ -34,9 +34,7 @@ export class AccountComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  // isLoggedIn(): boolean {
-  //   return this.authService.isLoggedIn();
-  // }
+ 
 
   logOut() {
     this.authService.signOut();

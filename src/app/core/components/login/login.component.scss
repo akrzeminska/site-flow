@@ -1,22 +1,26 @@
-.login-container {
+.login-container { 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 20px;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 20px;
 
-    .login-card {
-        display: flex;
-        align-items: center;
+    .user-panel-card {
+        margin: 20px;
+        padding: 20px 0px;
         justify-content: center;
-        width: 350px;
-        height: 250px;
+        align-items: center;
 
-        mat-card-content {
-            padding: 15px;
+        mat-card-title {
+            padding-bottom: 15px;
         }
 
-        mat-card-actions {
-            padding-bottom: 20px;
+        .img-card-content {
+            max-width: 270px;
+            padding: 35px;
         }
+    }
+
+    mat-card-actions {
+        margin-top: auto;
     }
 }

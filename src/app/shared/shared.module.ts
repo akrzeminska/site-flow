@@ -45,6 +45,7 @@ import { UploadedFileLocalStorageService } from './services/uploaded-file-local-
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AuthService } from './services/auth.service';
 import { NotificationService } from './services/notification.service';
+import { ThemeService } from './services/theme.service';
 
 @NgModule({
   declarations: [MenuButtonComponent, ConfirmDialogComponent, PhoneFormatPipe],
@@ -135,7 +136,8 @@ import { NotificationService } from './services/notification.service';
       useExisting: UploadedFileLocalStorageService,
     },
     AuthService,
-    NotificationService
+    NotificationService,
+    ThemeService
   ]
 })
 export class SharedModule {}

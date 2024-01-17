@@ -1,4 +1,4 @@
-.dashboard {
+.dashboard { 
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -6,16 +6,17 @@
 
     .user-panel-card {
         margin: 20px;
-        padding: 20px;
-
+        padding: 20px 0px;
         justify-content: center;
         align-items: center;
 
-        img {
+        .img-card-content {
             max-width: 270px;
-            height: auto;
             padding: 35px;
-            border-radius: 50%;
         }
+    }
+
+    mat-card-actions {
+        margin-top: auto;
     }
 }

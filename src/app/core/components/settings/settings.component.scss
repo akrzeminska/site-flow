@@ -1,5 +1,23 @@
-.example-h2 {
-    margin: 10px;
+.settings-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.settings-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+
+  .settings-title {
+    padding-left: 15px;
+  }
+}
+
+  h2 {
+    padding-left: 10px;
   }
   
   .example-section {
@@ -12,3 +30,15 @@
   .example-margin {
     margin: 10px;
   }
+
+  .hero-image {
+    max-width: 200px;
+    padding: 35px 45px;
+}
+
+.settings-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

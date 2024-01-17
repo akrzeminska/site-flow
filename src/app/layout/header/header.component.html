@@ -1,14 +1,12 @@
-<mat-toolbar color="primary">
+<div class="container">
     <div class="left-content">
-        <!-- <img src="../../assets/images/logo.png" alt="logo"> -->
-        Site<span>Flow</span>
-        <button mat-button class="navbar-toogle" (click)="toogleSidenav.emit()">
-            <mat-icon>menu</mat-icon>
-        </button>
+        <img class="logo" src="../../../assets/images/logos/mapshop.svg" alt="logo">
+        <div class="title">
+            Site<span (click)="navigateToHomepage()">Flow</span>
+        </div>
     </div>
-    
-    <app-account></app-account>
-</mat-toolbar>
+    <div class="right-content">
+        <app-account></app-account>
+    </div>
+</div>
 
-
- <!-- TODO: poprawić wyśrodkowanie toogle-buttona i jego położenie -->

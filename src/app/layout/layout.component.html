@@ -1,4 +1,32 @@
-<app-navbar></app-navbar>
+<mat-toolbar color="primary"> 
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  <div class="header">
+    <app-header></app-header>
+  </div>
+</mat-toolbar>
 
-
-
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <mat-nav-list class="menu-list">
+      <a mat-list-item *ngFor="let link of links" [routerLink]="link.path" [routerLinkActive]="'active'">
+        <div class="item-list">
+          <mat-icon>{{ link.icon }}</mat-icon> {{ link.label }}
+        </div>
+      </a>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu list">
+      <mat-icon>help</mat-icon>
+      <span>Pomoc</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content"><router-outlet></router-outlet></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

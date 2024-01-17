@@ -3,12 +3,17 @@
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 20px;
+    
 
     .user-panel-card {
         margin: 20px;
         padding: 20px 0px;
         justify-content: center;
         align-items: center;
+
+        mat-icon, mat-card-title {
+            color: #1e2935;
+        }
 
         .img-card-content {
             max-width: 270px;

@@ -16,14 +16,20 @@
     <mat-nav-list class="menu-list">
       <a mat-list-item *ngFor="let link of links" [routerLink]="link.path" [routerLinkActive]="'active'">
         <div class="item-list">
-          <mat-icon>{{ link.icon }}</mat-icon> {{ link.label }}
+          <div class="icon">
+            <mat-icon>{{ link.icon }}</mat-icon>
+          </div>
+          <div class="label">
+            {{ link.label }}
+          </div>
         </div>
       </a>
     </mat-nav-list>
     <mat-divider></mat-divider>
-    <button mat-button class="menu list">
-      <mat-icon>help</mat-icon>
-      <span>Pomoc</span>
+    <button mat-button class="help-button">
+        <mat-icon>help</mat-icon>
+        <span>Pomoc</span>
+    
     </button>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -1,5 +1,5 @@
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
@@ -23,7 +23,7 @@ export class LayoutComponent implements AfterViewInit {
     { path: '/tasks', label: 'Zadania', icon: 'description' },
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private themeService: ThemeService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private themeService: ThemeService, private cdr: ChangeDetectorRef) {}
 
   navigate(path: string): void {
     this.router.navigate([path]);
@@ -38,6 +38,7 @@ export class LayoutComponent implements AfterViewInit {
         this.sidenav.mode = "side";
         this.sidenav.open();
       }
+      this.cdr.detectChanges();
     });
   }
 }

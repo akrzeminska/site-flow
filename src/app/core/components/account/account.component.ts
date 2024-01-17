@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
     private readonly authService: AuthService, public dialog: MatDialog) 
     {
 
-    }
+}
   ngOnInit(): void {    
     this.authService.userProfile$.subscribe((info) => {
     this.userProfile = info;

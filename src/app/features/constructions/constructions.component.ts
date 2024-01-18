@@ -160,7 +160,7 @@ deleteElement(id: number) {
 }
 
   //metoda do uruchomienia okna dialogowego z formularzem 'dodaj'
-  openAddFeatureDialog(): void {
+  addNewConstruction(): void {
     let dialogRef = this.dialog.open(FeatureDialogComponent, {
       width: '700px',
       data: null

@@ -21,9 +21,9 @@
                     </ng-container>
                     <ng-template #menuCell matMenuContent>
                         <button mat-icon-button [matMenuTriggerFor]="menu">{{ column.cell(element) }}<mat-icon>more_vert</mat-icon></button>
-                        <mat-menu #menu="matMenu">
-                            <button mat-menu-item (click)="editElement(element)">Edytuj</button>
-                            <button mat-menu-item (click)="deleteElement(element.id)">Usuń</button>
+                        <mat-menu #menu="matMenu" class="custom-menu">
+                            <button mat-menu-item (click)="editElement(element)"><mat-icon>edit</mat-icon><span>Edytuj</span></button>
+                            <button mat-menu-item (click)="deleteElement(element.id)"><mat-icon>delete</mat-icon><span>Usuń</span></button>
                         </mat-menu>
                     </ng-template>
                 </td>

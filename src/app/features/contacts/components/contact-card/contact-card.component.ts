@@ -20,5 +20,18 @@ export class ContactCardComponent {
   editElement() {
     this.onEdit.emit(this.contact);
   }
+
+  getCardBackground(category: string): object {
+    switch (category) {
+      case 'Zarządzanie':
+        return { 'background-color': '#e4e5e7'};
+      case 'Projektowanie':
+        return { 'background-color': '#e3f7f7'};
+      case 'Wykonawstwo':
+        return { 'background-color': '#fcf2e7'};
+      default:
+        return {};
+    }
+  }
   
 }

@@ -1,7 +1,5 @@
 mat-sidenav {
-  // margin: 16px;
   width: 250px;
-  // background: #ffff;
   padding: 16px;
   text-align: center;
 }
@@ -12,7 +10,7 @@ mat-sidenav {
 
 .content {
   height: calc(100vh - 98px);
-  margin: 16px;
+  margin-top: 16px;
   // margin-left: 32px;
   display: flex;
   justify-content: center;
@@ -65,5 +63,14 @@ mat-divider {
     padding-left: 10px;
   }
 
+}
+
+.img {
+  position: fixed; 
+  bottom: 0; 
+  right: 0; 
+  max-width: 100%; 
+  text-align: center;
+  z-index: -1;
 }
 

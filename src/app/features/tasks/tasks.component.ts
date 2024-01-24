@@ -27,6 +27,7 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllData();
+    this.showOptions();
   }
   
   getAllData() {
@@ -43,6 +44,7 @@ export class TasksComponent implements OnInit {
   }
 
   drop(event: CdkDragDrop<string[]>) {
+    debugger
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -53,5 +55,10 @@ export class TasksComponent implements OnInit {
         event.currentIndex,
       );
     }
+  }
+
+  showOptions() {
+    this.tasksService.getOptions();
+
   }
 }

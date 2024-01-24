@@ -16,6 +16,7 @@ export class TasksLocalStorageService extends TasksService {
   }
 
   public override getAll(): Observable<Task[]> {
+
     for (let key in localStorage) {
       if (key.startsWith('task_')) {
         const localStorageData = localStorage.getItem(key);
@@ -36,10 +37,10 @@ export class TasksLocalStorageService extends TasksService {
       if (key.startsWith('task_')) {
         const localStorageData = localStorage.getItem(key);
         if (localStorageData) {
-          const construction: Task = JSON.parse(localStorageData);
+          const task: Task = JSON.parse(localStorageData);
           const taskInfo = {
-            id: construction.id,
-            name: construction.name
+            id: task.id,
+            name: task.name
           };
           taskOptions.push(taskInfo);
         }

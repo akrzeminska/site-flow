@@ -618,6 +618,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-05-15',
       cost: 500000,
       location: 'ul. Bratysławska 33, Kraków',
+      status: 'nowe'
     },
     {
       id: 2,
@@ -630,6 +631,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-06-30',
       cost: 120000,
       location: 'Siedziba firmy Novo, ul.Bracka 10, Kraków',
+      status: 'nowe'
     },
     {
       id: 3,
@@ -643,6 +645,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-07-20',
       cost: 80000,
       location: 'ul. Słowackiego 12, Warszawa',
+      status: 'nowe'
     },
     {
       id: 4,
@@ -655,6 +658,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-09-15',
       cost: 150000,
       location: 'ul. Kokotowska 113, Niepołomice',
+      status: 'nowe'
     },
     {
       id: 5,
@@ -667,7 +671,7 @@ export class LocalStorageSeederService {
       contactId: 5,
       completionDate: '2024-08-10',
       cost: 100000,
-      location: 'ul. Lechicka 7, Gdańsk',
+      status: 'nowe'
     },
     {
       id: 6,
@@ -680,6 +684,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-07-05',
       cost: 70000,
       location: 'Szkoła Podstawowa nr 7, ul. Rajska 33, Gliwice',
+      status: 'nowe'
     },
     {
       id: 7,
@@ -693,6 +698,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-08-25',
       cost: 90000,
       location: 'Siedziba firmy Meble.pl, ul. Kościuszki 15, Kraków',
+      status: 'nowe'
     },
     {
       id: 8,
@@ -705,6 +711,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-06-15',
       cost: 80000,
       location: 'ul. Mickiewicza 22, Kraków',
+      status: 'nowe'
     },
     {
       id: 9,
@@ -717,6 +724,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-09-30',
       cost: 200000,
       location: 'ul. Wiejska 100, Tarnobrzeg',
+      status: 'nowe'
     },
     {
       id: 10,
@@ -730,6 +738,7 @@ export class LocalStorageSeederService {
       completionDate: '2024-07-30',
       cost: 120000,
       location: 'ul. Piękna 8, Wrocław',
+      status: 'nowe'
     }
   ];
 

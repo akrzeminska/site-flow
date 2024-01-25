@@ -13,4 +13,5 @@ export abstract class TasksService {
   public abstract create(item: Task): Observable<number>;
   public abstract update(item: Task): Observable<any>;
   public abstract delete(id: number): Observable<any>;
+  public abstract updateTaskStatus(task: Task): Observable<void>;
 }

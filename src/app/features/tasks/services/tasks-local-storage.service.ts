@@ -50,6 +50,18 @@ export class TasksLocalStorageService extends TasksService {
     return of(taskOptions);
   }
 
+  public updateTaskStatus(task: Task): Observable<void> {
+    const localStorageKey = `task_${task.id}`;
+    const localStorageData = localStorage.getItem(localStorageKey);
+
+    if (localStorageData) {
+      const updatedTask: Task = { ...JSON.parse(localStorageData), status: task.status };
+      localStorage.setItem(localStorageKey, JSON.stringify(updatedTask));
+    }
+
+    return of();
+  }
+  
   public override create(item: Task): Observable<number> {
     throw new Error('Method not implemented.');
   }

@@ -11,106 +11,94 @@
     </div>
     <div class="tasks-kanban-content">
         <div cdkDropListGroup>
-            <div class="example-container">
-              <h2>Nowe:</h2>
-              <div 
-                cdkDropList
-               [cdkDropListData]="todo" 
-               class="example-list" 
-               (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of todo" cdkDrag>
-                    <mat-card class="example-card">
-                        <mat-card-header>
-                          <mat-card-title>{{item}}</mat-card-title>
-                          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                          <p>This card indeterminates progress bar.</p>
-                          <p>Test</p>
-                        </mat-card-content>
-                        <mat-card-actions class="buttons">
-                            <button mat-button color="accent">Usuń</button>
-                            <button mat-button color="primary">Edytuj</button>
-                        </mat-card-actions>
-                    </mat-card>                      
-                </div>
-              </div>
+          <div class="content-container">
+            <div class="header-task-list">Przeciągnij zadania do odpowiedniej kolumny
             </div>
-
-            <div class="example-container">
-              <h2>W trakcie:</h2>
-              <div 
-              cdkDropList 
-              [cdkDropListData]="inProgress" 
-              class="example-list" 
-              (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of inProgress" cdkDrag>
-                    <mat-card class="example-card">
+            <div class="tasks-kanban-content">
+              <div cdkDropListGroup>
+                <div class="example-container">
+                  <h2>Nowe:</h2>
+                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('nowe')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'nowe')" cdkDrag>
+                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('nowe')" (dragstart)="onDragStart(item)">
+                      <mat-card class="example-card">
                         <mat-card-header>
-                          <mat-card-title>{{item}}</mat-card-title>
-                          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                          <mat-card-title>{{ item.name }}</mat-card-title>
+                          <mat-card-subtitle>{{ item.scope }}</mat-card-subtitle>
                         </mat-card-header>
                         <mat-card-content>
-                          <p>This card indeterminates progress bar.</p>
-                          <p>Test</p>
-                        </mat-card-content>
-                        <mat-card-actions class="buttons">
-                            <button mat-button color="accent">Usuń</button>
-                            <button mat-button color="primary">Edytuj</button>
-                        </mat-card-actions>
-                    </mat-card>                      
-                </div>
-              </div>
-            </div>
-
-            <div class="example-container">
-              <h2>Do zatwierdzenia:</h2>
-              <div 
-              cdkDropList 
-              [cdkDropListData]="toAccept" 
-              class="example-list" 
-              (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of toAccept" cdkDrag>
-                    <mat-card class="example-card">
-                        <mat-card-header>
-                          <mat-card-title>{{item}}</mat-card-title>
-                          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                          <p>This card indeterminates progress bar.</p>
-                          <p>Test</p>
-                        </mat-card-content>
-                        <mat-card-actions class="buttons">
-                            <button mat-button color="accent">Usuń</button>
-                            <button mat-button color="primary">Edytuj</button>
-                        </mat-card-actions>
-                    </mat-card>                      
-                </div>
-              </div>
-            </div>
-          
-            <div class="example-container">
-              <h2>Zakończone:</h2>
-              <div 
-              cdkDropList 
-              [cdkDropListData]="done" 
-              class="example-list" 
-              (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of done" cdkDrag>
-                    <mat-card class="example-card">
-                        <mat-card-header>
-                          <mat-card-title>{{item}}</mat-card-title>
-                          <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                        </mat-card-header>
-                        <mat-card-content>
-                          <p>This card indeterminates progress bar.</p>
-                          <p>Test</p>
+                          <p>{{ item.description }}</p>
+                          <p>Termin zakończenia: {{ item.completionDate }}</p>
                         </mat-card-content>
                         <mat-card-actions class="buttons">
                           <button mat-button color="accent">Usuń</button>
                           <button mat-button color="primary">Edytuj</button>
                         </mat-card-actions>
-                    </mat-card> 
+                      </mat-card>
+                    </div>
+                  </div>
+                </div>
+                <div class="example-container">
+                  <h2>Do zatwierdzenia:</h2>
+                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('do zatwiedzenia')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'do zatwiedzenia')" cdkDrag>
+                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('do zatwiedzenia')" (dragstart)="onDragStart(item)">
+                      <mat-card class="example-card">
+                        <mat-card-header>
+                          <mat-card-title>{{ item.name }}</mat-card-title>
+                          <mat-card-subtitle>{{ item.scope }}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                          <p>{{ item.description }}</p>
+                          <p>Termin zakończenia: {{ item.completionDate }}</p>
+                        </mat-card-content>
+                        <mat-card-actions class="buttons">
+                          <button mat-button color="accent">Usuń</button>
+                          <button mat-button color="primary">Edytuj</button>
+                        </mat-card-actions>
+                      </mat-card>
+                    </div>
+                  </div>
+                </div>
+                <div class="example-container">
+                  <h2>W trakcie:</h2>
+                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('w trakcie')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'w trakcie')" cdkDrag>
+                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('w trakcie')" (dragstart)="onDragStart(item)">
+                      <mat-card class="example-card">
+                        <mat-card-header>
+                          <mat-card-title>{{ item.name }}</mat-card-title>
+                          <mat-card-subtitle>{{ item.scope }}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                          <p>{{ item.description }}</p>
+                          <p>Termin zakończenia: {{ item.completionDate }}</p>
+                        </mat-card-content>
+                        <mat-card-actions class="buttons">
+                          <button mat-button color="accent">Usuń</button>
+                          <button mat-button color="primary">Edytuj</button>
+                        </mat-card-actions>
+                      </mat-card>
+                    </div>
+                  </div>
+                </div>
+                <div class="example-container">
+                  <h2>Zakończone:</h2>
+                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('zakończone')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'zakończone')" cdkDrag>
+                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('zakończone')" (dragstart)="onDragStart(item)">
+                      <mat-card class="example-card">
+                        <mat-card-header>
+                          <mat-card-title>{{ item.name }}</mat-card-title>
+                          <mat-card-subtitle>{{ item.scope }}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content>
+                          <p>{{ item.description }}</p>
+                          <p>Termin zakończenia: {{ item.completionDate }}</p>
+                        </mat-card-content>
+                        <mat-card-actions class="buttons">
+                          <button mat-button color="accent">Usuń</button>
+                          <button mat-button color="primary">Edytuj</button>
+                        </mat-card-actions>
+                      </mat-card>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -17,17 +17,18 @@ import { Task } from 'src/app/models/task.model';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
-  dataTasks: Array<Task> = [];
-  todo: string[] = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-  inProgress: string[] = [];
-  toAccept: string[] = [];
-  done: string[] = [];
+  dataTasks: Task[] = [];
+  todo: Task[] = [];
+  inProgress: Task[] = [];
+  toAccept: Task[] = [];
+  done: Task[] = [];
+  item: Task[] = [];
+  currentItem!: any;
 
   constructor(private tasksService: TasksService) {}
 
   ngOnInit(): void {
     this.getAllData();
-    this.showOptions();
   }
   
   getAllData() {
@@ -36,6 +37,7 @@ export class TasksComponent implements OnInit {
       .subscribe((task: Array<Task>) => {
         if (task) {
           this.dataTasks = task;
+          // this.updateTaskArrays();
         } else {
           console.log('Nie znaleziono zadań.');
         }
@@ -43,10 +45,15 @@ export class TasksComponent implements OnInit {
       });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<Task[]>, status: string) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      const movedTask = event.item.data;
+      movedTask.status = status;
+      this.tasksService.updateTaskStatus(movedTask).subscribe(() => {
+        this.updateTaskArrays();
+      });
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
@@ -56,8 +63,19 @@ export class TasksComponent implements OnInit {
     }
   }
 
-  showOptions() {
-    this.tasksService.getOptions();
-
+  updateTaskArrays() {
+    this.todo = this.dataTasks.filter(task => task.status === 'nowe');
+    this.inProgress = this.dataTasks.filter(task => task.status === 'w trakcie');
+    this.toAccept = this.dataTasks.filter(task => task.status === 'do zatwierdzenia');
+    this.done = this.dataTasks.filter(task => task.status === 'zakończone');
   }
+
+  getFilteredTaskArray(status: string): Task[] {
+    return this.dataTasks.filter(m => m.status == status);
+  }
+
+  onDragStart(item: any) {
+    this.currentItem = item;
+  }
+  
 }

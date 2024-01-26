@@ -5,21 +5,19 @@
     </div>
 </section>
 <mat-divider></mat-divider>
-
 <div class="content-container">
     <div class="header-task-list">
     </div>
     <div class="tasks-kanban-content">
         <div cdkDropListGroup>
           <div class="content-container">
-            <div class="header-task-list">Przeciągnij zadania do odpowiedniej kolumny
-            </div>
+            <div class="header-task-list">Przeciągnij zadania do odpowiedniej kolumny</div>
             <div class="tasks-kanban-content">
               <div cdkDropListGroup>
                 <div class="example-container">
                   <h2>Nowe:</h2>
-                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('nowe')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'nowe')" cdkDrag>
-                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('nowe')" (dragstart)="onDragStart(item)">
+                  <div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event, 'nowe')">
+                    <div class="example-box" *ngFor="let item of todo" [cdkDragData]="{ data: item }" cdkDrag>
                       <mat-card class="example-card">
                         <mat-card-header>
                           <mat-card-title>{{ item.name }}</mat-card-title>
@@ -39,8 +37,8 @@
                 </div>
                 <div class="example-container">
                   <h2>Do zatwierdzenia:</h2>
-                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('do zatwiedzenia')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'do zatwiedzenia')" cdkDrag>
-                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('do zatwiedzenia')" (dragstart)="onDragStart(item)">
+                  <div cdkDropList [cdkDropListData]="toAccept" class="example-list" (cdkDropListDropped)="drop($event, 'do zatwiedzenia')">
+                    <div class="example-box" *ngFor="let item of toAccept" [cdkDragData]="{ data: item }" cdkDrag>
                       <mat-card class="example-card">
                         <mat-card-header>
                           <mat-card-title>{{ item.name }}</mat-card-title>
@@ -60,8 +58,8 @@
                 </div>
                 <div class="example-container">
                   <h2>W trakcie:</h2>
-                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('w trakcie')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'w trakcie')" cdkDrag>
-                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('w trakcie')" (dragstart)="onDragStart(item)">
+                  <div cdkDropList [cdkDropListData]="inProgress" class="example-list" (cdkDropListDropped)="drop($event, 'w trakcie')">
+                    <div class="example-box" *ngFor="let item of inProgress" [cdkDragData]="{ data: item }" cdkDrag>
                       <mat-card class="example-card">
                         <mat-card-header>
                           <mat-card-title>{{ item.name }}</mat-card-title>
@@ -81,8 +79,8 @@
                 </div>
                 <div class="example-container">
                   <h2>Zakończone:</h2>
-                  <div cdkDropList [cdkDropListData]="getFilteredTaskArray('zakończone')" class="example-list" [cdkDragData]="item" (cdkDropListDropped)="drop($event, 'zakończone')" cdkDrag>
-                    <div class="example-box" *ngFor="let item of getFilteredTaskArray('zakończone')" (dragstart)="onDragStart(item)">
+                  <div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event, 'zakończone')">
+                    <div class="example-box" *ngFor="let item of done" [cdkDragData]="{ data: item }" cdkDrag>
                       <mat-card class="example-card">
                         <mat-card-header>
                           <mat-card-title>{{ item.name }}</mat-card-title>

@@ -55,7 +55,7 @@ export class TasksLocalStorageService extends TasksService {
     const localStorageData = localStorage.getItem(localStorageKey);
 
     if (localStorageData) {
-      const updatedTask: Task = { ...JSON.parse(localStorageData), status: task.status };
+      const updatedTask: Task = task;
       localStorage.setItem(localStorageKey, JSON.stringify(updatedTask));
     }
 

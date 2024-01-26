@@ -36,12 +36,8 @@ import { AvatarUploadDialogComponent } from './components/avatar-upload-dialog/a
     MatInputModule,
   ],
   providers: [
-    LocalStorageSeederService,
     { provide: ContactsService, useExisting: ContactsLocalStorageService },
-    NotificationService,
-    {
-      provide: ConstructionsService,
-      useExisting: ConstructionsLocalStorageService,
+    {provide: ConstructionsService, useExisting: ConstructionsLocalStorageService,
     },
     { provide: TasksService, useExisting: TasksLocalStorageService },
   ],

@@ -20,9 +20,7 @@ import { LocalStorageSeederService } from 'src/app/shared/services/local-storage
     MatInputModule
   ],
   providers: [
-    LocalStorageSeederService,
     { provide: CostEstimatesService, useExisting: CostEstimatesLocalStorageService },
-
   ]
 })
 export class CostEstimatesModule { }

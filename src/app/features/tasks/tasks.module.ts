@@ -13,9 +13,7 @@ import { TasksLocalStorageService } from './services/tasks-local-storage.service
   declarations: [TasksComponent],
   imports: [CommonModule, TasksRoutingModule, SharedModule],
   providers: [
-    LocalStorageSeederService,
     { provide: TasksService, useExisting: TasksLocalStorageService },
-    NotificationService,
   ],
 })
 export class TasksModule {}

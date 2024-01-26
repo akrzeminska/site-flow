@@ -68,8 +68,11 @@ export class TasksLocalStorageService extends TasksService {
   public override update(item: Task): Observable<any> {
     throw new Error('Method not implemented.');
   }
+  
   public override delete(id: number): Observable<any> {
-    throw new Error('Method not implemented.');
+    const localStorageKey = `task_${id}`;
+    localStorage.removeItem(localStorageKey);
+    return of(undefined);
   }
 
   constructor() {

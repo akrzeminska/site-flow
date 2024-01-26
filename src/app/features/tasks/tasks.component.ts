@@ -10,6 +10,9 @@ import {
 } from '@angular/cdk/drag-drop';
 import { TasksService } from './services/tasks.service';
 import { Task } from 'src/app/models/task.model';
+import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { NotificationService } from 'src/app/shared/services/notification.service';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tasks',
@@ -23,7 +26,7 @@ export class TasksComponent implements OnInit {
   toAccept: Task[] = [];
   done: Task[] = [];
 
-  constructor(private tasksService: TasksService) {}
+  constructor(private tasksService: TasksService, private notificationService: NotificationService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getAllData();
@@ -70,5 +73,20 @@ export class TasksComponent implements OnInit {
         event.currentIndex
       );
     }
+  }
+
+  deleteElement(id: number) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Czy na pewno chcesz usunąć ten element?' }
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.tasksService.delete(id).subscribe(() => {
+          this.notificationService.openSnackBar('Element został pomyślnie usunięty', 'Zamknij');
+          this.getAllData();
+        });
+      }
+    });
   }
 }

@@ -14,7 +14,6 @@ mat-sidenav {
   // margin-left: 32px;
   display: flex;
   justify-content: center;
-  align-items: top;
 }
 
 mat-sidenav-container {
@@ -65,9 +64,9 @@ mat-divider {
 
 }
 
-.img {
+.image-container {
   position: fixed; 
-  bottom: 0; 
+  bottom: -6px; 
   right: 0; 
   max-width: 100%; 
   text-align: center;

@@ -1,45 +1,40 @@
-<div class="content">
-    <section>
-        <div class="sec">
-            <div class="title"><h1>Budowy</h1></div>
-            <div class="button"><button mat-flat-button color="primary" (click)="addNewConstruction()">+ Dodaj</button></div>
-        </div>
-    </section>
-    <div class="filter">
-        <mat-form-field>
-            <mat-label>Filter</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
-        </mat-form-field>
+<section>
+    <div class="sec">
+        <div class="title"><h1>Budowy</h1></div>
+        <div class="button"><button mat-flat-button color="primary" (click)="addNewConstruction()">+ Dodaj</button></div>
     </div>
-    <div class="table-container mat-elevation-z1">
-        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-            <ng-container *ngFor="let column of columns; let firstColumn = first" [matColumnDef]="column.columnDef">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>
-                <td mat-cell *matCellDef="let element">
-                    <ng-container *ngIf="column.columnDef !== 'menu'; else menuCell">
-                        {{ column.cell(element) }}
-                    </ng-container>
-                    <ng-template #menuCell matMenuContent>
-                        <button mat-icon-button [matMenuTriggerFor]="menu">{{ column.cell(element) }}<mat-icon>more_vert</mat-icon></button>
-                        <mat-menu #menu="matMenu" class="custom-menu">
-                            <button mat-menu-item (click)="editElement(element)"><mat-icon>edit</mat-icon><span>Edytuj</span></button>
-                            <button mat-menu-item (click)="deleteElement(element.id)"><mat-icon>delete</mat-icon><span>Usuń</span></button>
-                        </mat-menu>
-                    </ng-template>
-                </td>
-            </ng-container>
-    
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    
-            <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-            </tr>
-        </table>
+</section>
+<mat-form-field>
+    <mat-label>Filtruj</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filtruj" #input>
+</mat-form-field>
+<div class="table-container mat-elevation-z1">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z0">
+        <ng-container *ngFor="let column of columns; let firstColumn = first" [matColumnDef]="column.columnDef">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>
+            <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="column.columnDef !== 'menu'; else menuCell">
+                    {{ column.cell(element) }}
+                </ng-container>
+                <ng-template #menuCell matMenuContent>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">{{ column.cell(element) }}<mat-icon>more_vert</mat-icon></button>
+                    <mat-menu #menu="matMenu" class="custom-menu">
+                        <button mat-menu-item (click)="editElement(element)"><mat-icon>edit</mat-icon><span>Edytuj</span></button>
+                        <button mat-menu-item (click)="deleteElement(element.id)"><mat-icon>delete</mat-icon><span>Usuń</span></button>
+                    </mat-menu>
+                </ng-template>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+    <div class="paginator">
         <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
         </mat-paginator>
     </div>
+
 </div>
-
-  
-

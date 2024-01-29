@@ -1,3 +1,7 @@
+.contacts {
+    width: 100%;
+}
+
 .sec {
     display: flex;
     align-items: center;
@@ -20,4 +24,10 @@
     justify-content: space-around;
     margin: 20px;
 }
+
+@media only screen and (min-width: 1024px) {
+    .contacts {
+      width: calc(100vw - 300px);
+    }
+  }
 

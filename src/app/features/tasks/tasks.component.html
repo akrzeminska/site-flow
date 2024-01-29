@@ -4,7 +4,10 @@
         <div class="button"><button mat-flat-button color="primary">+ Dodaj</button></div>
     </div>
 </section>
-<mat-divider></mat-divider>
+<mat-form-field>
+  <mat-label>Filtruj</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Filtruj" #input>
+</mat-form-field>
 <div class="content-container">
     <div class="header-task-list">
     </div>

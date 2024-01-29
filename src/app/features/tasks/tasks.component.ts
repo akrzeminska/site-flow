@@ -89,4 +89,7 @@ export class TasksComponent implements OnInit {
       }
     });
   }
+
+  applyFilter(event: Event) {
+  }
 }

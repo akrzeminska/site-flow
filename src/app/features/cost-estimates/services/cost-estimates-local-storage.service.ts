@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { CostEstimatesService } from './cost-estimates.service';
 import { Observable, map, of } from 'rxjs';
-import { CostEstimate } from 'src/app/models/cost-estimate.model';
+import { CostEstimate } from 'src/app/features/cost-estimates/models/cost-estimate.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CostEstimatesLocalStorageService extends CostEstimatesService {
   costEstimates: CostEstimate[] = [];
@@ -19,7 +19,7 @@ export class CostEstimatesLocalStorageService extends CostEstimatesService {
     const localStorageData = localStorage.getItem(localStorageKey);
     return of(localStorageData);
   }
-  
+
   public override getAll(): Observable<CostEstimate[]> {
     for (let key in localStorage) {
       if (key.startsWith('costEstimate_')) {
@@ -30,17 +30,17 @@ export class CostEstimatesLocalStorageService extends CostEstimatesService {
         }
       }
     }
-    this.costEstimates.sort((a, b) => a.id - b.id)
+    this.costEstimates.sort((a, b) => a.id - b.id);
     return of(this.costEstimates);
   }
 
   getAllWorks(id: number): Observable<any[]> {
     return this.getById(id).pipe(
-      map(data => {
+      map((data) => {
         const parseData = JSON.parse(data || {});
         return parseData.allWorks || [];
       })
-    )
+    );
   }
 
   public override create(item: CostEstimate): Observable<number> {

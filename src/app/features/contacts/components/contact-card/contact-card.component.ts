@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Contact } from 'src/app/models/contact.model';
+import { Contact } from 'src/app/features/contacts/models/contact.model';
 
 @Component({
   selector: 'app-contact-card',
   templateUrl: './contact-card.component.html',
-  styleUrls: ['./contact-card.component.scss']
+  styleUrls: ['./contact-card.component.scss'],
 })
 export class ContactCardComponent {
   @Input() contact!: Contact;
@@ -24,14 +24,13 @@ export class ContactCardComponent {
   getCardBackground(category: string): object {
     switch (category) {
       case 'Zarządzanie':
-        return { 'background-color': '#e4e5e7'};
+        return { 'background-color': '#e4e5e7' };
       case 'Projektowanie':
-        return { 'background-color': '#e3f7f7'};
+        return { 'background-color': '#e3f7f7' };
       case 'Wykonawstwo':
-        return { 'background-color': '#fcf2e7'};
+        return { 'background-color': '#fcf2e7' };
       default:
         return {};
     }
   }
-  
 }

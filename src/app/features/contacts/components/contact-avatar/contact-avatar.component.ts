@@ -1,6 +1,13 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Contact } from 'src/app/models/contact.model';
+import { Contact } from 'src/app/features/contacts/models/contact.model';
 import { AvatarUploadDialogComponent } from '../avatar-upload-dialog/avatar-upload-dialog.component';
 import { UploadedFileService } from 'src/app/shared/services/uploaded-file.service';
 import { ContactsService } from '../../services/contacts.service';
@@ -17,9 +24,11 @@ export class ContactAvatarComponent implements OnInit {
   isBadgeHidden2: boolean = true;
   @Output() avatarChanged: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private dialog: MatDialog,
+  constructor(
+    private dialog: MatDialog,
     private uploadedFileService: UploadedFileService,
-    private contactsService: ContactsService) {}
+    private contactsService: ContactsService
+  ) {}
 
   ngOnInit(): void {
     this.checkAndAssignDefaultAvatar();
@@ -41,12 +50,14 @@ export class ContactAvatarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        const base64Image = this.uploadedFileService.getById(this.contact.id).subscribe((res: string) => {
-          console.log(res);
-          this.source = res;
-          
-          this.onAvatarChanged();
-        });
+        const base64Image = this.uploadedFileService
+          .getById(this.contact.id)
+          .subscribe((res: string) => {
+            console.log(res);
+            this.source = res;
+
+            this.onAvatarChanged();
+          });
       }
     });
   }

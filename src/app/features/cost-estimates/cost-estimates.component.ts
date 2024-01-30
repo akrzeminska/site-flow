@@ -1,27 +1,28 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CostEstimatesService } from './services/cost-estimates.service';
-import { CostEstimate } from 'src/app/models/cost-estimate.model';
+import { CostEstimate } from 'src/app/features/cost-estimates/models/cost-estimate.model';
 import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
 
 @Component({
   selector: 'app-cost-estimates',
   templateUrl: './cost-estimates.component.html',
-  styleUrls: ['./cost-estimates.component.scss']
+  styleUrls: ['./cost-estimates.component.scss'],
 })
-
 export class CostEstimatesComponent implements OnInit {
   dataCostEstimates: Array<CostEstimate> = [];
-  
+
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private seederService: LocalStorageSeederService,
-    private costEstimatesService: CostEstimatesService) {
-      seederService.ensureDataSeeder();
-    }
+    private costEstimatesService: CostEstimatesService
+  ) {
+    seederService.ensureDataSeeder();
+  }
 
   ngOnInit(): void {
     this.getAllData();
@@ -36,12 +37,14 @@ export class CostEstimatesComponent implements OnInit {
         } else {
           console.log('Nie znaleziono kosztorysów.');
         }
-        console.log('Dane po pobraniu przez getAllData:', this.dataCostEstimates);
+        console.log(
+          'Dane po pobraniu przez getAllData:',
+          this.dataCostEstimates
+        );
       });
   }
 
-  applyFilter(event: Event) {
-  }
+  applyFilter(event: Event) {}
 
   openAllPanels() {
     if (this.accordion) {

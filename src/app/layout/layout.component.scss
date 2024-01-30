@@ -11,7 +11,6 @@ mat-sidenav {
 .content {
   height: calc(100vh - 98px);
   margin-top: 16px;
-  // margin-left: 32px;
   display: flex;
   justify-content: center;
 }
@@ -29,7 +28,6 @@ mat-sidenav-container {
     padding: 5px;
     display: flex;
     align-items: center;
-    // color: #1e2935;
   
     .label {
       padding-left: 10px;
@@ -57,7 +55,6 @@ mat-divider {
   .label {
     padding-left: 10px;
   }
-
 }
 
 .image-container {

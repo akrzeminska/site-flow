@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CostEstimate } from 'src/app/models/cost-estimate.model';
+import { CostEstimate } from 'src/app/features/cost-estimates/models/cost-estimate.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export abstract class CostEstimatesService {
   public abstract getById(id: number): Observable<string | null>;

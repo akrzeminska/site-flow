@@ -86,102 +86,53 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content guard">
                    <div class="content-data">
 
 
 
 
+
+
+
+
+
+
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">Components</li>
-  <li class="breadcrumb-item"
-  >
-  HeaderComponent</li>
+    <li class="breadcrumb-item">Guards</li>
+    <li class="breadcrumb-item" >AuthGuard</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a href="#info" class="nav-link active"
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
                 role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
         </li>
         <li class="nav-item">
-            <a href="#source" class="nav-link"
+            <a href="#source" 
+                class="nav-link"
+                
                 role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
-        </li>
-        <li class="nav-item">
-            <a href="#templateData" class="nav-link"
-                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li class="nav-item">
-            <a href="#styleData" class="nav-link"
-                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li class="nav-item">
-            <a href="#tree" class="nav-link"
-                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/layout/header/header.component.ts</code>
-</p>
+        <div class="tab-pane fade active in" id="info">
+            <p class="comment">
+            <h3>File</h3>
+            </p>
+            <p class="comment">
+                <code>src/app/shared/guards/auth.guard.ts</code>
+            </p>
 
 
 
 
 
 
-<section data-compodoc="block-metadata">
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover metadata">
-        <tbody>
-
-
-
-
-
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-header</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./header.component.scss</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./header.component.html</code></td>
-            </tr>
-
-
-
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section data-compodoc="block-index">
+                <section data-compodoc="block-index">
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
@@ -195,7 +146,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#navigateToHomepage" >navigateToHomepage</a>
+                                <a href="#canActivate" >canActivate</a>
                             </li>
                         </ul>
                     </td>
@@ -209,18 +160,18 @@
     </table>
 </section>
 
-    <section data-compodoc="block-constructor">
+                <section data-compodoc="block-constructor">
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: Router)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/layout/header/header.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/shared/guards/auth.guard.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -237,6 +188,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>router</td>
                                                   
@@ -258,11 +221,7 @@
         </table>
 </section>
 
-
-
-
-
-    <section data-compodoc="block-methods">
+                <section data-compodoc="block-methods">
     
     <h3 id="methods">
         Methods
@@ -271,24 +230,24 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="navigateToHomepage"></a>
+                    <a name="canActivate"></a>
                     <span class="name">
-                        <span ><b>navigateToHomepage</b></span>
-                        <a href="#navigateToHomepage"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>canActivate</b></span>
+                        <a href="#canActivate"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>navigateToHomepage()</code>
+<code>canActivate()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="14"
-                                    class="link-to-prism">src/app/layout/header/header.component.ts:14</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="13"
+                                    class="link-to-prism">src/app/shared/guards/auth.guard.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -297,7 +256,7 @@
                 <td class="col-md-4">
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
                 </td>
@@ -305,135 +264,33 @@
         </tbody>
     </table>
 </section>
-
-</div>
-
-
-    <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Output } from &#x27;@angular/core&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
-
-@Component({
-  selector: &#x27;app-header&#x27;,
-  templateUrl: &#x27;./header.component.html&#x27;,
-  styleUrls: [&#x27;./header.component.scss&#x27;]
-})
-
-export class HeaderComponent {
-
-  constructor(private router: Router){}
-
-  navigateToHomepage() {
-    this.router.navigate([&#x27;/user-panel&#x27;])
-  }
-  }
-
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-    &lt;div class&#x3D;&quot;left-content&quot;&gt;
-        &lt;img class&#x3D;&quot;logo&quot; src&#x3D;&quot;../../../assets/images/logos/mapshop.svg&quot; alt&#x3D;&quot;logo&quot;&gt;
-        &lt;div class&#x3D;&quot;title&quot;&gt;
-            Site&lt;span (click)&#x3D;&quot;navigateToHomepage()&quot;&gt;Flow&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;right-content&quot;&gt;
-        &lt;app-header-welcome&gt;&lt;/app-header-welcome&gt;
-        &lt;app-account&gt;&lt;/app-account&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="styleData">
-                <p class="comment">
-                    <code>./header.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">.container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    font-size: x-large;
-
-    span {
-        font-weight: bold;
-        color: #fff;
-    }
-
-    span:hover {
-        color: #1e2935;
-        cursor: pointer;
-    }
-}
-
-.logo {
-    height: 38px;
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 5px;
-}
-
-.title {
-    padding-left: 10px;
-}
-
-.left-content {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-}
-
-.right-content {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
-
-
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
         </div>
-    </div>
 
-    
+
+        <div class="tab-pane fade  tab-source-code" id="source">
+            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { CanActivate, Router } from &#x27;@angular/router&#x27;;
+import { AuthService } from &#x27;../services/auth.service&#x27;;
+
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class AuthGuard implements CanActivate {
+  
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(): boolean {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate([&#x27;/login&#x27;]);
+      return false;
+    }
+    return true;
+  }
+}
+</code></pre>
+        </div>
 </div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="left-content">        <img class="logo" src="../../../assets/images/logos/mapshop.svg" alt="logo">        <div class="title">            Site<span (click)="navigateToHomepage()">Flow</span>        </div>    </div>    <div class="right-content">        <app-header-welcome></app-header-welcome>        <app-account></app-account>    </div></div></div>'
-    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarUploadDialogComponent', 'selector': 'app-avatar-upload-dialog'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ConstructionsComponent', 'selector': 'app-constructions'},{'name': 'ContactAvatarComponent', 'selector': 'app-contact-avatar'},{'name': 'ContactCardComponent', 'selector': 'app-contact-card'},{'name': 'ContactFormComponent', 'selector': 'app-contact-form'},{'name': 'ContactsComponent', 'selector': 'app-contacts'},{'name': 'CostEstimatesComponent', 'selector': 'app-cost-estimates'},{'name': 'CostEstimatesDetailsComponent', 'selector': 'app-cost-estimates-details'},{'name': 'FeatureDialogComponent', 'selector': 'app-feature-dialog'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderWelcomeComponent', 'selector': 'app-header-welcome'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuButtonComponent', 'selector': 'app-menu-button'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'TasksComponent', 'selector': 'app-tasks'},{'name': 'UserPanelComponent', 'selector': 'app-user-panel'}];
-    var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
-
-
-
 
 
 
@@ -470,8 +327,8 @@ export class HeaderComponent {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'guard';
+            var COMPODOC_CURRENT_PAGE_URL = 'AuthGuard.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

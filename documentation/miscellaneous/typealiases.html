@@ -86,131 +86,67 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content module">
+               <div class="content miscellaneous-typealiases">
                    <div class="content-data">
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <ol class="breadcrumb">
-    <li class="breadcrumb-item">Modules</li>
-    <li class="breadcrumb-item" >AppRoutingModule</li>
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Type aliases</li>
 </ol>
 
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#taskStatus" title="src/app/features/tasks/models/task.model.ts" ><b>taskStatus</b>&nbsp;&nbsp;&nbsp;(src/.../task.model.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
-<ul class="nav nav-tabs" role="tablist">
-    <li class="nav-item">
-        <a href="#info" 
-            class="nav-link"
-            class="nav-link active"
-            role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
-    </li>
-    <li class="nav-item">
-        <a href="#source" 
-            class="nav-link"
-            
-            role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
-    </li>
-</ul>
-
-<div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
-
-        <p class="comment">
-            <h3>File</h3>
-        </p>
-        <p class="comment">
-            <code>src/app/app-routing.module.ts</code>
-        </p>
-
-
-
-
-
-        <div class="container-fluid module">
-            <div class="row">
-            </div>
-        </div>
-
-
-    </div>
-
-
-    <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
-import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
-import { LoginComponent } from &#x27;./core/components/login/login.component&#x27;;
-import { AuthGuard } from &#x27;./shared/guards/auth.guard&#x27;;
-
-const routes: Routes &#x3D; [
-  {
-    path: &#x27;constructions&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./features/constructions/constructions.module&#x27;).then(\
-        (m) &#x3D;&gt; m.ConstructionsModule\
-      )&quot;, canActivate: [AuthGuard]
-  },
-  {
-    path: &#x27;costs-estimates&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./features/cost-estimates/cost-estimates.module&#x27;).then(\
-        (m) &#x3D;&gt; m.CostEstimatesModule\
-      )&quot;, canActivate: [AuthGuard]
-  },
-  {
-    path: &#x27;contacts&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./features/contacts/contacts.module&#x27;).then(\
-        (m) &#x3D;&gt; m.ContactsModule\
-      )&quot;, canActivate: [AuthGuard]
-  },
-  {
-    path: &#x27;tasks&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./features/tasks/tasks.module&#x27;).then((m) &#x3D;&gt; m.TasksModule)&quot;,
-      canActivate: [AuthGuard]
-  },
-  {
-    path: &#x27;user-panel&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./features/user-panel/user-panel.module&#x27;).then(\
-        (m) &#x3D;&gt; m.UserPanelModule\
-      )&quot;, canActivate: [AuthGuard]
-  },
-  { 
-    path: &#x27;login&#x27;, component: LoginComponent 
-  },
-  {
-    path: &#x27;&#x27;,
-    loadChildren: () &#x3D;&gt;
-      &quot;import(&#x27;./features/user-panel/user-panel.module&#x27;).then(\
-        (m) &#x3D;&gt; m.UserPanelModule\
-      )&quot;, canActivate: [AuthGuard]
-  },
-];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {}
-</code></pre>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <h3>src/app/features/tasks/models/task.model.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="taskStatus"></a>
+                    <span class="name "><b>taskStatus</b><a href="#taskStatus"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;nowe&quot; | &quot;w trakcie&quot; | &quot;do zatwierdzenia&quot; | &quot;zakończone&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
 
                    </div><div class="search-results">
@@ -238,8 +174,8 @@ export class AppRoutingModule {}
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-typealiases';
+            var COMPODOC_CURRENT_PAGE_URL = 'typealiases.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

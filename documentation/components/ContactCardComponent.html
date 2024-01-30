@@ -200,6 +200,9 @@
                             <li>
                                 <a href="#editElement" >editElement</a>
                             </li>
+                            <li>
+                                <a href="#getCardBackground" >getCardBackground</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -424,6 +427,73 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCardBackground"></a>
+                    <span class="name">
+                        <span ><b>getCardBackground</b></span>
+                        <a href="#getCardBackground"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCardBackground(category: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/app/features/contacts/components/contact-card/contact-card.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>category</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
 </div>
@@ -431,12 +501,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
-import { Contact } from &#x27;src/app/models/contact.model&#x27;;
+import { Contact } from &#x27;src/app/features/contacts/models/contact.model&#x27;;
 
 @Component({
   selector: &#x27;app-contact-card&#x27;,
   templateUrl: &#x27;./contact-card.component.html&#x27;,
-  styleUrls: [&#x27;./contact-card.component.scss&#x27;]
+  styleUrls: [&#x27;./contact-card.component.scss&#x27;],
 })
 export class ContactCardComponent {
   @Input() contact!: Contact;
@@ -452,16 +522,28 @@ export class ContactCardComponent {
   editElement() {
     this.onEdit.emit(this.contact);
   }
-  
+
+  getCardBackground(category: string): object {
+    switch (category) {
+      case &#x27;Zarządzanie&#x27;:
+        return { &#x27;background-color&#x27;: &#x27;#e4e5e7&#x27; };
+      case &#x27;Projektowanie&#x27;:
+        return { &#x27;background-color&#x27;: &#x27;#e3f7f7&#x27; };
+      case &#x27;Wykonawstwo&#x27;:
+        return { &#x27;background-color&#x27;: &#x27;#fcf2e7&#x27; };
+      default:
+        return {};
+    }
+  }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">    &lt;mat-card class&#x3D;&quot;card-class&quot;&gt;
-        &lt;mat-card-header class&#x3D;&quot;card-header&quot;&gt;
+        &lt;mat-card-header class&#x3D;&quot;card-header&quot; [ngStyle]&#x3D;&quot;getCardBackground(contact.category)&quot;&gt;
           &lt;div mat-card-avatar class&#x3D;&quot;header-image&quot;&gt;
-            &lt;app-contact-avatar [source]&#x3D;&quot;contact.avatar&quot;&gt;&lt;/app-contact-avatar&gt;
+            &lt;app-contact-avatar [isBadgeHidden]&#x3D;&quot;true&quot; [source]&#x3D;&quot;contact.avatar&quot;&gt;&lt;/app-contact-avatar&gt;
           &lt;/div&gt;
           &lt;mat-card-subtitle&gt;Firma&lt;/mat-card-subtitle&gt;
           &lt;mat-card-title&gt;{{ contact.company }}&lt;/mat-card-title&gt;
@@ -480,7 +562,7 @@ export class ContactCardComponent {
         &lt;/mat-card-content&gt;
         &lt;mat-divider&gt;&lt;/mat-divider&gt;
         &lt;mat-card-actions class&#x3D;&quot;buttons&quot;&gt;
-            &lt;button mat-button (click)&#x3D;&quot;deleteElement(contact.id)&quot; color&#x3D;&quot;accent&quot;&gt;Usuń&lt;/button&gt;
+            &lt;button mat-button (click)&#x3D;&quot;deleteElement(contact.id)&quot; color&#x3D;&quot;warn&quot;&gt;Usuń&lt;/button&gt;
             &lt;button mat-button (click)&#x3D;&quot;editElement()&quot; color&#x3D;&quot;primary&quot;&gt;Edytuj&lt;/button&gt;
         &lt;/mat-card-actions&gt;
     &lt;/mat-card&gt;
@@ -494,6 +576,7 @@ export class ContactCardComponent {
                 <pre class="line-numbers"><code class="language-scss">.card-class {
     max-width: 500px;
     margin: 16px;
+    border: 1px solid #bcbfc2;
 }
 
 .header-image {
@@ -552,8 +635,8 @@ mat-card-content {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>    <mat-card class="card-class">        <mat-card-header class="card-header">          <div mat-card-avatar class="header-image">            <app-contact-avatar [source]="contact.avatar"></app-contact-avatar>          </div>          <mat-card-subtitle>Firma</mat-card-subtitle>          <mat-card-title>{{ contact.company }}</mat-card-title>        </mat-card-header>        <mat-divider></mat-divider>        <mat-card-content>            <p class="data">Imię:<span>{{ contact.name }}</span></p>            <p class="data">Nazwisko:<span>{{ contact.surname }}</span></p>            <p class="data">Telefon:<span>{{ contact.phone | phoneFormat: \'PL\' }}</span></p>            <p class="data">E-mail:<span>{{ contact.email }}</span></p>            <p class="data">Rola:<span>{{ contact.role }}</span></p>            <p class="data">Opis:<span>{{ contact.description }}</span></p>            <p class="data">Przypisane zadania:<span>{{ contact.taskId }}</span></p>            <p class="data">Przypisane budowy:<span>{{ contact.constructionId }}</span></p>            <p class="data">Kategoria:<span>{{ contact.category }}</span></p>        </mat-card-content>        <mat-divider></mat-divider>        <mat-card-actions class="buttons">            <button mat-button (click)="deleteElement(contact.id)" color="accent">Usuń</button>            <button mat-button (click)="editElement()" color="primary">Edytuj</button>        </mat-card-actions>    </mat-card></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarUploadDialogComponent', 'selector': 'app-avatar-upload-dialog'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ConstructionsComponent', 'selector': 'app-constructions'},{'name': 'ContactAvatarComponent', 'selector': 'app-contact-avatar'},{'name': 'ContactCardComponent', 'selector': 'app-contact-card'},{'name': 'ContactFormComponent', 'selector': 'app-contact-form'},{'name': 'ContactsComponent', 'selector': 'app-contacts'},{'name': 'CostEstimatesComponent', 'selector': 'app-cost-estimates'},{'name': 'FeatureDialogComponent', 'selector': 'app-feature-dialog'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'MainContentComponent', 'selector': 'app-main-content'},{'name': 'MenuButtonComponent', 'selector': 'app-menu-button'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'TasksComponent', 'selector': 'app-tasks'},{'name': 'UserPanelComponent', 'selector': 'app-user-panel'}];
+        var COMPONENT_TEMPLATE = '<div>    <mat-card class="card-class">        <mat-card-header class="card-header" [ngStyle]="getCardBackground(contact.category)">          <div mat-card-avatar class="header-image">            <app-contact-avatar [isBadgeHidden]="true" [source]="contact.avatar"></app-contact-avatar>          </div>          <mat-card-subtitle>Firma</mat-card-subtitle>          <mat-card-title>{{ contact.company }}</mat-card-title>        </mat-card-header>        <mat-divider></mat-divider>        <mat-card-content>            <p class="data">Imię:<span>{{ contact.name }}</span></p>            <p class="data">Nazwisko:<span>{{ contact.surname }}</span></p>            <p class="data">Telefon:<span>{{ contact.phone | phoneFormat: \'PL\' }}</span></p>            <p class="data">E-mail:<span>{{ contact.email }}</span></p>            <p class="data">Rola:<span>{{ contact.role }}</span></p>            <p class="data">Opis:<span>{{ contact.description }}</span></p>            <p class="data">Przypisane zadania:<span>{{ contact.taskId }}</span></p>            <p class="data">Przypisane budowy:<span>{{ contact.constructionId }}</span></p>            <p class="data">Kategoria:<span>{{ contact.category }}</span></p>        </mat-card-content>        <mat-divider></mat-divider>        <mat-card-actions class="buttons">            <button mat-button (click)="deleteElement(contact.id)" color="warn">Usuń</button>            <button mat-button (click)="editElement()" color="primary">Edytuj</button>        </mat-card-actions>    </mat-card></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarUploadDialogComponent', 'selector': 'app-avatar-upload-dialog'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ConstructionsComponent', 'selector': 'app-constructions'},{'name': 'ContactAvatarComponent', 'selector': 'app-contact-avatar'},{'name': 'ContactCardComponent', 'selector': 'app-contact-card'},{'name': 'ContactFormComponent', 'selector': 'app-contact-form'},{'name': 'ContactsComponent', 'selector': 'app-contacts'},{'name': 'CostEstimatesComponent', 'selector': 'app-cost-estimates'},{'name': 'CostEstimatesDetailsComponent', 'selector': 'app-cost-estimates-details'},{'name': 'FeatureDialogComponent', 'selector': 'app-feature-dialog'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderWelcomeComponent', 'selector': 'app-header-welcome'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuButtonComponent', 'selector': 'app-menu-button'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'TasksComponent', 'selector': 'app-tasks'},{'name': 'UserPanelComponent', 'selector': 'app-user-panel'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ContactCardComponent'};
 </script>

@@ -174,7 +174,6 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                    <span class="modifier"></span>
                                 <a href="#update" >update</a>
                             </li>
                         </ul>
@@ -318,7 +317,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:67</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:74</a></code>
 </div>
                         </td>
                     </tr>
@@ -387,8 +386,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/app/features/contacts/services/contacts-local-storage.service.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/features/contacts/services/contacts-local-storage.service.ts:36</a></div>
                         </td>
                     </tr>
 
@@ -433,7 +432,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:21</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:20</a></code>
 </div>
                         </td>
                     </tr>
@@ -479,7 +478,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:15</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:14</a></code>
 </div>
                         </td>
                     </tr>
@@ -533,7 +532,6 @@
                     <a name="update"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
-                            <span class="modifier"></span>
                         <span ><b>update</b></span>
                         <a href="#update"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -555,7 +553,7 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:55</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/ContactsService.html#source" target="_self" >ContactsService:58</a></code>
 </div>
                         </td>
                     </tr>
@@ -611,13 +609,12 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { ContactsService } from &#x27;./contacts.service&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
-import { Contact } from &#x27;src/app/models/contact.model&#x27;;
+import { Contact } from &#x27;src/app/features/contacts/models/contact.model&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class ContactsLocalStorageService extends ContactsService {
-
   constructor() {
     super();
   }
@@ -640,34 +637,42 @@ export class ContactsLocalStorageService extends ContactsService {
         }
       }
     }
-    contacts.sort((a, b) &#x3D;&gt; a.id - b.id)
+    contacts.sort((a, b) &#x3D;&gt; a.id - b.id);
     return of(contacts);
   }
 
   private generateNewId(): number {
-    const contactsKeys &#x3D; Object.keys(localStorage).filter((key) &#x3D;&gt; key.startsWith(&#x27;contact_&#x27;));
-  
-    const ids &#x3D; contactsKeys
-      .map((key) &#x3D;&gt; parseInt(key.split(&#x27;_&#x27;)[1], 10));
-  
+    const contactsKeys &#x3D; Object.keys(localStorage).filter((key) &#x3D;&gt;
+      key.startsWith(&#x27;contact_&#x27;)
+    );
+
+    const ids &#x3D; contactsKeys.map((key) &#x3D;&gt; parseInt(key.split(&#x27;_&#x27;)[1], 10));
+
     const newId &#x3D; Math.max(...ids, 0) + 1;
     return newId;
   }
 
   public override create(newcontactData: Contact): Observable&lt;number&gt; {
     newcontactData.id &#x3D; this.generateNewId();
-    
-    localStorage.setItem(&#x60;contact${newcontactData.id}&#x60;, JSON.stringify(newcontactData));
+
+    localStorage.setItem(
+      &#x60;contact${newcontactData.id}&#x60;,
+      JSON.stringify(newcontactData)
+    );
 
     return of(newcontactData.id);
   }
 
-  public override update(updatedContact: Contact): Observable&lt;any&gt; {
+  public update(updatedContact: Contact): Observable&lt;any&gt; {
     const localStorageKey &#x3D; &#x60;contact_${updatedContact.id}&#x60;;
     const localstorageData &#x3D; localStorage.getItem(localStorageKey);
+
     if (localstorageData) {
-      const existingConstruction: Contact &#x3D; JSON.parse(localstorageData);
-      localStorage.setItem(localStorageKey, JSON.stringify(updatedContact));
+      const existingContact: Contact &#x3D; JSON.parse(localstorageData);
+      existingContact.avatar &#x3D;
+        localStorage.getItem(&#x60;uploaded_file_contact_${updatedContact.id}&#x60;) ||
+        &#x27;&#x27;;
+      localStorage.setItem(localStorageKey, JSON.stringify(existingContact));
       return of([]);
     } else {
       return of([]);

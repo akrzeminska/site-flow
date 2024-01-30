@@ -558,19 +558,20 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { Construction } from &#x27;src/app/models/construction.model&#x27;;
+import { Construction } from &#x27;src/app/features/constructions/models/construction.model&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export abstract class ConstructionsService {
   public abstract getById(id: number): Observable&lt;boolean&gt;;
   public abstract getAll(): Observable&lt;Construction[]&gt;;
-  public abstract getOptions(): Observable&lt;{ id: number, name: string}[]&gt;;
+  public abstract getOptions(): Observable&lt;{ id: number; name: string }[]&gt;;
   public abstract create(item: Construction): Observable&lt;number&gt;;
   public abstract update(item: Construction): Observable&lt;any&gt;;
   public abstract delete(id: number): Observable&lt;any&gt;;
-}</code></pre>
+}
+</code></pre>
     </div>
 
 </div>

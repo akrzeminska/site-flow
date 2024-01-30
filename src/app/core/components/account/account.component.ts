@@ -13,11 +13,8 @@ export class AccountComponent implements OnInit {
   pictureUrl: string | undefined;
   userName: string | undefined;
 
-  constructor(
-    private readonly authService: AuthService, public dialog: MatDialog) 
-    {
+  constructor(private readonly authService: AuthService, public dialog: MatDialog) {}
 
-}
   ngOnInit(): void {    
     this.authService.userProfile$.subscribe((info) => {
     this.userProfile = info;

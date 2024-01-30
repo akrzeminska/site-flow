@@ -30,7 +30,7 @@ export class LayoutComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.breakpointObserver.observe(["(max-width: 800px)"]).subscribe((res) => {
+    this.breakpointObserver.observe(["(max-width: 768px)"]).subscribe((res) => {
       if (res.matches) {
         this.sidenav.mode = "over";
         this.sidenav.close();

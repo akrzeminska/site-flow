@@ -14,9 +14,7 @@ export class SettingsComponent implements OnInit {
   isDarkMode!: boolean;
   currentTheme!: 'dark-mode' | 'light-mode';
 
-  constructor(private themeService: ThemeService) {
-    // this.themeService.initTheme();
-  }
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit(): void {
     this.isDarkMode = this.themeService.isDarkMode();
@@ -25,11 +23,6 @@ export class SettingsComponent implements OnInit {
   
   toogleDarkMode() {
     this.isDarkMode = this.themeService.isDarkMode();
-    // if (this.isDarkMode) {
-    //   this.themeService.update('light-mode');
-    // } else {
-    //   this.themeService.update('dark-mode');
-    // }
     this.isDarkMode ? this.themeService.update('light-mode') : this.themeService.update('dark-mode');
   }
 

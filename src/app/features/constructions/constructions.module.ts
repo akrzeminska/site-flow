@@ -23,12 +23,10 @@ import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog
     MatInputModule,
   ],
   providers: [
-    LocalStorageSeederService,
     {
       provide: ConstructionsService,
       useExisting: ConstructionsLocalStorageService,
-    },
-    NotificationService,
+    }
   ],
 })
 export class ConstructionsModule {}

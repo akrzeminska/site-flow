@@ -1,20 +1,18 @@
 mat-sidenav {
-  // margin: 16px;
   width: 250px;
-  // background: #ffff;
   padding: 16px;
   text-align: center;
 }
+
 .header {
   width: 100%;
 }
+
 .content {
   height: calc(100vh - 98px);
-  margin: 16px;
-  // margin-left: 32px;
+  margin-top: 16px;
   display: flex;
   justify-content: center;
-  align-items: top;
 }
 
 mat-sidenav-container {
@@ -26,12 +24,14 @@ mat-sidenav-container {
   display: flex;
   flex-direction: column;
 
-  mat-icon {
-    margin-right: 10px;
-  }
-
-  .item-list {
-    text-align: left;
+  .item-list{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  
+    .label {
+      padding-left: 10px;
+    }
   }
 }
 
@@ -40,3 +40,29 @@ mat-divider {
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
 }
+
+.help-button {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #12b9c0;
+
+  .icon {
+    color: #1e2935;
+  }
+
+  .label {
+    padding-left: 10px;
+  }
+}
+
+.image-container {
+  position: fixed; 
+  bottom: -6px; 
+  right: 0; 
+  max-width: 100%; 
+  text-align: center;
+  z-index: -1;
+}
+

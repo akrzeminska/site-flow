@@ -6,6 +6,12 @@
 
     span {
         font-weight: bold;
+        color: #fff;
+    }
+
+    span:hover {
+        color: #1e2935;
+        cursor: pointer;
     }
 }
 
@@ -23,10 +29,14 @@
 .left-content {
     display: flex;
     align-items: center;
+    padding-left: 10px;
 }
 
-span:hover {
-    color: #1e2935;
-    cursor: pointer;
+.right-content {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
+
+
 

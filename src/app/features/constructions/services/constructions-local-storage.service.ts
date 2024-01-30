@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ConstructionsService } from './constructions.service';
 import { Observable, of } from 'rxjs';
-import { Construction } from 'src/app/models/construction.model';
+import { Construction } from 'src/app/features/constructions/models/construction.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConstructionsLocalStorageService extends ConstructionsService {
-
   public MAX_CONSTRUCTION_ID: number = 100;
 
   constructor() {
     super();
   }
-    
+
   public override getById(id: number): Observable<boolean> {
     const localStorageKey = `construction_${id}`;
     const localStorageData = localStorage.getItem(localStorageKey);
@@ -32,24 +31,30 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
         }
       }
     }
-    constructions.sort((a, b) => a.id - b.id)
+    constructions.sort((a, b) => a.id - b.id);
     return of(constructions);
   }
 
   private generateNewId(): number {
-    const constructionsKeys = Object.keys(localStorage).filter((key) => key.startsWith('construction_'));
-  
-    const ids = constructionsKeys
-      .map((key) => parseInt(key.split('_')[1], 10));
-  
+    const constructionsKeys = Object.keys(localStorage).filter((key) =>
+      key.startsWith('construction_')
+    );
+
+    const ids = constructionsKeys.map((key) => parseInt(key.split('_')[1], 10));
+
     const newId = Math.max(...ids, 0) + 1;
     return newId;
   }
 
-  public override create(newConstructionData: Construction): Observable<number> {
+  public override create(
+    newConstructionData: Construction
+  ): Observable<number> {
     newConstructionData.id = this.generateNewId();
-    
-    localStorage.setItem(`construction_${newConstructionData.id}`, JSON.stringify(newConstructionData));
+
+    localStorage.setItem(
+      `construction_${newConstructionData.id}`,
+      JSON.stringify(newConstructionData)
+    );
 
     return of(newConstructionData.id);
   }
@@ -60,7 +65,10 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
 
     if (localstorageData) {
       const existingConstruction: Construction = JSON.parse(localstorageData);
-      localStorage.setItem(localStorageKey, JSON.stringify(updatedConstruction));
+      localStorage.setItem(
+        localStorageKey,
+        JSON.stringify(updatedConstruction)
+      );
       return of([]);
     } else {
       return of([]);
@@ -73,8 +81,8 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
     return of(undefined);
   }
 
-  public override getOptions(): Observable<{ id: number, name: string}[]> {
-    const constructionOptions: { id: number, name: string }[] = [];
+  public override getOptions(): Observable<{ id: number; name: string }[]> {
+    const constructionOptions: { id: number; name: string }[] = [];
 
     for (let key in localStorage) {
       if (key.startsWith('construction_')) {
@@ -83,13 +91,13 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
           const construction: Construction = JSON.parse(localStorageData);
           const constructionInfo = {
             id: construction.id,
-            name: construction.name
+            name: construction.name,
           };
           constructionOptions.push(constructionInfo);
         }
       }
     }
-    constructionOptions.sort((a,b) => a.id - b.id);
+    constructionOptions.sort((a, b) => a.id - b.id);
     return of(constructionOptions);
   }
 }

@@ -1,4 +1,4 @@
-<div class="dashboard">
+  <div class="dashboard">
     <mat-card class="user-panel-card">
         <mat-card-header>
           <div mat-card-avatar class="user-panel-header-image"><mat-icon>businessaccount</mat-icon></div>
@@ -10,7 +10,7 @@
           <img mat-card-image class="img-card-content" src="./../../../assets/images/world.svg" alt="">
         </mat-card-content>
         <mat-card-actions>
-          <button mat-flat-button color="primary">Dodaj budowę</button>
+          <button mat-flat-button color="primary" (click)="navigateToConstructions()">Dodaj budowę</button>
         </mat-card-actions>
       </mat-card>
       <mat-card class="user-panel-card">
@@ -24,7 +24,7 @@
           <img mat-card-image class="img-card-content" src="./../../../assets/images/cost-estimates.svg" alt="">
         </mat-card-content>
         <mat-card-actions>
-          <button mat-flat-button color="primary">Dodaj kosztorys</button>
+          <button mat-flat-button color="primary"(click)="navigateToCostEstimates()">Dodaj kosztorys</button>
         </mat-card-actions>
       </mat-card>
       <mat-card class="user-panel-card">
@@ -38,7 +38,7 @@
           <img mat-card-image class="img-card-content" src="./../../../assets/images/contacts.svg" alt="">
         </mat-card-content>
         <mat-card-actions>
-          <button mat-flat-button color="primary">Dodaj kontakt</button>
+          <button mat-flat-button color="primary"(click)="navigateToContacts()">Dodaj kontakt</button>
         </mat-card-actions>
       </mat-card>
       <mat-card class="user-panel-card">
@@ -52,10 +52,11 @@
           <img mat-card-image class="img-card-content" src="./../../../assets/images/tasks1.svg" alt="">
         </mat-card-content>
         <mat-card-actions>
-          <button mat-flat-button color="primary">Dodaj zadanie</button>
+          <button mat-flat-button color="primary"(click)="navigateToTasks()">Dodaj zadanie</button>
         </mat-card-actions>
       </mat-card>
-</div>
+  </div>
+
 
 
   

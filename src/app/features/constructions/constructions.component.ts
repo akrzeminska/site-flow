@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { LocalStorageSeederService } from 'src/app/shared/services/local-storage-seeder.service';
 import { ConstructionsService } from './services/constructions.service';
-import { Construction } from 'src/app/models/construction.model';
+import { Construction } from 'src/app/features/constructions/models/construction.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -132,7 +132,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   editElement(construction: Construction): void {
     let dialogRef = this.dialog.open(FeatureDialogComponent, {
       width: '700px',
-      data: construction
+      data: construction,
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -141,29 +141,31 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       }
       console.log('Okno zostało zamknięte', result);
     });
-  
   }
-// usuwanie z potwierdzeniem
-deleteElement(id: number) {
-  const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-    data: { message: 'Czy na pewno chcesz usunąć ten element?' }
-  });
+  // usuwanie z potwierdzeniem
+  deleteElement(id: number) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: { message: 'Czy na pewno chcesz usunąć ten element?' },
+    });
 
-  dialogRef.afterClosed().subscribe(result => {
-    if (result === true) {
-      this.constructionsService.delete(id).subscribe(() => {
-        this.notificationService.openSnackBar('Element został pomyślnie usunięty', 'Zamknij');
-        this.refreshTable();
-      });
-    }
-  });
-}
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === true) {
+        this.constructionsService.delete(id).subscribe(() => {
+          this.notificationService.openSnackBar(
+            'Element został pomyślnie usunięty',
+            'Zamknij'
+          );
+          this.refreshTable();
+        });
+      }
+    });
+  }
 
   //metoda do uruchomienia okna dialogowego z formularzem 'dodaj'
-  openAddFeatureDialog(): void {
+  addNewConstruction(): void {
     let dialogRef = this.dialog.open(FeatureDialogComponent, {
       width: '700px',
-      data: null
+      data: null,
     });
 
     dialogRef.afterClosed().subscribe((result) => {

@@ -11,6 +11,10 @@
     }
 }
 
+mat-form-field {
+  width: 100%;
+}
+
 .tasks-kanban-content {
     display: flex;
     flex-flow: row wrap;
@@ -28,13 +32,17 @@
         align-items: center;
         justify-content: center;
         padding: 10px;
+        border-bottom: 1px solid #ccc;
     }
+  }
+  .example-card {
+   box-shadow: none;
   }
   
   .example-list {
     width: 300px;
     border: solid 1px #ccc;
-    min-height: 100vh;
+    min-height: calc(100vh - 320px);
     background: white;
     border-radius: 4px;
     overflow: hidden;
@@ -52,6 +60,7 @@
     cursor: move;
     background: white;
     font-size: 14px;
+    height: 270px;
   }
   
   .cdk-drag-preview {
@@ -87,5 +96,17 @@
     button {
         width: 100%;
     }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 576px) {
+  .content-container {
+    width: calc(100vw - 50px);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .content-container {
+    width: calc(100vw - 298px);
+  }
 }
   

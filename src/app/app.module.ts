@@ -16,6 +16,7 @@ import { AccountComponent } from './core/components/account/account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './core/components/settings/settings.component';
 import { LoginComponent } from './core/components/login/login.component';
+import { HeaderWelcomeComponent } from './core/components/header-welcome/header-welcome.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LoginComponent } from './core/components/login/login.component';
     AccountComponent,
     SettingsComponent,
     LoginComponent,
+    HeaderWelcomeComponent,
   ],
 
   imports: [

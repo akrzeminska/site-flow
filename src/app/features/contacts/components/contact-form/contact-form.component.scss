@@ -1,7 +1,11 @@
 .title {
   display: flex;
-  align-items: top;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
+  
+  .header-text {
+    padding-left: 30px;
+  }
 }
 
 form {

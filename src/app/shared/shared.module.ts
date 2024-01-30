@@ -46,6 +46,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AuthService } from './services/auth.service';
 import { NotificationService } from './services/notification.service';
 import { ThemeService } from './services/theme.service';
+import { LocalStorageSeederService } from './services/local-storage-seeder.service';
 
 @NgModule({
   declarations: [MenuButtonComponent, ConfirmDialogComponent, PhoneFormatPipe],
@@ -137,7 +138,8 @@ import { ThemeService } from './services/theme.service';
     },
     AuthService,
     NotificationService,
-    ThemeService
+    ThemeService,
+    LocalStorageSeederService
   ]
 })
 export class SharedModule {}

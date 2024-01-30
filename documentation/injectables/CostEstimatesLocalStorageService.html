@@ -98,7 +98,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Injectables</li>
-  <li class="breadcrumb-item" >ConstructionsLocalStorageService</li>
+  <li class="breadcrumb-item" >CostEstimatesLocalStorageService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -122,7 +122,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/features/constructions/services/constructions-local-storage.service.ts</code>
+            <code>src/app/features/cost-estimates/services/cost-estimates-local-storage.service.ts</code>
         </p>
 
 
@@ -131,7 +131,7 @@
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                            <code><a href="../injectables/ConstructionsService.html" target="_self" >ConstructionsService</a></code>
+                            <code><a href="../injectables/CostEstimatesService.html" target="_self" >CostEstimatesService</a></code>
             </p>
 
 
@@ -148,8 +148,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#MAX_CONSTRUCTION_ID" >MAX_CONSTRUCTION_ID</a>
+                                <a href="#allWorks" >allWorks</a>
+                            </li>
+                            <li>
+                                <a href="#costEstimates" >costEstimates</a>
                             </li>
                         </ul>
                     </td>
@@ -174,23 +176,17 @@
                                 <a href="#delete" >delete</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#generateNewId" >generateNewId</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier"></span>
                                 <a href="#getAll" >getAll</a>
                             </li>
                             <li>
-                                    <span class="modifier">Public</span>
-                                    <span class="modifier"></span>
-                                <a href="#getById" >getById</a>
+                                <a href="#getAllWorks" >getAllWorks</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier"></span>
-                                <a href="#getOptions" >getOptions</a>
+                                <a href="#getById" >getById</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -220,7 +216,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/features/constructions/services/constructions-local-storage.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/features/cost-estimates/services/cost-estimates-local-storage.service.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -249,20 +245,20 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>create(newConstructionData: <a href="../interfaces/Construction.html" target="_self">Construction</a>)</code>
+                    <code>create(item: <a href="../interfaces/CostEstimate.html" target="_self">CostEstimate</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../injectables/ConstructionsService.html" target="_self" >ConstructionsService</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../injectables/CostEstimatesService.html" target="_self" >CostEstimatesService</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ConstructionsService.html#source" target="_self" >ConstructionsService:49</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/CostEstimatesService.html#source" target="_self" >CostEstimatesService:46</a></code>
 </div>
                         </td>
                     </tr>
@@ -284,9 +280,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>newConstructionData</td>
+                                                <td>item</td>
                                             <td>
-                                                            <code><a href="../interfaces/Construction.html" target="_self" >Construction</a></code>
+                                                            <code><a href="../interfaces/CostEstimate.html" target="_self" >CostEstimate</a></code>
                                             </td>
 
                                             <td>
@@ -332,13 +328,13 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../injectables/ConstructionsService.html" target="_self" >ConstructionsService</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../injectables/CostEstimatesService.html" target="_self" >CostEstimatesService</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ConstructionsService.html#source" target="_self" >ConstructionsService:78</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/CostEstimatesService.html#source" target="_self" >CostEstimatesService:52</a></code>
 </div>
                         </td>
                     </tr>
@@ -389,45 +385,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="generateNewId"></a>
-                    <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>generateNewId</b></span>
-                        <a href="#generateNewId"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>generateNewId()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/app/features/constructions/services/constructions-local-storage.service.ts:38</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="getAll"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
@@ -447,13 +404,13 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../injectables/ConstructionsService.html" target="_self" >ConstructionsService</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../injectables/CostEstimatesService.html" target="_self" >CostEstimatesService</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ConstructionsService.html#source" target="_self" >ConstructionsService:22</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/CostEstimatesService.html#source" target="_self" >CostEstimatesService:23</a></code>
 </div>
                         </td>
                     </tr>
@@ -463,7 +420,7 @@
                 <td class="col-md-4">
 
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="../interfaces/Construction.html" target="_self" >Observable&lt;Construction[]&gt;</a></code>
+                            <b>Returns : </b>        <code><a href="../interfaces/CostEstimate.html" target="_self" >Observable&lt;CostEstimate[]&gt;</a></code>
 
                         </div>
                 </td>
@@ -474,32 +431,29 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getById"></a>
+                    <a name="getAllWorks"></a>
                     <span class="name">
-                            <span class="modifier">Public</span>
-                            <span class="modifier"></span>
-                        <span ><b>getById</b></span>
-                        <a href="#getById"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getAllWorks</b></span>
+                        <a href="#getAllWorks"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>getAllWorks(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../injectables/ConstructionsService.html" target="_self" >ConstructionsService</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../injectables/CostEstimatesService.html" target="_self" >CostEstimatesService</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ConstructionsService.html#source" target="_self" >ConstructionsService:16</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/CostEstimatesService.html#source" target="_self" >CostEstimatesService:37</a></code>
 </div>
                         </td>
                     </tr>
@@ -536,7 +490,7 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;boolean&gt;</code>
+                            <b>Returns : </b>    <code>Observable&lt;any[]&gt;</code>
 
                         </div>
                             <div class="io-description">
@@ -550,78 +504,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getOptions"></a>
+                    <a name="getById"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
                             <span class="modifier"></span>
-                        <span ><b>getOptions</b></span>
-                        <a href="#getOptions"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>getById</b></span>
+                        <a href="#getById"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getOptions()</code>
+                    <code>getById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../injectables/ConstructionsService.html" target="_self" >ConstructionsService</a></code>
+                            <div class="io-line">Inherited from         <code><a href="../injectables/CostEstimatesService.html" target="_self" >CostEstimatesService</a></code>
 </div>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ConstructionsService.html#source" target="_self" >ConstructionsService:84</a></code>
-</div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;literal type[]&gt;</code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="update"></a>
-                    <span class="name">
-                            <span class="modifier">Public</span>
-                            <span class="modifier"></span>
-                        <span ><b>update</b></span>
-                        <a href="#update"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(updatedConstruction: <a href="../interfaces/Construction.html" target="_self">Construction</a>)</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Inherited from         <code><a href="../injectables/ConstructionsService.html" target="_self" >ConstructionsService</a></code>
-</div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../injectables/ConstructionsService.html#source" target="_self" >ConstructionsService:62</a></code>
+                                <div class="io-line">Defined in         <code><a href="../injectables/CostEstimatesService.html#source" target="_self" >CostEstimatesService:17</a></code>
 </div>
                         </td>
                     </tr>
@@ -643,9 +551,85 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>updatedConstruction</td>
+                                                <td>id</td>
                                             <td>
-                                                            <code><a href="../interfaces/Construction.html" target="_self" >Construction</a></code>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier"></span>
+                        <span ><b>update</b></span>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>update(item: <a href="../interfaces/CostEstimate.html" target="_self">CostEstimate</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/CostEstimatesService.html" target="_self" >CostEstimatesService</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/CostEstimatesService.html#source" target="_self" >CostEstimatesService:49</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CostEstimate.html" target="_self" >CostEstimate</a></code>
                                             </td>
 
                                             <td>
@@ -678,28 +662,58 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="MAX_CONSTRUCTION_ID"></a>
+                    <a name="allWorks"></a>
                     <span class="name">
-                            <span class="modifier">Public</span>
-                        <span ><b>MAX_CONSTRUCTION_ID</b></span>
-                        <a href="#MAX_CONSTRUCTION_ID"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>allWorks</b></span>
+                        <a href="#allWorks"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                        <i>Type : </i>    <code>any[]</code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>100</code>
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/features/constructions/services/constructions-local-storage.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/features/cost-estimates/services/cost-estimates-local-storage.service.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="costEstimates"></a>
+                    <span class="name">
+                        <span ><b>costEstimates</b></span>
+                        <a href="#costEstimates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CostEstimate.html" target="_self" >CostEstimate[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/features/cost-estimates/services/cost-estimates-local-storage.service.ts:10</a></div>
                         </td>
                     </tr>
 
@@ -713,106 +727,58 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { ConstructionsService } from &#x27;./constructions.service&#x27;;
-import { Observable, of } from &#x27;rxjs&#x27;;
-import { Construction } from &#x27;src/app/features/constructions/models/construction.model&#x27;;
+import { CostEstimatesService } from &#x27;./cost-estimates.service&#x27;;
+import { Observable, map, of } from &#x27;rxjs&#x27;;
+import { CostEstimate } from &#x27;src/app/features/cost-estimates/models/cost-estimate.model&#x27;;
 
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
-export class ConstructionsLocalStorageService extends ConstructionsService {
-  public MAX_CONSTRUCTION_ID: number &#x3D; 100;
+export class CostEstimatesLocalStorageService extends CostEstimatesService {
+  costEstimates: CostEstimate[] &#x3D; [];
+  allWorks: any[] &#x3D; [];
 
   constructor() {
     super();
   }
 
-  public override getById(id: number): Observable&lt;boolean&gt; {
-    const localStorageKey &#x3D; &#x60;construction_${id}&#x60;;
+  public override getById(id: number): Observable&lt;any&gt; {
+    const localStorageKey &#x3D; &#x60;costEstimate_${id}&#x60;;
     const localStorageData &#x3D; localStorage.getItem(localStorageKey);
-    return of(localStorageData !&#x3D;&#x3D; null);
+    return of(localStorageData);
   }
 
-  public override getAll(): Observable&lt;Construction[]&gt; {
-    const constructions: Construction[] &#x3D; [];
-
+  public override getAll(): Observable&lt;CostEstimate[]&gt; {
     for (let key in localStorage) {
-      if (key.startsWith(&#x27;construction_&#x27;)) {
+      if (key.startsWith(&#x27;costEstimate_&#x27;)) {
         const localStorageData &#x3D; localStorage.getItem(key);
         if (localStorageData) {
-          const construction: Construction &#x3D; JSON.parse(localStorageData);
-          constructions.push(construction);
+          const costEstimate: CostEstimate &#x3D; JSON.parse(localStorageData);
+          this.costEstimates.push(costEstimate);
         }
       }
     }
-    constructions.sort((a, b) &#x3D;&gt; a.id - b.id);
-    return of(constructions);
+    this.costEstimates.sort((a, b) &#x3D;&gt; a.id - b.id);
+    return of(this.costEstimates);
   }
 
-  private generateNewId(): number {
-    const constructionsKeys &#x3D; Object.keys(localStorage).filter((key) &#x3D;&gt;
-      key.startsWith(&#x27;construction_&#x27;)
+  getAllWorks(id: number): Observable&lt;any[]&gt; {
+    return this.getById(id).pipe(
+      map((data) &#x3D;&gt; {
+        const parseData &#x3D; JSON.parse(data || {});
+        return parseData.allWorks || [];
+      })
     );
-
-    const ids &#x3D; constructionsKeys.map((key) &#x3D;&gt; parseInt(key.split(&#x27;_&#x27;)[1], 10));
-
-    const newId &#x3D; Math.max(...ids, 0) + 1;
-    return newId;
   }
 
-  public override create(
-    newConstructionData: Construction
-  ): Observable&lt;number&gt; {
-    newConstructionData.id &#x3D; this.generateNewId();
-
-    localStorage.setItem(
-      &#x60;construction_${newConstructionData.id}&#x60;,
-      JSON.stringify(newConstructionData)
-    );
-
-    return of(newConstructionData.id);
+  public override create(item: CostEstimate): Observable&lt;number&gt; {
+    throw new Error(&#x27;Method not implemented.&#x27;);
   }
-
-  public override update(updatedConstruction: Construction): Observable&lt;any&gt; {
-    const localStorageKey &#x3D; &#x60;construction_${updatedConstruction.id}&#x60;;
-    const localstorageData &#x3D; localStorage.getItem(localStorageKey);
-
-    if (localstorageData) {
-      const existingConstruction: Construction &#x3D; JSON.parse(localstorageData);
-      localStorage.setItem(
-        localStorageKey,
-        JSON.stringify(updatedConstruction)
-      );
-      return of([]);
-    } else {
-      return of([]);
-    }
+  public override update(item: CostEstimate): Observable&lt;any&gt; {
+    throw new Error(&#x27;Method not implemented.&#x27;);
   }
-
   public override delete(id: number): Observable&lt;any&gt; {
-    const localStorageKey &#x3D; &#x60;construction_${id}&#x60;;
-    localStorage.removeItem(localStorageKey);
-    return of(undefined);
-  }
-
-  public override getOptions(): Observable&lt;{ id: number; name: string }[]&gt; {
-    const constructionOptions: { id: number; name: string }[] &#x3D; [];
-
-    for (let key in localStorage) {
-      if (key.startsWith(&#x27;construction_&#x27;)) {
-        const localStorageData &#x3D; localStorage.getItem(key);
-        if (localStorageData) {
-          const construction: Construction &#x3D; JSON.parse(localStorageData);
-          const constructionInfo &#x3D; {
-            id: construction.id,
-            name: construction.name,
-          };
-          constructionOptions.push(constructionInfo);
-        }
-      }
-    }
-    constructionOptions.sort((a, b) &#x3D;&gt; a.id - b.id);
-    return of(constructionOptions);
+    throw new Error(&#x27;Method not implemented.&#x27;);
   }
 }
 </code></pre>
@@ -858,7 +824,7 @@ export class ConstructionsLocalStorageService extends ConstructionsService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'ConstructionsLocalStorageService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'CostEstimatesLocalStorageService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

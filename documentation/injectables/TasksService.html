@@ -172,6 +172,11 @@
                                     <span class="modifier">Abstract</span>
                                 <a href="#update" >update</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Abstract</span>
+                                <a href="#updateTaskStatus" >updateTaskStatus</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -550,6 +555,76 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTaskStatus"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Abstract</span>
+                        <span ><b>updateTaskStatus</b></span>
+                        <a href="#updateTaskStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateTaskStatus(task: <a href="../interfaces/Task.html" target="_self">Task</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="16"
+                                    class="link-to-prism">src/app/features/tasks/services/tasks.service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>task</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Task.html" target="_self" >Task</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
 
     </div>
@@ -558,19 +633,20 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { Construction } from &#x27;src/app/models/construction.model&#x27;;
-import { Task } from &#x27;src/app/models/task.model&#x27;;
+import { Construction } from &#x27;src/app/features/constructions/models/construction.model&#x27;;
+import { Task } from &#x27;src/app/features/tasks/models/task.model&#x27;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export abstract class TasksService {
   public abstract getById(id: number): Observable&lt;boolean&gt;;
   public abstract getAll(): Observable&lt;Task[]&gt;;
-  public abstract getOptions(): Observable&lt;{ id: number, name: string}[]&gt;;
+  public abstract getOptions(): Observable&lt;{ id: number; name: string }[]&gt;;
   public abstract create(item: Task): Observable&lt;number&gt;;
   public abstract update(item: Task): Observable&lt;any&gt;;
   public abstract delete(id: number): Observable&lt;any&gt;;
+  public abstract updateTaskStatus(task: Task): Observable&lt;void&gt;;
 }
 </code></pre>
     </div>

@@ -96,7 +96,7 @@
   <li class="breadcrumb-item">Components</li>
   <li class="breadcrumb-item"
   >
-  HeaderComponent</li>
+  LoginComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -127,7 +127,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/layout/header/header.component.ts</code>
+    <code>src/app/core/components/login/login.component.ts</code>
 </p>
 
 
@@ -153,21 +153,21 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-header</code></td>
+                <td class="col-md-9"><code>app-login</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./header.component.scss</code></td>
+                <td class="col-md-9"><code>./login.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./header.component.html</code></td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
             </tr>
 
 
@@ -195,7 +195,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#navigateToHomepage" >navigateToHomepage</a>
+                                <a href="#onSignIn" >onSignIn</a>
+                            </li>
+                            <li>
+                                <a href="#signOut" >signOut</a>
                             </li>
                         </ul>
                     </td>
@@ -215,12 +218,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: Router)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/layout/header/header.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/components/login/login.component.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -238,10 +241,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>router</td>
+                                                        <td>authService</td>
                                                   
                                                         <td>
-                                                                    <code>Router</code>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -271,24 +274,61 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="navigateToHomepage"></a>
+                    <a name="onSignIn"></a>
                     <span class="name">
-                        <span ><b>navigateToHomepage</b></span>
-                        <a href="#navigateToHomepage"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>onSignIn</b></span>
+                        <a href="#onSignIn"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>navigateToHomepage()</code>
+<code>onSignIn()</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="14"
-                                    class="link-to-prism">src/app/layout/header/header.component.ts:14</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="13"
+                                    class="link-to-prism">src/app/core/components/login/login.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signOut"></a>
+                    <span class="name">
+                        <span ><b>signOut</b></span>
+                        <a href="#signOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>signOut()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="17"
+                                    class="link-to-prism">src/app/core/components/login/login.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -310,91 +350,77 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Output } from &#x27;@angular/core&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;src/app/shared/services/auth.service&#x27;;
 
 @Component({
-  selector: &#x27;app-header&#x27;,
-  templateUrl: &#x27;./header.component.html&#x27;,
-  styleUrls: [&#x27;./header.component.scss&#x27;]
+  selector: &#x27;app-login&#x27;,
+  templateUrl: &#x27;./login.component.html&#x27;,
+  styleUrls: [&#x27;./login.component.scss&#x27;]
 })
+export class LoginComponent {
+  
+  constructor(private authService: AuthService) {}
 
-export class HeaderComponent {
-
-  constructor(private router: Router){}
-
-  navigateToHomepage() {
-    this.router.navigate([&#x27;/user-panel&#x27;])
-  }
+  onSignIn() {
+    this.authService.initializeLoginFlow();
   }
 
+  signOut() {
+    this.authService.signOut();
+  }
+
+}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
-    &lt;div class&#x3D;&quot;left-content&quot;&gt;
-        &lt;img class&#x3D;&quot;logo&quot; src&#x3D;&quot;../../../assets/images/logos/mapshop.svg&quot; alt&#x3D;&quot;logo&quot;&gt;
-        &lt;div class&#x3D;&quot;title&quot;&gt;
-            Site&lt;span (click)&#x3D;&quot;navigateToHomepage()&quot;&gt;Flow&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class&#x3D;&quot;right-content&quot;&gt;
-        &lt;app-header-welcome&gt;&lt;/app-header-welcome&gt;
-        &lt;app-account&gt;&lt;/app-account&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-
-</code></pre>
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;login-container&quot;&gt;
+  &lt;mat-card class&#x3D;&quot;user-panel-card&quot;&gt;
+    &lt;mat-card-header&gt;
+      &lt;mat-card-title&gt;Witaj w Site Flow!&lt;/mat-card-title&gt;
+    &lt;/mat-card-header&gt;
+    &lt;mat-card-content&gt;
+      &lt;mat-divider&gt;&lt;/mat-divider&gt;
+      &lt;img mat-card-image class&#x3D;&quot;img-card-content&quot; src&#x3D;&quot;../../../../assets/icons/d-1.svg&quot; alt&#x3D;&quot;&quot;&gt;
+    &lt;/mat-card-content&gt;
+    &lt;mat-card-actions&gt;
+      &lt;button mat-flat-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;onSignIn()&quot;&gt;Zaloguj przez Gmail&lt;/button&gt;
+    &lt;/mat-card-actions&gt;
+  &lt;/mat-card&gt;
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
-                    <code>./header.component.scss</code>
+                    <code>./login.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.container {
+                <pre class="line-numbers"><code class="language-scss">.login-container { 
     display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    font-size: x-large;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    margin: 20px;
 
-    span {
-        font-weight: bold;
-        color: #fff;
+    .user-panel-card {
+        margin: 20px;
+        padding: 20px 0px;
+        justify-content: center;
+        align-items: center;
+
+        mat-card-title {
+            padding-bottom: 15px;
+        }
+
+        .img-card-content {
+            max-width: 270px;
+            padding: 35px;
+        }
     }
 
-    span:hover {
-        color: #1e2935;
-        cursor: pointer;
+    mat-card-actions {
+        margin-top: auto;
     }
-}
-
-.logo {
-    height: 38px;
-    background-color: #fff;
-    border-radius: 50%;
-    padding: 5px;
-}
-
-.title {
-    padding-left: 10px;
-}
-
-.left-content {
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-}
-
-.right-content {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
-
-
-</code></pre>
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -422,10 +448,10 @@ export class HeaderComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">    <div class="left-content">        <img class="logo" src="../../../assets/images/logos/mapshop.svg" alt="logo">        <div class="title">            Site<span (click)="navigateToHomepage()">Flow</span>        </div>    </div>    <div class="right-content">        <app-header-welcome></app-header-welcome>        <app-account></app-account>    </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="login-container">  <mat-card class="user-panel-card">    <mat-card-header>      <mat-card-title>Witaj w Site Flow!</mat-card-title>    </mat-card-header>    <mat-card-content>      <mat-divider></mat-divider>      <img mat-card-image class="img-card-content" src="../../../../assets/icons/d-1.svg" alt="">    </mat-card-content>    <mat-card-actions>      <button mat-flat-button color="primary" (click)="onSignIn()">Zaloguj przez Gmail</button>    </mat-card-actions>  </mat-card></div></div>'
     var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarUploadDialogComponent', 'selector': 'app-avatar-upload-dialog'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ConstructionsComponent', 'selector': 'app-constructions'},{'name': 'ContactAvatarComponent', 'selector': 'app-contact-avatar'},{'name': 'ContactCardComponent', 'selector': 'app-contact-card'},{'name': 'ContactFormComponent', 'selector': 'app-contact-form'},{'name': 'ContactsComponent', 'selector': 'app-contacts'},{'name': 'CostEstimatesComponent', 'selector': 'app-cost-estimates'},{'name': 'CostEstimatesDetailsComponent', 'selector': 'app-cost-estimates-details'},{'name': 'FeatureDialogComponent', 'selector': 'app-feature-dialog'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderWelcomeComponent', 'selector': 'app-header-welcome'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuButtonComponent', 'selector': 'app-menu-button'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'TasksComponent', 'selector': 'app-tasks'},{'name': 'UserPanelComponent', 'selector': 'app-user-panel'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -471,7 +497,7 @@ export class HeaderComponent {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'HeaderComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

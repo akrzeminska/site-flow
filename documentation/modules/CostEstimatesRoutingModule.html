@@ -139,8 +139,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule, Routes } from &#x27;@angular/router&#x27;;
 import { CostEstimatesComponent } from &#x27;./cost-estimates.component&#x27;;
+import { CostEstimatesDetailsComponent } from &#x27;./components/cost-estimates-details/cost-estimates-details.component&#x27;;
 
 const routes: Routes &#x3D; [
+  { path: &#x27;:id&#x27;, component: CostEstimatesDetailsComponent },
   { path: &#x27;**&#x27;, component: CostEstimatesComponent}
 ];
 

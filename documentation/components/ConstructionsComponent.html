@@ -234,6 +234,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#addNewConstruction" >addNewConstruction</a>
+                            </li>
+                            <li>
                                 <a href="#applyFilter" >applyFilter</a>
                             </li>
                             <li>
@@ -253,9 +256,6 @@
                             </li>
                             <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
-                            </li>
-                            <li>
-                                <a href="#openAddFeatureDialog" >openAddFeatureDialog</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -371,6 +371,43 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="addNewConstruction"></a>
+                    <span class="name">
+                        <span ><b>addNewConstruction</b></span>
+                        <a href="#addNewConstruction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addNewConstruction()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/app/features/constructions/constructions.component.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="applyFilter"></a>
                     <span class="name">
                         <span ><b>applyFilter</b></span>
@@ -454,8 +491,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="147"
-                                    class="link-to-prism">src/app/features/constructions/constructions.component.ts:147</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="146"
+                                    class="link-to-prism">src/app/features/constructions/constructions.component.ts:146</a></div>
                         </td>
                     </tr>
 
@@ -720,43 +757,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="openAddFeatureDialog"></a>
-                    <span class="name">
-                        <span ><b>openAddFeatureDialog</b></span>
-                        <a href="#openAddFeatureDialog"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>openAddFeatureDialog()</code>
-                </td>
-            </tr>
-
-
-                    <tr>
-                        <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="163"
-                                    class="link-to-prism">src/app/features/constructions/constructions.component.ts:163</a></div>
-                        </td>
-                    </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                        <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                        </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="refreshTable"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
@@ -775,8 +775,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="174"
-                                    class="link-to-prism">src/app/features/constructions/constructions.component.ts:174</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="176"
+                                    class="link-to-prism">src/app/features/constructions/constructions.component.ts:176</a></div>
                         </td>
                     </tr>
 
@@ -1048,7 +1048,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { LocalStorageSeederService } from &#x27;src/app/shared/services/local-storage-seeder.service&#x27;;
 import { ConstructionsService } from &#x27;./services/constructions.service&#x27;;
-import { Construction } from &#x27;src/app/models/construction.model&#x27;;
+import { Construction } from &#x27;src/app/features/constructions/models/construction.model&#x27;;
 import { MatTableDataSource } from &#x27;@angular/material/table&#x27;;
 import { MatPaginator } from &#x27;@angular/material/paginator&#x27;;
 import { MatSort } from &#x27;@angular/material/sort&#x27;;
@@ -1179,7 +1179,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
   editElement(construction: Construction): void {
     let dialogRef &#x3D; this.dialog.open(FeatureDialogComponent, {
       width: &#x27;700px&#x27;,
-      data: construction
+      data: construction,
     });
 
     dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
@@ -1188,29 +1188,31 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       }
       console.log(&#x27;Okno zostało zamknięte&#x27;, result);
     });
-  
   }
-// usuwanie z potwierdzeniem
-deleteElement(id: number) {
-  const dialogRef &#x3D; this.dialog.open(ConfirmDialogComponent, {
-    data: { message: &#x27;Czy na pewno chcesz usunąć ten element?&#x27; }
-  });
+  // usuwanie z potwierdzeniem
+  deleteElement(id: number) {
+    const dialogRef &#x3D; this.dialog.open(ConfirmDialogComponent, {
+      data: { message: &#x27;Czy na pewno chcesz usunąć ten element?&#x27; },
+    });
 
-  dialogRef.afterClosed().subscribe(result &#x3D;&gt; {
-    if (result &#x3D;&#x3D;&#x3D; true) {
-      this.constructionsService.delete(id).subscribe(() &#x3D;&gt; {
-        this.notificationService.openSnackBar(&#x27;Element został pomyślnie usunięty&#x27;, &#x27;Zamknij&#x27;);
-        this.refreshTable();
-      });
-    }
-  });
-}
+    dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
+      if (result &#x3D;&#x3D;&#x3D; true) {
+        this.constructionsService.delete(id).subscribe(() &#x3D;&gt; {
+          this.notificationService.openSnackBar(
+            &#x27;Element został pomyślnie usunięty&#x27;,
+            &#x27;Zamknij&#x27;
+          );
+          this.refreshTable();
+        });
+      }
+    });
+  }
 
   //metoda do uruchomienia okna dialogowego z formularzem &#x27;dodaj&#x27;
-  openAddFeatureDialog(): void {
+  addNewConstruction(): void {
     let dialogRef &#x3D; this.dialog.open(FeatureDialogComponent, {
       width: &#x27;700px&#x27;,
-      data: null
+      data: null,
     });
 
     dialogRef.afterClosed().subscribe((result) &#x3D;&gt; {
@@ -1229,18 +1231,15 @@ deleteElement(id: number) {
         <pre class="line-numbers"><code class="language-html">&lt;section&gt;
     &lt;div class&#x3D;&quot;sec&quot;&gt;
         &lt;div class&#x3D;&quot;title&quot;&gt;&lt;h1&gt;Budowy&lt;/h1&gt;&lt;/div&gt;
-        &lt;div class&#x3D;&quot;button&quot;&gt;&lt;button mat-flat-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;openAddFeatureDialog()&quot;&gt;+ Dodaj&lt;/button&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;button&quot;&gt;&lt;button mat-flat-button color&#x3D;&quot;primary&quot; (click)&#x3D;&quot;addNewConstruction()&quot;&gt;+ Dodaj&lt;/button&gt;&lt;/div&gt;
     &lt;/div&gt;
 &lt;/section&gt;
-
+&lt;mat-form-field&gt;
+    &lt;mat-label&gt;Filtruj&lt;/mat-label&gt;
+    &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event)&quot; placeholder&#x3D;&quot;Filtruj&quot; #input&gt;
+&lt;/mat-form-field&gt;
 &lt;div class&#x3D;&quot;table-container mat-elevation-z1&quot;&gt;
-    &lt;mat-form-field&gt;
-        &lt;mat-label&gt;Filter&lt;/mat-label&gt;
-        &lt;input matInput (keyup)&#x3D;&quot;applyFilter($event)&quot; placeholder&#x3D;&quot;Filter&quot; #input&gt;
-    &lt;/mat-form-field&gt;
-
-    &lt;table mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort class&#x3D;&quot;mat-elevation-z8&quot;&gt;
-
+    &lt;table mat-table [dataSource]&#x3D;&quot;dataSource&quot; matSort class&#x3D;&quot;mat-elevation-z0&quot;&gt;
         &lt;ng-container *ngFor&#x3D;&quot;let column of columns; let firstColumn &#x3D; first&quot; [matColumnDef]&#x3D;&quot;column.columnDef&quot;&gt;
             &lt;th mat-header-cell *matHeaderCellDef mat-sort-header&gt;{{ column.header }}&lt;/th&gt;
             &lt;td mat-cell *matCellDef&#x3D;&quot;let element&quot;&gt;
@@ -1249,9 +1248,9 @@ deleteElement(id: number) {
                 &lt;/ng-container&gt;
                 &lt;ng-template #menuCell matMenuContent&gt;
                     &lt;button mat-icon-button [matMenuTriggerFor]&#x3D;&quot;menu&quot;&gt;{{ column.cell(element) }}&lt;mat-icon&gt;more_vert&lt;/mat-icon&gt;&lt;/button&gt;
-                    &lt;mat-menu #menu&#x3D;&quot;matMenu&quot;&gt;
-                        &lt;button mat-menu-item (click)&#x3D;&quot;editElement(element)&quot;&gt;Edytuj&lt;/button&gt;
-                        &lt;button mat-menu-item (click)&#x3D;&quot;deleteElement(element.id)&quot;&gt;Usuń&lt;/button&gt;
+                    &lt;mat-menu #menu&#x3D;&quot;matMenu&quot; class&#x3D;&quot;custom-menu&quot;&gt;
+                        &lt;button mat-menu-item (click)&#x3D;&quot;editElement(element)&quot;&gt;&lt;mat-icon&gt;edit&lt;/mat-icon&gt;&lt;span&gt;Edytuj&lt;/span&gt;&lt;/button&gt;
+                        &lt;button mat-menu-item (click)&#x3D;&quot;deleteElement(element.id)&quot;&gt;&lt;mat-icon&gt;delete&lt;/mat-icon&gt;&lt;span&gt;Usuń&lt;/span&gt;&lt;/button&gt;
                     &lt;/mat-menu&gt;
                 &lt;/ng-template&gt;
             &lt;/td&gt;
@@ -1259,49 +1258,60 @@ deleteElement(id: number) {
 
         &lt;tr mat-header-row *matHeaderRowDef&#x3D;&quot;displayedColumns&quot;&gt;&lt;/tr&gt;
         &lt;tr mat-row *matRowDef&#x3D;&quot;let row; columns: displayedColumns&quot;&gt;&lt;/tr&gt;
-
         &lt;tr class&#x3D;&quot;mat-row&quot; *matNoDataRow&gt;
             &lt;td class&#x3D;&quot;mat-cell&quot; colspan&#x3D;&quot;4&quot;&gt;No data matching the filter &quot;{{input.value}}&quot;&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/table&gt;
-    &lt;mat-paginator [pageSize]&#x3D;&quot;5&quot; [pageSizeOptions]&#x3D;&quot;[5, 10, 20]&quot; showFirstLastButtons aria-label&#x3D;&quot;Select page of periodic elements&quot;&gt;
-    &lt;/mat-paginator&gt;
-&lt;/div&gt;
-  
+    &lt;div class&#x3D;&quot;paginator&quot;&gt;
+        &lt;mat-paginator [pageSize]&#x3D;&quot;5&quot; [pageSizeOptions]&#x3D;&quot;[5, 10, 20]&quot; showFirstLastButtons aria-label&#x3D;&quot;Select page of periodic elements&quot;&gt;
+        &lt;/mat-paginator&gt;
+    &lt;/div&gt;
 
-</code></pre>
+&lt;/div&gt;</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
                 <p class="comment">
                     <code>./constructions.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">button {
+                <pre class="line-numbers"><code class="language-scss">.sec {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 20px 0 20px;
+
+  .button {
     margin-left: 30px;
     margin-bottom: 16px;
+  }
 }
 
 .table-container {
   display: flex;
   flex-direction: column;
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100vw;
+  background-color: #ffff;
 }
 
-.sec {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 20px 0 20px;
+.mat-mdc-form-field {
+  width: 100%;
 }
 
-  .mat-mdc-form-field {
-    width: 100%;
-    padding: 16px;
-  }
+th.mat-sort-header-sorted {
+  color: black;
+  background-color: #fafafa;
+}
 
-  th.mat-sort-header-sorted {
-    color: black;
-    background-color: #fafafa;
+@media only screen and (min-width: 768px) {
+  .table-container {
+    width: calc(100vw - 300px);
   }
+}
+
+
+
 
   
    
@@ -1336,8 +1346,8 @@ deleteElement(id: number) {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section>    <div class="sec">        <div class="title"><h1>Budowy</h1></div>        <div class="button"><button mat-flat-button color="primary" (click)="openAddFeatureDialog()">+ Dodaj</button></div>    </div></section><div class="table-container mat-elevation-z1">    <mat-form-field>        <mat-label>Filter</mat-label>        <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>    </mat-form-field>    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">        <ng-container *ngFor="let column of columns; let firstColumn = first" [matColumnDef]="column.columnDef">            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>            <td mat-cell *matCellDef="let element">                <ng-container *ngIf="column.columnDef !== \'menu\'; else menuCell">                    {{ column.cell(element) }}                </ng-container>                <ng-template #menuCell matMenuContent>                    <button mat-icon-button [matMenuTriggerFor]="menu">{{ column.cell(element) }}<mat-icon>more_vert</mat-icon></button>                    <mat-menu #menu="matMenu">                        <button mat-menu-item (click)="editElement(element)">Edytuj</button>                        <button mat-menu-item (click)="deleteElement(element.id)">Usuń</button>                    </mat-menu>                </ng-template>            </td>        </ng-container>        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>        <tr class="mat-row" *matNoDataRow>            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>        </tr>    </table>    <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">    </mat-paginator></div>  </div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarUploadDialogComponent', 'selector': 'app-avatar-upload-dialog'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ConstructionsComponent', 'selector': 'app-constructions'},{'name': 'ContactAvatarComponent', 'selector': 'app-contact-avatar'},{'name': 'ContactCardComponent', 'selector': 'app-contact-card'},{'name': 'ContactFormComponent', 'selector': 'app-contact-form'},{'name': 'ContactsComponent', 'selector': 'app-contacts'},{'name': 'CostEstimatesComponent', 'selector': 'app-cost-estimates'},{'name': 'FeatureDialogComponent', 'selector': 'app-feature-dialog'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'MainContentComponent', 'selector': 'app-main-content'},{'name': 'MenuButtonComponent', 'selector': 'app-menu-button'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'TasksComponent', 'selector': 'app-tasks'},{'name': 'UserPanelComponent', 'selector': 'app-user-panel'}];
+        var COMPONENT_TEMPLATE = '<div><section>    <div class="sec">        <div class="title"><h1>Budowy</h1></div>        <div class="button"><button mat-flat-button color="primary" (click)="addNewConstruction()">+ Dodaj</button></div>    </div></section><mat-form-field>    <mat-label>Filtruj</mat-label>    <input matInput (keyup)="applyFilter($event)" placeholder="Filtruj" #input></mat-form-field><div class="table-container mat-elevation-z1">    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z0">        <ng-container *ngFor="let column of columns; let firstColumn = first" [matColumnDef]="column.columnDef">            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.header }}</th>            <td mat-cell *matCellDef="let element">                <ng-container *ngIf="column.columnDef !== \'menu\'; else menuCell">                    {{ column.cell(element) }}                </ng-container>                <ng-template #menuCell matMenuContent>                    <button mat-icon-button [matMenuTriggerFor]="menu">{{ column.cell(element) }}<mat-icon>more_vert</mat-icon></button>                    <mat-menu #menu="matMenu" class="custom-menu">                        <button mat-menu-item (click)="editElement(element)"><mat-icon>edit</mat-icon><span>Edytuj</span></button>                        <button mat-menu-item (click)="deleteElement(element.id)"><mat-icon>delete</mat-icon><span>Usuń</span></button>                    </mat-menu>                </ng-template>            </td>        </ng-container>        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>        <tr class="mat-row" *matNoDataRow>            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>        </tr>    </table>    <div class="paginator">        <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">        </mat-paginator>    </div></div></div>'
+    var COMPONENTS = [{'name': 'AccountComponent', 'selector': 'app-account'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AvatarUploadDialogComponent', 'selector': 'app-avatar-upload-dialog'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ConstructionsComponent', 'selector': 'app-constructions'},{'name': 'ContactAvatarComponent', 'selector': 'app-contact-avatar'},{'name': 'ContactCardComponent', 'selector': 'app-contact-card'},{'name': 'ContactFormComponent', 'selector': 'app-contact-form'},{'name': 'ContactsComponent', 'selector': 'app-contacts'},{'name': 'CostEstimatesComponent', 'selector': 'app-cost-estimates'},{'name': 'CostEstimatesDetailsComponent', 'selector': 'app-cost-estimates-details'},{'name': 'FeatureDialogComponent', 'selector': 'app-feature-dialog'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderWelcomeComponent', 'selector': 'app-header-welcome'},{'name': 'LayoutComponent', 'selector': 'app-layout'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MenuButtonComponent', 'selector': 'app-menu-button'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SettingsComponent', 'selector': 'app-settings'},{'name': 'TasksComponent', 'selector': 'app-tasks'},{'name': 'UserPanelComponent', 'selector': 'app-user-panel'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ConstructionsComponent'};
 </script>

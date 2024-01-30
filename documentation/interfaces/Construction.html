@@ -129,7 +129,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/models/construction.model.ts</code>
+            <code>src/app/features/constructions/models/construction.model.ts</code>
         </p>
 
 
@@ -553,22 +553,23 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Contact } from &quot;./contact.model&quot;;
-import { CostEstimate } from &quot;./cost-estimate.model&quot;;
-import { Task } from &quot;./task.model&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Contact } from &#x27;../../contacts/models/contact.model&#x27;;
+import { CostEstimate } from &#x27;../../cost-estimates/models/cost-estimate.model&#x27;;
+import { Task } from &#x27;../../tasks/models/task.model&#x27;;
 
 export interface Construction {
-    id: number;
-    name: string;
-    location: string;
-    client: string;
-    costEstimateId: number;
-    manager: string;
-    contactId: number[];
-    description: string;
-    taskId: number[];
-    status: string;
-  }</code></pre>
+  id: number;
+  name: string;
+  location: string;
+  client: string;
+  costEstimateId: number;
+  manager: string;
+  contactId: number[];
+  description: string;
+  taskId: number[];
+  status: string;
+}
+</code></pre>
     </div>
 </div>
 

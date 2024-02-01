@@ -36,7 +36,7 @@ Google OAuth login for secure and seamless user authentication.
 Responsive Web Design (RWD) with Breakpoint Observer for adaptive layouts.
 ### Routing
 Implements Angular routing with lazy loading for efficient module loading.
-* ![Web version](./doc/img/routing.jpg)
+* ![Web version](./doc/img/routes.jpg)
 ### Services and Data Handling
 * Services based on abstract classes using local storage.
 * Seeder service injects data if not present in local storage.
@@ -56,7 +56,7 @@ Navigation to specific modules with simple .navigate due to lazy loading challen
 * Angular Material cards for contacts.
 * Dynamic header color based on contact category.
 * Avatar management, including uploading images and storing them as base64 in local storage.
-* ![Web version](./doc/img/contacts_data_flow.jpg)
+* ![Web version](./doc/img/contacts_data_flow.png)
 #### Cost Estimates
 * Expandable table for cost estimates.
 * Internal routing for efficient navigation within the cost estimates feature.

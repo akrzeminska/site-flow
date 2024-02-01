@@ -29,7 +29,7 @@ export class FeatureDialogComponent implements OnInit, OnDestroy {
   ];
   contactList: number[] = [1, 2, 3, 4];
   taskList: number[] = [1, 2, 3, 4];
-  statusOptions: string[] = ['In progress', 'Planning', 'Completed'];
+  statusOptions: string[] = ['W budowie', 'Planowany', 'Ukończony'];
 
   constructor(
     private dialogRef: MatDialogRef<FeatureDialogComponent>,

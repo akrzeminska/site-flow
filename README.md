@@ -1,10 +1,10 @@
 # Site Flow
 
 ## Overview
-Welcome to SiteFlow, a comprehensive Angular 16 application designed for for educational purposes in construction management. This multi-module application includes features for:
+Welcome to SiteFlow, a comprehensive Angular 16 application designed for educational purposes in construction management. This multi-module application includes features for:
 * Constructions
 * Contacts
-* Cost-estimates
+* Costs-estimates
 * Tasks
 
 Each feature operates within its dedicated module, offering a modular and organized structure.
@@ -12,7 +12,8 @@ Users can easily handle their construction projects, cost estimates, and contact
 
 #### Live Demo: https://akrzeminska.github.io/site-flow
 
-![Web version](./doc/img/site_flow.jpg)
+
+![Web version](./doc/gif/site-flow-overview.gif)
 #### Documentation: https://akrzeminska.github.io/site-flow-documentation
 
 ## Table of Contents
@@ -52,22 +53,35 @@ Abstract classes eliminate the need to edit clients utilizing these services, al
 ### Custom Theme
 * Users can switch between light and dark themes based on their preferences, enhancing accessibility and user satisfaction.
 
+
+![Web version](./doc/gif/site-flow-dark-mode.gif)
+
 ### Feature Highlights
 #### Constructions
 * Uses Angular Material Table with Advanced Data Sources
 * Pagination, sorting, and filtering implemented for a seamless user experience
 * Construction forms with reactive forms and validation
+
+
+![Web version](./doc/gif/site-flow-constructions.gif)
 #### Contacts
 * Angular Material cards for contacts
 * Dynamic header color based on contact category
 * Avatar management, including uploading images and storing them as base64 in local storage
 
+
 ![Web version](./doc/img/contacts_data_flow.png)
-#### Cost Estimates
+#### Costs estimates
 * Expandable table for cost estimates
 * Internal routing for efficient navigation within the cost estimates feature
+
+
+![Web version](./doc/gif/site-flow-costs-estimates.gif)
 #### Tasks
 * Drag & Drop functionality using Angular Material for task management
+
+
+![Web version](./doc/gif/site-flow-tasks.gif)
 
 ## The building blocks of an application
 ![Web version](./doc/img/overview.jpg)
@@ -75,15 +89,18 @@ Abstract classes eliminate the need to edit clients utilizing these services, al
 ## Technologies Used
 This app was built using:
 
-* HTML, CSS/SCSS
+* Angular 16 
 * Typescript
-* RxJS, Node.js, NPM
-* Angular 16 with lazy loading
-* Angular Material with a custom theme
-* OAuth for secure Gmail API integration
-* Responsive Web Design (RWD) with Breakpoint Observer
+* RxJS
+* HTML, CSS/SCSS
+* Node.js
+* NPM
+* Module lazy loading
+* OAuth 2.0
 * Custom services based on SOLID principles and abstract classes
-* Compodoc for comprehensive documentation
+* Angular Material with a custom theme
+* Responsive Web Design (RWD) with Breakpoint Observer
+* Compodoc for documentation
 
 ## Roadmap
 The application is under active development, and the following features are planned for future releases:

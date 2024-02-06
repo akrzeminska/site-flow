@@ -6,7 +6,7 @@ import { Observable, Subject } from 'rxjs';
 const oAuthConfig: AuthConfig = {
   issuer: 'https://accounts.google.com',
   strictDiscoveryDocumentValidation: false,
-  redirectUri: 'https://akrzeminska.github.io/site-flow/',
+  redirectUri: 'https://akrzeminska.github.io/site-flow',
   clientId:
     '876890439510-kc14p3sr0rq0nvhafru7umaeld578qpj.apps.googleusercontent.com',
   scope: 'openid profile email https://www.googleapis.com/auth/gmail.readonly',

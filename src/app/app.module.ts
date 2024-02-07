@@ -17,6 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { SettingsComponent } from './core/components/settings/settings.component';
 import { LoginComponent } from './core/components/login/login.component';
 import { HeaderWelcomeComponent } from './core/components/header-welcome/header-welcome.component';
+import { Injectable, InjectionToken } from '@angular/core';
+
+interface CookieOptions {
+  sameSite: 'Strict' | 'Lax' | 'None';
+  secure?: boolean;
+}
+
+export const COOKIE_OPTIONS = new InjectionToken<CookieOptions>('Cookie Options');
+
 
 @NgModule({
   declarations: [
@@ -41,7 +50,15 @@ import { HeaderWelcomeComponent } from './core/components/header-welcome/header-
     OAuthModule.forRoot(),
   ],
 
-  providers: [],
+  providers: [
+    {
+      provide: COOKIE_OPTIONS,
+      useValue: {
+        sameSite: 'None',
+        secure: true,
+      } as CookieOptions,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+// import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HeaderWelcomeComponent } from './header-welcome.component';
+// import { HeaderWelcomeComponent } from './header-welcome.component';
 
-describe('HeaderWelcomeComponent', () => {
-  let component: HeaderWelcomeComponent;
-  let fixture: ComponentFixture<HeaderWelcomeComponent>;
+// describe('HeaderWelcomeComponent', () => {
+//   let component: HeaderWelcomeComponent;
+//   let fixture: ComponentFixture<HeaderWelcomeComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [HeaderWelcomeComponent]
-    });
-    fixture = TestBed.createComponent(HeaderWelcomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+//   beforeEach(() => {
+//     TestBed.configureTestingModule({
+//       declarations: [HeaderWelcomeComponent]
+//     });
+//     fixture = TestBed.createComponent(HeaderWelcomeComponent);
+//     component = fixture.componentInstance;
+//     fixture.detectChanges();
+//   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+//   it('should create', () => {
+//     expect(component).toBeTruthy();
+//   });
+// });

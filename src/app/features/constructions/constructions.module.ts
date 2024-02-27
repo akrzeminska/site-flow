@@ -11,6 +11,7 @@ import { FeatureDialogComponent } from './components/feature-dialog/feature-dial
 import { MatInputModule } from '@angular/material/input';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { ConfirmDialogComponent } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [ConstructionsComponent, FeatureDialogComponent],

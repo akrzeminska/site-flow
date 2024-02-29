@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
+import { ComponentFixture, TestBed, inject, waitForAsync } from '@angular/core/testing';
 import { MatDialog } from '@angular/material/dialog';
 import { ConstructionsComponent } from './constructions.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,21 +8,24 @@ import { ConstructionsModule } from './constructions.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ConstructionsService } from './services/constructions.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatMenu, MatMenuTrigger } from '@angular/material/menu';
+import { of } from 'rxjs';
+import { Construction } from './models/construction.model';
+import { mockConstructions } from './mock-data/constructions';
 
 
 describe('ConstructionsComponent', () => {
   let component: ConstructionsComponent;
   let fixture: ComponentFixture<ConstructionsComponent>;
   let dialog: MatDialog;
+  let constructionsService: ConstructionsService;
 
-  beforeEach(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ConstructionsComponent],
       providers: [
         {provide: MatDialog, useValue: {}},
         {provide: MatSnackBar, useValue: {}},
+        {provide: ConstructionsService, useClass: MockConstructionsService }
       ],
       imports: [
           MatFormFieldModule,
@@ -34,8 +37,9 @@ describe('ConstructionsComponent', () => {
     fixture = TestBed.createComponent(ConstructionsComponent);
     component = fixture.componentInstance;
     dialog = TestBed.inject(MatDialog);
+    constructionsService = TestBed.inject(ConstructionsService);
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -43,27 +47,17 @@ describe('ConstructionsComponent', () => {
 
   it('constructions service should be injected', inject([ConstructionsService], (service: ConstructionsService) => {
     expect(service).toBeTruthy();
-  }))
+  }));
 
   it('should initialize dataSource correctly', () => {
     expect(component.dataSource).toBeInstanceOf(MatTableDataSource);
-  })
+  });
 
-  it('should set paginator, sort and menu correctly after view initialization', () => {
-    const mockPaginator: MatPaginator = {} as MatPaginator;
-    const mockSort: MatSort = {} as MatSort;
-    const mockMenu: MatMenuTrigger = {} as MatMenuTrigger;
-
-    component.paginator = mockPaginator;
-    component.sort = mockSort;
-    component.menu = mockMenu;
-
-    component.ngAfterViewInit();
-
-    expect(component.dataSource.paginator).toBe(mockPaginator);
-    expect(component.dataSource.sort).toBe(mockSort);
-
-  })
+  it('should call getAllData method on ngOnInit', () => {
+    spyOn(component, 'getAllData');
+    component.ngOnInit();
+    expect(component.getAllData).toHaveBeenCalled();
+  });
 
   it('should call addNewConstruction method on button click', () => {
     spyOn(component, 'addNewConstruction'); //zmokowałam metodę add...
@@ -73,4 +67,18 @@ describe('ConstructionsComponent', () => {
     expect(component.addNewConstruction).toHaveBeenCalled(); //sprawzam czy metoda została wykonana
   });
 
+  it('should fetch constructions data on ngOnInit', () => {
+    const mockData: Construction[] = mockConstructions;
+
+    spyOn(constructionsService, 'getAll').and.returnValue(of(mockData));
+
+    component.ngOnInit();
+    expect(component.dataSource.data).toEqual(mockData);
+  });
 });
+
+class MockConstructionsService {
+  getAll() {
+      return of([]);
+    }
+  }

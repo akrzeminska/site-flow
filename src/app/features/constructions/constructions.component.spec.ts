@@ -75,6 +75,18 @@ describe('ConstructionsComponent', () => {
     component.ngOnInit();
     expect(component.dataSource.data).toEqual(mockData);
   });
+
+  it('should apply filter to dataSource on keyup event in input', () => {
+    const inputElement: HTMLInputElement = fixture.nativeElement.querySelector('input');
+    const testData = 'test filter';
+
+    inputElement.value = testData;
+    inputElement.dispatchEvent(new Event('keyup'));
+    fixture.detectChanges();
+
+    expect(component.dataSource.filter).toBe(testData);
+  });
+
 });
 
 class MockConstructionsService {

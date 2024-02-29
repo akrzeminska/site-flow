@@ -19,7 +19,7 @@ describe('ConstructionsComponent', () => {
   let dialog: MatDialog;
   let constructionsService: ConstructionsService;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [ConstructionsComponent],
       providers: [
@@ -39,7 +39,7 @@ describe('ConstructionsComponent', () => {
     dialog = TestBed.inject(MatDialog);
     constructionsService = TestBed.inject(ConstructionsService);
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
@@ -48,6 +48,11 @@ describe('ConstructionsComponent', () => {
   it('constructions service should be injected', inject([ConstructionsService], (service: ConstructionsService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('should render a button with text "+ Dodaj"', () => {
+    const btnElement = fixture.nativeElement.querySelector('button');
+    expect(btnElement.textContent).toBe('+ Dodaj');
+  });
 
   it('should initialize dataSource correctly', () => {
     expect(component.dataSource).toBeInstanceOf(MatTableDataSource);

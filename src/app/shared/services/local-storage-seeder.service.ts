@@ -791,4 +791,5 @@ export class LocalStorageSeederService {
       localStorage.setItem(key, dataToStore[key]);
     }
   }
+
 }

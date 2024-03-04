@@ -111,7 +111,7 @@ export class ConstructionsComponent implements OnInit, AfterViewInit {
       });
   }
 
-  getAllData() {
+ getAllData() {
     this.constructionsService
       .getAll()
       .subscribe((constructions: Array<Construction>) => {

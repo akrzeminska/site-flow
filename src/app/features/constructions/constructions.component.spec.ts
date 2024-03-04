@@ -20,10 +20,17 @@ describe('ConstructionsComponent', () => {
   let constructionsService: ConstructionsService;
 
   beforeEach(() => {
+
+    const matDialogStub = {
+      open: jasmine.createSpy('open').and.returnValue({
+        afterClosed: jasmine.createSpy('afterClosed').and.returnValue(of(false))
+      })
+    };
+
     TestBed.configureTestingModule({
       declarations: [ConstructionsComponent],
       providers: [
-        {provide: MatDialog, useValue: {}},
+        {provide: MatDialog, useValue: matDialogStub },
         {provide: MatSnackBar, useValue: {}},
         {provide: ConstructionsService, useClass: MockConstructionsService }
       ],
@@ -65,18 +72,18 @@ describe('ConstructionsComponent', () => {
   });
 
   it('should call addNewConstruction method on button click', () => {
-    spyOn(component, 'addNewConstruction'); //zmokowałam metodę add...
-    const addButton = fixture.debugElement.nativeElement.querySelector('button'); //znajduję przycisk
-    addButton.click(); //klikam przycisk
-    fixture.detectChanges(); // aktualizuję widok po kliknięciu
-    expect(component.addNewConstruction).toHaveBeenCalled(); //sprawzam czy metoda została wykonana
+    spyOn(component, 'addNewConstruction');
+    const addButton = fixture.debugElement.nativeElement.querySelector('button');
+    addButton.click();
+    fixture.detectChanges();
+    expect(component.addNewConstruction).toHaveBeenCalled();
   });
 
   it('should fetch constructions data on ngOnInit', () => {
     const mockData: Construction[] = mockConstructions;
 
-    spyOn(constructionsService, 'getAll').and.returnValue(of(mockData));
-
+    spyOn(constructionsService.getAll(), 'subscribe').and.callThrough();
+    
     component.ngOnInit();
     expect(component.dataSource.data).toEqual(mockData);
   });
@@ -92,10 +99,18 @@ describe('ConstructionsComponent', () => {
     expect(component.dataSource.filter).toBe(testData);
   });
 
+  it('should open edit dialog when ediElement is called', () => {
+    const mockData: Construction[] = mockConstructions;
+    const mockConstruction: Construction = mockConstructions[0];
+    component.editElement(mockConstruction);
+    expect(dialog.open).toHaveBeenCalledOnceWith(jasmine.anything(), jasmine.objectContaining({
+      data: mockConstruction
+    }));
+  });
 });
 
 class MockConstructionsService {
   getAll() {
-      return of([]);
+      return of(mockConstructions);
     }
   }
